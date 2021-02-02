@@ -1,0 +1,26 @@
+\section{Calculating the Poynting flux}
+\label{sec:poy_flux_appendix}
+
+We can calculate the jump in Poynting flux by using Equation \eqref{eq:avg_poy_flux} and only using the Type I components of $u_x$ and $b_{||}$. Note that the component of $u_x\bar{b}_{||}$ which does not integrate in $z$ to zero or time-average to zero or go to zero as $x\rightarrow\pm\infty$ is given by
+\[\begin{aligned}
+\langle u_x\bar{b}_{||}\rangle&=\qty{-x_iu_{\perp0}\qty[\nabla_{\perp+}\exp(ik_{zr+}z) - \nabla_{\perp-}\exp(ik_{zr-}z)] \ln(x-ix_i)}  \\
+&\times\qty{\frac{x_i\mathcal{L}_1u_{\perp0}}{-i\omega_r B_0}\qty[\frac{\exp(-ik_{zr+}z)}{\bar{\nabla}_{\perp+}}-\frac{\exp(-ik_{zr-}z)}{\bar{\nabla}_{\perp-}}]} + O(x_i^4) \\
+&=\frac{x_i^2\mathcal{L}_1u_{\perp0}^2}{i\omega_r B_0}\qty[\frac{\nabla_{\perp+}}{\bar{\nabla}_{\perp+}}+\frac{\nabla_{\perp-}}{\bar{\nabla}_{\perp-}}]\ln(x-ix_i) + O(x_i^4) \\
+&=-2\frac{x_i^2\mathcal{L}_1u_{\perp0}^2}{i\omega_r B_0}\ln(x-ix_i) + O(x_i^4) \\
+\end{aligned}\]
+\[\begin{aligned}
+\langle \bar{u}_xb_{||} \rangle&=\qty{-x_iu_{\perp0}\qty[\bar{\nabla}_{\perp+}\exp(-ik_{zr+}z) - \bar{\nabla}_{\perp-}\exp(-ik_{zr-}z)] \ln(x+ix_i)}  \\
+&\times\qty{\frac{x_i\mathcal{L}_1u_{\perp0}}{i\omega_r B_0}\qty[\frac{\exp(ik_{zr+}z)}{\nabla_{\perp+}}-\frac{\exp(ik_{zr-}z)}{\nabla_{\perp-}}]} + O(x_i^4) \\
+&=-\frac{x_i^2\mathcal{L}_1u_{\perp0}^2}{i\omega_r B_0}\qty[\frac{\nabla_{\perp+}}{\bar{\nabla}_{\perp+}}+\frac{\nabla_{\perp-}}{\bar{\nabla}_{\perp-}}]\ln(x+ix_i) + O(x_i^4) \\
+&=2\frac{x_i^2\mathcal{L}_1u_{\perp0}^2}{i\omega_r B_0}\ln(x+ix_i) + O(x_i^4) \\
+\end{aligned}\]
+Hence,
+\[\begin{aligned}
+\langle u_x\bar{b}_{||} \rangle + \langle \bar{u}_xb_{||} \rangle &=2\frac{x_i^2\mathcal{L}_1u_{\perp0}^2}{i\omega_r B_0}[\ln(x+ix_i)-\ln(x-ix_i)] + O(x_i^4) \\
+&=2\frac{x_i^2\mathcal{L}_1u_{\perp0}^2}{\omega_r B_0}[\tan^{-1}(x_i,x) - \tan^{-1}(-x_i,x)] + O(x_i^4),
+\end{aligned}\]
+Finally,
+\begin{equation}
+    \label{eq:jump_in_poy_flux}
+    \langle S_x(x\rightarrow\infty) \rangle - \langle S_x(x\rightarrow-\infty) \rangle = -\pi\frac{x_i^2\mathcal{L}_1u_{\perp0}^2}{\mu\omega_r}\,\text{sign}(x_i) + O(x_i^4).
+\end{equation}

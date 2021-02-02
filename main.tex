@@ -1,0 +1,77 @@
+\documentclass[12pt,fleqn]{report}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\graphicspath{{figures/}}
+\usepackage[left=30mm, right=30mm, top=30mm, bottom=30mm, includefoot, headheight=16pt]{geometry}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage{natbib}
+\usepackage{color}
+\usepackage{siunitx}
+\usepackage{physics}
+\usepackage{dsfont}
+\usepackage{csquotes}
+\usepackage{hyperref}
+\usepackage{mathtools}
+\usepackage{wrapfig}
+\usepackage{setspace}
+\setcounter{chapter}{-1}
+
+\numberwithin{equation}{section}
+
+\allowdisplaybreaks
+
+\pagestyle{fancy}
+\fancyhead{}
+% \fancyhead[L]{\rightmark}
+\fancyhead[L]{\leftmark}
+
+\let\vec\boldsymbol
+
+\begin{document}
+
+\onehalfspacing
+
+\input{titlepage}
+
+\input{abstract}
+
+% \chapter*{Dedication}
+% To mum and dad
+ 
+% \chapter*{Declaration}
+% I declare that..
+ 
+% \chapter*{Acknowledgements}
+% I want to thank...
+ 
+\tableofcontents
+
+\chapter{Introduction}
+\label{chap:introduction}
+\input{chapters/introduction}
+
+\chapter{Ideal footpoint driven Alfv\'en waves}
+\label{chap:ideal_footpoint_driven_alfven_waves}
+\input{chapters/chapter02}
+
+\chapter{Resistive phase-mixed Alfv\'en waves}
+\label{chap:resistive_phase_mixed_alfven_waves}
+\input{chapters/chapter03}
+ 
+\chapter{Resonant absorption in an oblique field}
+\label{chap:resonant_absorption_in_an_oblique_field}
+\input{chapters/chapter04}
+ 
+\chapter{Conclusions and future work}
+\label{chap:conclusions_and_future_work}
+\input{chapters/conclusion}
+
+% \appendix
+% \chapter{Appendix Title}
+% \input{chapters/appendix}
+
+\bibliographystyle{chicago}
+\bibliography{references}
+
+\end{document}
