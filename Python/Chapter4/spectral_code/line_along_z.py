@@ -9,7 +9,7 @@ import control as ct
 import eigens as eg
 
 def ux_ana(x,z):
-	return -beta0 * np.log(x - 1j * xi) * ( \
+	return -beta0 * np.log((x - 1j * xi) / xi) * ( \
 			1j * ct.k_perp * eg.phi(z,k) - np.sin(ct.alpha) * eg.phi_prime(z,k))
 
 def b_par_ana(z):
@@ -20,9 +20,9 @@ def u_perp_ana(x,z):
 
 def Sx_ana(x,z):
 	return -0.25 * beta0 * (\
-		np.log(x - 1j * xi) * np.conj(b_par_ana(z)) * \
+		np.log((x - 1j * xi) / xi) * np.conj(b_par_ana(z)) * \
 			( 1j * ct.k_perp * eg.phi(z,k) - np.sin(ct.alpha) * eg.phi_prime(z,k)) + \
-		np.log(x + 1j * xi) *         b_par_ana(z) * \
+		np.log((x + 1j * xi) / xi) *         b_par_ana(z) * \
 			(-1j * ct.k_perp * eg.phi(z,k) - np.sin(ct.alpha) * eg.phi_prime(z,k)))
 
 def nabla_perp_eqn(z, Y):
@@ -101,10 +101,10 @@ b_par20 = np.zeros(ct.N+1, dtype = complex)
 
 # Excite the kth resonance
 k = 11
-beta0 = 1
+beta0 = xi
 
-ux10[k] = -1j * ct.k_perp * beta0 * np.log(x_min - 1j * xi)
-ux20 = beta0 * np.sin(ct.alpha) * np.log(x_min - 1j * xi) * ct.I7[k,:]
+ux10[k] = -1j * ct.k_perp * beta0 * np.log((x_min - 1j * xi) / xi)
+ux20 = beta0 * np.sin(ct.alpha) * np.log((x_min - 1j * xi) / xi) * ct.I7[k,:]
 
 # Calc b_par0
 z_nodes = np.linspace(z_min, z_max, 1000)
@@ -184,26 +184,26 @@ fig.set_size_inches(fig_size)
 plt.subplots_adjust(left=0.125, bottom=0.1, right=0.9, top=0.9, wspace=0.3, hspace=0.3)
 
 ax = fig.add_subplot(321)
-ax.plot(z, ux[:,ix0].real * abs(xi), linewidth = 3)
-ax.plot(z, ux_ana(x0,z).real * abs(xi))
+ax.plot(z, ux[:,ix0].real, linewidth = 3)
+ax.plot(z, ux_ana(x0,z).real)
 ax.ticklabel_format(axis="y", style="sci", scilimits=(0,0))
 ax.set_title(r"Re[$u_x'(0,z) / u_0$]")
 
 ax = fig.add_subplot(322)
-ax.plot(z, ux[:,ix0].imag * abs(xi), linewidth = 3)
-ax.plot(z, ux_ana(x0,z).imag * abs(xi))
+ax.plot(z, ux[:,ix0].imag, linewidth = 3)
+ax.plot(z, ux_ana(x0,z).imag)
 ax.ticklabel_format(axis="y", style="sci", scilimits=(0,0))
 ax.set_title(r"Im[$u_x'(0,z) / u_0$]")
 
 ax = fig.add_subplot(323)
-ax.plot(z, u_perp[:,ix0].real * abs(xi), linewidth = 3)
-ax.plot(z, u_perp_ana(x0,z).real * abs(xi))
+ax.plot(z, u_perp[:,ix0].real, linewidth = 3)
+ax.plot(z, u_perp_ana(x0,z).real)
 ax.ticklabel_format(axis="y", style="sci", scilimits=(0,0))
 ax.set_title(r"Re[$u_\perp'(0,z) / u_0$]")
 
 ax = fig.add_subplot(324)
-ax.plot(z, u_perp[:,ix0].imag * abs(xi), linewidth = 3)
-ax.plot(z, u_perp_ana(x0,z).imag * abs(xi))
+ax.plot(z, u_perp[:,ix0].imag, linewidth = 3)
+ax.plot(z, u_perp_ana(x0,z).imag)
 ax.ticklabel_format(axis="y", style="sci", scilimits=(0,0))
 ax.set_xlabel(r'$z\, /\, L_z$')
 ax.set_title(r"Im[$u_\perp'(0,z) / u_0$]")

@@ -8,7 +8,7 @@ def vA(x,z):
 	return vAx(x) * (vAm * (z <  0) + \
 		             vAp * (z >= 0))
 
-vAm = 1 / 3
+vAm = 1 / 21
 vAp = 1
 Lz = 1
 lz = Lz / 2

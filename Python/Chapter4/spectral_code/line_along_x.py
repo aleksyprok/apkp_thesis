@@ -9,7 +9,7 @@ import control as ct
 import eigens as eg
 
 def ux_ana(x,z):
-	return -beta0 * np.log(x - 1j * xi) * ( \
+	return -beta0 * np.log((x - 1j * xi) / xi) * ( \
 			1j * ct.k_perp * eg.phi(z,k) - np.sin(ct.alpha) * eg.phi_prime(z,k))
 
 def b_par_ana(z):
@@ -20,9 +20,9 @@ def u_perp_ana(x,z):
 
 def Sx_ana(x,z):
 	return -0.25 * beta0 * (\
-		np.log(x - 1j * xi) * np.conj(b_par_ana(z)) * \
+		np.log((x - 1j * xi) / xi) * np.conj(b_par_ana(z)) * \
 			( 1j * ct.k_perp * eg.phi(z,k) - np.sin(ct.alpha) * eg.phi_prime(z,k)) + \
-		np.log(x + 1j * xi) *         b_par_ana(z) * \
+		np.log((x + 1j * xi) / xi) *         b_par_ana(z) * \
 			(-1j * ct.k_perp * eg.phi(z,k) - np.sin(ct.alpha) * eg.phi_prime(z,k)))
 
 def nabla_perp_eqn(z, Y):
@@ -103,8 +103,8 @@ b_par20 = np.zeros(ct.N+1, dtype = complex)
 k = 11
 beta0 = 1
 
-ux10[k] = -1j * ct.k_perp * beta0 * np.log(x_min - 1j * xi)
-ux20 = beta0 * np.sin(ct.alpha) * np.log(x_min - 1j * xi) * ct.I7[k,:]
+ux10[k] = -1j * ct.k_perp * beta0 * np.log((x_min - 1j * xi) / xi)
+ux20 = beta0 * np.sin(ct.alpha) * np.log((x_min - 1j * xi) / xi) * ct.I7[k,:]
 
 # Calc b_par0
 z_nodes = np.linspace(z_min, z_max, 1000)
@@ -254,8 +254,8 @@ for i in range(n_omega_i):
 
 	X, Z = np.meshgrid(x, z)
 
-	ux10[k] = -1j * ct.k_perp * beta0 * np.log(x_min - 1j * xi)
-	ux20 = beta0 * np.sin(ct.alpha) * np.log(x_min - 1j * xi) * ct.I7[k,:]
+	ux10[k] = -1j * ct.k_perp * beta0 * np.log((x_min - 1j * xi) / xi)
+	ux20 = beta0 * np.sin(ct.alpha) * np.log((x_min - 1j * xi) / xi) * ct.I7[k,:]
 
 	U0 = np.concatenate((ux10, ux20, b_par10, b_par20))
 
