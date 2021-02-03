@@ -1227,6 +1227,14 @@ where
 \begin{equation}
     \mathcal{M}' = \mathcal{L}'^3+\mathcal{L}'^2\nabla_\perp'^2+\mathcal{L}_{xx}'\mathcal{L}'-\mathcal{L}_x'^2
 \end{equation}
+From the literature (e.g. \citealt{Thompson1993,Wright1996}) and Section \ref{sec:normal_field_resonant_absorption_with_line_tied_bcs}, we know that resonant absorption can generate singularities in $x$. Equation \eqref{eq:chap_4_oblique_u_perp_eqn_normal_mode} shows that the coefficient of the leading order $x$-derivative goes to zero if $\mathcal{L}'(x,z)=0$. Let
+\[x_{res,m} = x_{r,m} + i x_{i,m},\]
+be defined as a location which satisfies
+\begin{equation}
+    \label{eq:x_res_defn}
+    \mathcal{L}'(x_{res,m},z)\phi_m(z)=0.
+\end{equation}
+We postulate that singularities can form at locations, $x_{res,m}$, which are locations where a resonance can occur.
 
 \subsubsection{Deriving an ODE for $u_{\perp m}^{(1)}(x)$}
 
@@ -1521,17 +1529,31 @@ The Alfv\'en speed $x$-dependence is given by
 \begin{equation}
     \hat{v}_A(x)=1+\frac{x}{a_0}.
 \end{equation}
-We set $v_{A-} = v_{A+} / 21$ and $\omega_r = \omega_{11}$.
+where $a_0=a(0)$ is a constant which controls the Alfv\'en speed length scale in $x$. From Equation \eqref{eq:x_res_defn}, we can calculate $x_{res,m}$ locations using
+\begin{equation}
+    \hat{v}_A(x_{res,m}) = \frac{\omega}{\omega_m}.
+\end{equation}
+This implies that
+\begin{gather}
+    x_{r,m} = a_0\qty(\frac{\omega_r}{\omega_m}-1), \\
+    x_{i,m} = a_0\frac{\omega_i}{\omega_m}.
+\end{gather}
+We set $v_{A-} = v_{A+} / 21$ and $\omega_r = \omega_{11}$. Using Equation \eqref{eq:eigenfrequencies_for_odd_integer} we know that
+\begin{equation}
+    \omega_{11} = \pi\frac{v_{A+}}{L_z}\cos\alpha.
+\end{equation}
+Hence, $x_{r,11}=0$ and $x_{i,11} = a_0\omega_i/\omega_{11}$.
+
 The boundary conditions in $x$ are
 \begin{gather}
     \label{eq:ux_x_min_bc_oblique}
-    u_x'(x_{min},z) = -u_0x_{i,21}\ln(X_{21})\nabla_\perp'\phi_{21}(z), \\
+    u_x'(x_{min},z) = -u_0x_{i,11}\ln(X_{11})\nabla_\perp'\phi_{11}(z), \\
     \label{eq:b_par_x_min_bc_oblique}
-    \nabla_\perp' \hat{b}_{||}'(x_{min},z)=2iu_0\frac{\omega x_{i,21}}{a_0v_A^2(0,z)}\phi_{21}(z),
+    \nabla_\perp' \hat{b}_{||}'(x_{min},z)=2iu_0\frac{\omega x_{i,11}}{a_0v_A^2(0,z)}\phi_{11}(z),
 \end{gather}
 where
 \begin{equation}
-    X_{21} = \frac{x_{i,21}}{x-ix_{i,21}},
+    X_{11} = \frac{x_{i,11}}{x-ix_{i,11}},
 \end{equation}
 $k_\perp L_z / \sin\alpha \ne n\pi$ for $n\in\mathds{Z}$ to ensure $\hat{b}_{||}'(x_{min},z)$ is uniquely determined by Equation \eqref{eq:b_par_x_min_bc_oblique}.
 To calculate $u_{xn}^{(1)}(x_{min})$, $u_{xn}^{(2)}(x_{min})$, $b_{||n}^{(1)}(x_{min})$, $b_{||n}^{(2)}(x_{min})$, for $n=0$, 1, 2, ..., $N_h$ we take the inner product of $u_x'(x_{min},z)$ and $\hat{b}_{||}'(x_{min},z)$ with $\phi_n$ and $\varphi_n$.
