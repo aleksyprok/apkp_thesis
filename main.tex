@@ -11,12 +11,17 @@
 \usepackage{physics}
 \usepackage{dsfont}
 \usepackage{csquotes}
-\usepackage{hyperref}
+\usepackage[colorlinks = true,
+            linkcolor = blue,
+            urlcolor  = blue,
+            citecolor = blue,
+            anchorcolor = blue]{hyperref}
 \usepackage{mathtools}
 \usepackage{wrapfig}
 \usepackage{setspace}
 \setcounter{chapter}{-1}
 
+\newcommand{\changeurlcolor}[1]{\hypersetup{urlcolor=#1}}
 \numberwithin{equation}{section}
 
 \allowdisplaybreaks
