@@ -44,7 +44,6 @@ The solar atmosphere refers to the outer layer of gas and plasma surrounding the
 \end{figure}
 
 \begin{table}[!htp]
-    \label{tbl:energy_losses_corona_chromosphere}
     \centering
     \begin{tabular}{c c c c}
         \hline
@@ -61,8 +60,8 @@ The solar atmosphere refers to the outer layer of gas and plasma surrounding the
         Radiation & 4000 & 4000 & 20,000
         
     \end{tabular}
-    \caption{Order-of-magnitude energy-loss fluxes in $\si{W.m^{-2}}$ \citep{Withbroe1977, Priest2014}.}
-    \label{tab:energy_loss_fluxes}
+    \captionof{table}{Order-of-magnitude energy-loss fluxes in $\si{W.m^{-2}}$ \citep{Withbroe1977, Priest2014}.}
+    \label{tab:energy_losses_corona_chromosphere}
 \end{table}
 
 We label different parts of the solar atmosphere as either an active region, coronal hole or quiet sun (see Figure \ref{fig:active_region_quiet_sun_coronal_hole}). An active region is an area with a strong magnetic field. It is common for sunspots to form in active regions. These are usually the locations where the largest flares and coronal mass ejections occur. Coronal holes are the polar regions of the Sun, which look dark in the X-ray emission. In coronal holes, the magnetic field is usually unipolar and opens towards the interplanetary space. Finally, the quiet Sun usually refers to Sun regions that do not lie in either active regions or coronal holes. Note that active regions and the quiet Sun often contain closed loops, like those shown in Figure \ref{fig:coronal_loops_trace}. We refer to these loops as closed because their magnetic field does not extend beyond the solar atmosphere. In contrast, the coronal holes' field lines are referred to as open because they extend far out into the solar system before eventually looping back or connecting with the interplanetary medium.
@@ -82,11 +81,11 @@ In the closed corona, the proposed heating mechanisms can be split into two cate
 
 This thesis will investigate the dissipation of phase mixed Alfv\'en waves and their role in coronal heating. The dissipation of Alfvén waves has been the basis of many coronal heating models (see review by \citealt{Arregui2015} and references therein). Phase mixing was first suggested as a coronal heating mechanism by \citet{Heyvaerts1983}. Phase mixing is the process where gradients perpendicular to the field build-up due to Alfvén waves propagating on field lines with a spatial gradient in Alfvén travel time. This process leads to neighbouring waves moving out of phase with each other; hence the name phase mixing. Other notable mechanisms are: resonant absorption \citep{Ionson1982}, reflection-driven Alfvén wave turbulence \citep{Hollweg1986a,vanBallegooijen2011,Shoda2019}, turbulence triggered via the tearing mode or Kelvin-Helmholtz instability \citep{Browning1984,Antolin2016,Antolin2018} and coupling with compressive modes \citep{Kudoh1999, Antolin2010}.
 
-Table \ref{tab:energy_loss_fluxes} shows order-of-magnitude estimates for the power-losses (per unit area) in the corona and chromosphere. Note that the mean radiation from the photosphere is significantly greater at about $0.63\times 10^8\si{.W.m^{-2}}$. It is sometimes useful to consider the energy losses per unit volume rather than by per area. The chromosphere’s per unit volume radiative losses can be calculated from the total radiative losses divided by the volume. 
+Table \ref{tab:energy_losses_corona_chromosphere} shows order-of-magnitude estimates for the power-losses (per unit area) in the corona and chromosphere. Note that the mean radiation from the photosphere is significantly greater at about $0.63\times 10^8\si{.W.m^{-2}}$. It is sometimes useful to consider the energy losses per unit volume rather than by per area. The chromosphere’s per unit volume radiative losses can be calculated from the total radiative losses divided by the volume. 
 Taking the height difference between the top and bottom of the chromosphere as $1500\si{.km}$ gives the average radiative losses in an active region chromosphere per unit volume as $1.33\times10^{-2}\si{.W.m^{-3}}$. To help get an intuitive idea of how much heat this is, this means that a $1\si{.W}$ light-emitting diode emits about the same radiation as an Olympic sized swimming pool of chromosphere. It is worth noting that the chromosphere and corona are very sparse compared with the photosphere and so a relatively small amount of heat can lead to a large temperature change.
 % Taking the height difference between the top and bottom of the chromosphere as $1500\si{.km}$ gives the average radiative losses in the Quiet sun chromosphere per unit volume as $\approx 3\times10^{-3}\si{.W.m^{-3}}$. To put this number in perspective, the average radiative losses from a human is about $100\si{.W}$\footnote{Radiative losses of a human was calculated by using the Stefan-Boltzmann law, where the area of a human was taken to be 2\si{.m^2}, the emissivity of human skin to be unity \citep{emissivity_of_materials}, the temperature of a human as 306\si{.K} and room temperature as 293\si{.K}.}. Therefore, taking the volume of a human as $0.1\si{.m^3}$ gives the radiative losses per volume as $10^3\si{.W.m^{-3}}$. This means that per volume humans emit of the order a million times as much radiation!
 % This shows that although the chromosphere and corona have large temperatures they are very sparse and so per volume their radiation is relatively small. 
-Note that Table \ref{tab:energy_loss_fluxes} shows the radiative losses are greater in the chromosphere than in the corona. This is interesting as chromospheric and coronal heating problem is usually referred to as simply the coronal heating problem despite the chromospheric radiative losses being greater.
+Note that Table \ref{tab:energy_losses_corona_chromosphere} shows the radiative losses are greater in the chromosphere than in the corona. This is interesting as chromospheric and coronal heating problem is usually referred to as simply the coronal heating problem despite the chromospheric radiative losses being greater.
 
 \section{MHD equations}
 \label{sec:mhd equations}
@@ -158,7 +157,7 @@ Therefore, provided the macroscopic length scales are greater than about $1\si{.
              \hline
         \end{tabular}
     }
-    \caption{This table lists some of the fundamental plasma parameters. The Gaussian formulas were taken from \citet{Richardson2019} which we then converted into SI base units. The collision rates are for completely ionised plasmas. $B$ denotes the magnetic field strength, $e$ denotes the elementary charge, $c$ denotes the speed of light, $m_e$, $m_p$ denote the mass of an electron and proton respectively, $Z$ gives the charge state, i.e. the number of protons in an ion, $n_e$, $n_i$ denote the electron and ion number densities respectively, $\ln \Lambda$ denotes the Coulomb logarithm, $T_e$, $T_i$ denotes the temperature of the electrons and ions respectively and $k_B$ denotes the Boltzmann constant.}
+    \captionof{table}{This table lists some of the fundamental plasma parameters. The Gaussian formulas were taken from \citet{Richardson2019} which we then converted into SI base units. The collision rates are for completely ionised plasmas. $B$ denotes the magnetic field strength, $e$ denotes the elementary charge, $c$ denotes the speed of light, $m_e$, $m_p$ denote the mass of an electron and proton respectively, $Z$ gives the charge state, i.e. the number of protons in an ion, $n_e$, $n_i$ denote the electron and ion number densities respectively, $\ln \Lambda$ denotes the Coulomb logarithm, $T_e$, $T_i$ denotes the temperature of the electrons and ions respectively and $k_B$ denotes the Boltzmann constant.}
     \label{tab:fundamental_plasma_paramter}
 \end{table}
 
