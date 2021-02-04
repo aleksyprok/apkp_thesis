@@ -724,20 +724,17 @@ To help visualise the solutions and to check $u_x=u_\perp=0$ at $z=0$ we plot th
 \begin{figure}
     \centering
     \vspace{-20pt}
-    \includegraphics[width=\textwidth,height=0.9\textheight,keepaspectratio]{figures/chapter04/uniform_density_profile.png}
+    \includegraphics[width=\textwidth,height=0.9\textheight,keepaspectratio]{figures/chapter04/uniform_density_profile.pdf}
     \vspace{-10pt}
-    \caption{This figure shows plots of the real and imaginary parts of $u_x$, $u_\perp$, $b_x$, $b_\perp$ and $b_{||}$ as a function of $z$. We calculated the solutions using Equations \eqref{eq:chap_4_uniform_density_full_soln}-\eqref{eq:chap_4_uniform_density_b_par0}. The code used to make this figure is available on GitHub in the following directory \textcolor{red}{Need to change normalisation for the magnetic field and $\omega$ with $k_{||0}$.}:\newline
-    \texttt{$\rightarrow$ Python/Chapter4/uniform\_density\_profile.py}}
+    \caption{This figure shows plots of the real and imaginary parts of $u_x$, $u_\perp$, $b_x$, $b_\perp$ and $b_{||}$ as a function of $z$. We calculated the solutions using Equations \eqref{eq:chap_4_uniform_density_full_soln}-\eqref{eq:chap_4_uniform_density_b_par0}. The code used to make this figure is available on GitHub in the following directory:\newline
+    \href{https://github.com/aleksyprok/apkp_thesis/blob/main/Python/Chapter4/uniform_density_profile.py}{$\rightarrow$ Python/Chapter4/uniform\_density\_profile.py}}
     \label{fig:uniform_density_profile}
     \vspace{-20pt}
 \end{figure}
 
 Equations \eqref{eq:chap_4_uniform_density_full_soln}-\eqref{eq:chap_4_uniform_density_b_par0} give the the full set of solutions to the equations. However, we do not express the solutions in full here as they are cumbersome. We find the equations are easier to interpret if we construct series solutions by taking appropriate limits. Resonant absorption cannot occur because the background Alfv\'en speed is uniform. Therefore, singularities cannot form in our model.
-In Section \ref{sec:normal_field_resonant_absorption_with_line_tied_bcs}, we showed that resonant absorption produces very short length-scales in $x$. Approaching resonant singularities, the length-scales in $x$ shrink to zero. Therefore, we are interested in the limit $k_x/k_{||0}\rightarrow \infty$. Note that for $k_x\rightarrow\infty$ the fast wave solutions are evanescent. To help us understand the effects of line-tied boundary conditions, we will now calculate asymptotic expansions for $u_{xn}$, $u_{\perp n}$, $b_{x n}$, $b_{\perp n}$ and $b_{||n}$. We use the following maple file
-\begin{verbatim}
-    Maple/Chapter4/uniform_in_x_vA0.mw
-\end{verbatim}
-on GitHub to calculate the asymptotic expansions. 
+In Section \ref{sec:normal_field_resonant_absorption_with_line_tied_bcs}, we showed that resonant absorption produces very short length-scales in $x$. Approaching resonant singularities, the length-scales in $x$ shrink to zero. Therefore, we are interested in the limit $k_x/k_{||0}\rightarrow \infty$. Note that for $k_x\rightarrow\infty$ the fast wave solutions are evanescent. To help us understand the effects of line-tied boundary conditions, we will now calculate asymptotic expansions for $u_{xn}$, $u_{\perp n}$, $b_{x n}$, $b_{\perp n}$ and $b_{||n}$. The maple file we use to assist the algebra can be found in the following directory:
+\[\text{\href{https://github.com/aleksyprok/apkp_thesis/blob/main/Maple/Chapter4/asymptotic_expansion_uniform_va.mw}{$\rightarrow$ Maple/Chapter4/uniform\_in\_x\_vA0.mw}}.\]
 To simplify the notation, let
 \begin{equation}
     \hat{k}_{y0} = \frac{k_y}{k_{||0}}.
@@ -903,9 +900,7 @@ Written in matrix form, these become
     \end{pmatrix}.
 \]
 We can solve this using symbolic and numerical computing environments e.g. Maple, see Github file:
-\begin{verbatim}
-  Maple/Chapter4/uniform_in_x.mw
-\end{verbatim} 
+\[\text{\href{https://github.com/aleksyprok/apkp_thesis/blob/main/Maple/Chapter4/asymptotic_expansion_piecewise_constant_va_large_k_par_m.mw}{$\rightarrow$ Maple/Chapter4/asymptotic\_expansion\_piecewise\_constant\_va\_large\_k\_par\_m.mw}}.\]
 From Equations \eqref{eq:chap_4_bx_eqn1}, \eqref{eq:chap_4_b_perp_eqn1} and \eqref{eq:chap_4_b_par_eqn1}, we know that
 \begin{gather}
     \label{eq:bxn_pm_oblique_field_piecewise_constant_density}
