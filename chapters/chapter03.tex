@@ -50,10 +50,10 @@ We now need to integrate Equation \eqref{eq:coronal_heating_rate_per_unit_volume
 \begin{equation}
     \begin{aligned}
     \int_{r_0}^\infty H_c \, dr &= \frac{h}{2}\frac{7}{8}\frac{\chi}{k_B^2}\frac{p(r_0)^2}{T_{max}^{5/2}} \\
-    &\approx 3.47\times10^{2}\qty(\frac{\chi}{10^{-32}\si{.K^{1/2}.W.m^3}})\qty(\frac{p(r_0)}{10^{-2}\si{.Pa}})^2\qty(\frac{10^6\si{.K}}{T_{max}})^{3/2}\si{.W.m^{-2}}
+    &\approx 3.47\times10^{2}\qty(\frac{\chi}{10^{-32}\si{.K^{1/2}.W.m^3}})\qty(\frac{p(r_0)}{10^{-2}\si{.Pa}})^2\qty(\frac{10^6\si{.K}}{T_{max}})^{3/2}\si{.W.m^{-2}}.
     \end{aligned}
 \end{equation}
-where $r_0$ gives the radial coordinate of the base of the corona. Note that Table \ref{tbl:energy_losses_corona_chromosphere}, shows that the energy losses are in the range $[3\times10^2,10^4]\si{.W.m^{-2}}$ and our calculation above lies in this range. Therefore, the theoretical and observational calculations are in agreement. 
+Note that Table \ref{tbl:energy_losses_corona_chromosphere}, shows that the energy losses are in the range $[3\times10^2,10^4]\si{.W.m^{-2}}$ and our calculation above lies in this range. Therefore, the theoretical and observational calculations are in agreement. 
 
 In \citet{McIntosh2011,McIntosh2012}, they observe velocity wave amplitudes, $u_0$, in the quiet sun of around $20\si{.km.s^{-1}}$ and in active regions of around $5\si{.km.s^{-1}}$. We can use this data to estimate the corona's wave energy by assuming the time-averaged kinetic energy associated with the waves equals the time-averaged magnetic perturbation energy. This gives a wave energy, $E_{wave}$, of approximately
 \begin{equation}
@@ -324,7 +324,7 @@ The Alfv\'en speed is given by Equation \eqref{eq:background_vA_chap_3} and the 
     \includegraphics[width=\textwidth,height=0.85\textheight,keepaspectratio]{figures/chapter03/phase_mixing_open_loop.png}
     \vspace{-10pt}
     \caption{This figure shows plots of the velocity perturbation of phase-mixed Alfv\'en waves in an open loop. The top-left shows a plot along $z$ at $x=0$, where the green curve shows the envelope which we calculated using Equation \eqref{eq:velocity_envelope}. The top-right plot shows the analytic and numerical solutions along $x$ at $z=L_{ph0}$. The middle-row shows contour plots of the real and imaginary parts. The bottom-left plots the relative error between the analytic and numerical solutions at $x=0$, $z=L_{ph0}$ as a function of $\eta+\nu$. In the bottom-right, we show some of the parameters we used. The code used to make this figure is available on GitHub in the following directory:\newline
-    \texttt{$\rightarrow$ Python/Chapter3/open\_loop.py}}
+    \href{https://github.com/aleksyprok/apkp_thesis/blob/main/Python/Chapter3/open_loop.py}{$\rightarrow$ Python/Chapter3/open\_loop.py}}
     \vspace{-30pt}
     \label{fig:phase_mxing_open_loop}
 \end{figure}
@@ -420,7 +420,7 @@ We solve this set of ODEs using \texttt{solve\_bvp} in \citet{SciPy2020}. We use
     \includegraphics[width=\textwidth,height=0.85\textheight,keepaspectratio]{figures/chapter03/phase_mixing_closed_loop.png}
     \vspace{-10pt}
     \caption{This figure shows plots of the velocity perturbation of phase-mixed Alfv\'en waves in a closed loop. The top-left shows a plot along $z$ at $x=0$. The top-right plot shows the analytic and numerical solutions along $x$ at $z=l_z$. The middle-row shows contour plots of the real and imaginary parts. The bottom-left plots the relative error between the analytic and numerical solutions at $x=0$, $z=l_z$ as a function of $\eta+\nu$. The code used to make this figure is available on GitHub in the following directory:\newline
-    \texttt{$\rightarrow$ Python/Chapter3/closed\_loop.py}}
+    \href{https://github.com/aleksyprok/apkp_thesis/blob/main/Python/Chapter3/closed_loop.py}{$\rightarrow$ Python/Chapter3/closed\_loop.py}}
     \label{fig:phase_mixing_closed_loop}
     \vspace{-30pt}
 \end{figure}
@@ -494,7 +494,7 @@ provided $k_z(x)L_z = n\pi$.
     \includegraphics[width=\textwidth,height=0.85\textheight,keepaspectratio]{figures/chapter03/closed_loop_gamma.png}
     \vspace{-30pt}
     \caption{This figure shows plots of the heating rate per unit of wave energy, $\gamma$. The left-hand side shows $\gamma$ as a function of frequency. The blue and orange curves were calculated using Equations \eqref{eq:gamma_exact_closed_loop} and \eqref{eq:gamma_approx_closed_loop} respectively. The right-hand side shows the relative error between these two equations as a function of $(\eta+\nu)$. The code used to make this figure is available on GitHub in the following directory:\newline
-    \texttt{$\rightarrow$ Python/Chapter3/closed\_loop\_gamma.py}}
+    \href{https://github.com/aleksyprok/apkp_thesis/blob/main/Python/Chapter3/closed_loop_gamma.py}{$\rightarrow$ Python/Chapter3/closed\_loop\_gamma.py}}
     \label{fig:closed_loop_gamma}
     \vspace{-10pt}
 \end{figure}
@@ -627,7 +627,7 @@ We plot for the case where $\alpha=0$ (blue), $1$ (orange), and $5/3$ (green), t
     \caption{This figure shows line plots of the heating rate per unit of wave energy as a function of the number of excited harmonics, $N$, on the left. 
     % The exact solution was calculated using Equation \eqref{eq:gamma_multiple_harmonics_approx}  and the approximate solution was calculated using \eqref{eq:gamma_multiple_harmonics_exact} with with $H_N^{(p)}$ approximated by Equation \eqref{eq:generalised_harmonic_number_approx}. 
     The right-side shows the Riemann zeta function along the real axis where the discontinuity at $p=1$ is denoted with a dotted line. The code used to make this figure is available on GitHub in the following directory:\newline
-    \texttt{$\rightarrow$ Python/Chapter3/multiple\_harmonics.py}}
+    \href{https://github.com/aleksyprok/apkp_thesis/blob/main/Python/Chapter3/multiple_harmonics.py}{$\rightarrow$ Python/Chapter3/multiple\_harmonics.py}}
     \vspace{-20pt}
     \label{fig:multiple_harmonics}
 \end{figure}
@@ -679,7 +679,7 @@ If $\tau_{resistive}\ll\tau_{leakage}$ then we expect leakage to play a negligib
     \includegraphics[width=\textwidth,height=0.85\textheight,keepaspectratio]{figures/chapter03/leaky_loop.png}
     \vspace{-35pt}
     \caption{This figure shows plots of the leakage timescale, $\tau_{leakage}$, and resistive timescale, $\tau_{resistive}$ on the left as a function of the wave frequency. The right-side shows $\gamma$ in blue and the ratio, $\tau_{leakage}/\tau_{resistive}$, in orange, as a function of the reflection coefficient, R. The code used to make this figure is available on GitHub in the following directory:\newline
-    \texttt{$\rightarrow$ Python/Chapter3/leaky\_loop.py}}
+    \href{https://github.com/aleksyprok/apkp_thesis/blob/main/Python/Chapter3/leaky_loop.py}{$\rightarrow$ Python/Chapter3/leaky\_loop.py}}
     \label{fig:chap_3_leaky_loop}
     \vspace{-15pt}
 \end{figure}
@@ -786,7 +786,7 @@ The Alfv\'en travel time is also affected by the density of the plasma. \citet{K
     \includegraphics[width=\textwidth,height=0.8\textheight,keepaspectratio]{figures/chapter03/potential_arcade.png}
     \vspace{-30pt}
     \caption{This figure's left side shows a plot of the magnetic field lines where the flux function is given by Equation \eqref{eq:potential_aracde_flux_function}. The right side shows plots of $a$ for the field lines as a function of the footpoint coordinate, $x_0$. The code used to make this figure is available on GitHub in the following directory:\newline
-    \texttt{$\rightarrow$ Python/Chapter3/potential\_arcade.py}}
+    \href{https://github.com/aleksyprok/apkp_thesis/blob/main/Python/Chapter3/potential_arcade.py}{$\rightarrow$ Python/Chapter3/potential\_arcade.py}}
     \vspace{-10pt}
     \label{fig:potential_arcade}
 \end{figure}
