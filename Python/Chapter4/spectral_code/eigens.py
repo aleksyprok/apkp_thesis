@@ -53,10 +53,6 @@ def phi_prime(z, n):
 	return -ct.kzm[n] * ct.A[n] * ct.a[n] * np.sin(ct.kzm[n] * (z + ct.lz)) * (z <  0) - \
 		    ct.kzp[n] * ct.A[n] * ct.c[n] * np.sin(ct.kzp[n] * (z - ct.lz)) * (z >= 0)
 
-def phi_prime2(z, n):
-	return -ct.kzm[n] ** 2 * ct.A[n] * ct.a[n] * np.cos(ct.kzm[n] * (z + ct.lz)) * (z <  0) - \
-		    ct.kzp[n] ** 2 * ct.A[n] * ct.c[n] * np.cos(ct.kzp[n] * (z - ct.lz)) * (z >= 0)
-
 def varphi_prime(z, n):
 	return ct.k_barm[n] * ct.B[n] * ct.b[n] * np.cos(ct.k_barm[n] * (z + ct.lz)) * (z <  0) + \
 		   ct.k_barp[n] * ct.B[n] * ct.d[n] * np.cos(ct.k_barp[n] * (z - ct.lz)) * (z >= 0)

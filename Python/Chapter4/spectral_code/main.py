@@ -67,7 +67,7 @@ eg.get_parameters()
 eg.calc_inner_products()
 
 omega_r = np.pi * ct.vAp * np.cos(ct.alpha) / ct.Lz
-omega_i = 1e-5 * omega_r
+omega_i = 1e-6 * omega_r
 omega = omega_r + 1j * omega_i
 
 xi = ct.a0 * omega_i / omega_r
@@ -93,7 +93,7 @@ b_par10 = np.zeros(ct.N+1, dtype = complex)
 b_par20 = np.zeros(ct.N+1, dtype = complex)
 
 # Excite the kth resonance
-k = 3
+k = 11
 beta0 = 1
 
 ux10[k] = -1j * ct.k_perp * beta0 * np.log(x_min - 1j * xi)
@@ -164,15 +164,15 @@ ix0 = nx // 2
 z0 = z[iz0]
 x0 = x[ix0]
 
-# fig = plt.figure()
-# ax = fig.add_subplot(111)
-# ax.plot(x, ux[iz0,:].real)
-# ax.plot(x, ux_ana(x,z0).real)
+fig = plt.figure()
+ax = fig.add_subplot(111)
+ax.plot(x, ux[iz0,:].real)
+ax.plot(x, ux_ana(x,z0).real)
 
-# fig = plt.figure()
-# ax = fig.add_subplot(111)
-# ax.plot(x, ux[iz0,:].imag)
-# ax.plot(x, ux_ana(x,z0).imag)
+fig = plt.figure()
+ax = fig.add_subplot(111)
+ax.plot(x, ux[iz0,:].imag)
+ax.plot(x, ux_ana(x,z0).imag)
 
 # fig = plt.figure()
 # ax = fig.add_subplot(111)
@@ -240,17 +240,18 @@ x0 = x[ix0]
 # ax.set_xlabel('x')
 # ax.set_ylabel('z')
 
-fig = plt.figure()
-ax = fig.add_subplot(111, projection='3d')
-surf = ax.plot_surface(X, Z, b_par.real, cmap=cm.cool)
-ax.set_xlabel('x')
-ax.set_ylabel('z')
+# fig = plt.figure()
+# ax = fig.add_subplot(111, projection='3d')
+# surf = ax.plot_surface(X, Z, b_par.real, cmap=cm.cool)
+# ax.set_xlabel('x')
+# ax.set_ylabel('z')
 
-fig = plt.figure()
-ax = fig.add_subplot(111, projection='3d')
-surf = ax.plot_surface(X, Z, b_par.imag, cmap=cm.cool)
-ax.set_xlabel('x')
-ax.set_ylabel('z')
+# fig = plt.figure()
+# ax = fig.add_subplot(111, projection='3d')
+# surf = ax.plot_surface(X, Z, b_par.imag, cmap=cm.cool)
+# ax.set_xlabel('x')
+# ax.set_ylabel('z')
+
 
 # fig = plt.figure()
 # ax = fig.add_subplot(111, projection='3d')
@@ -264,4 +265,54 @@ ax.set_ylabel('z')
 # ax.set_xlabel('x')
 # ax.set_ylabel('z')
 
-plt.show()
+# Calc ux error
+
+# n_omega_i = 10
+# omega_i_min = -8
+# omega_i_max = -3
+# omega_i_array = np.logspace(omega_i_min, omega_i_max, n_omega_i) * omega_r
+# ux_err = np.zeros(n_omega_i)
+
+# for i in range(n_omega_i):
+
+# 	if i == 0: print('Calculating ux_err...')
+# 	print(i)
+
+# 	omega_i = omega_i_array[i]
+# 	omega = omega_r + 1j * omega_i
+
+# 	xi = ct.a0 * omega_i / omega_r
+
+# 	nx = 256
+# 	lx = 1 * abs(xi)
+# 	x_min = -8 * lx
+# 	x_max =  8 * lx
+# 	dx = (x_max - x_min) / (nx - 1)
+# 	x = np.linspace(x_min, x_max, nx)
+
+# 	X, Z = np.meshgrid(x, z)
+
+# 	ux10[k] = -1j * ct.k_perp * beta0 * np.log(x_min - 1j * xi)
+# 	ux20 = beta0 * np.sin(ct.alpha) * np.log(x_min - 1j * xi) * ct.I7[k,:]
+
+# 	U0 = np.concatenate((ux10, ux20, b_par10, b_par20))
+
+# 	sol = solve_ivp(dU, [x_min, x_max], U0, t_eval = x, method = 'RK45', \
+# 					rtol = ct.errtol, atol = ct.errtol)
+
+# 	ux1n = sol.y[0:ct.N+1]
+# 	ux2n = sol.y[ct.N+1:2*(ct.N+1)]
+
+# 	ux = np.zeros((nz,nx), dtype = complex)
+# 	for n in range(ct.N+1):
+# 		Ux1n = np.tile(np.array([ux1n[n,:]]), (nz, 1))
+# 		Ux2n = np.tile(np.array([ux2n[n,:]]), (nz, 1))
+# 		ux += Ux1n * eg.phi(Z,n) + Ux2n * eg.varphi(Z,n)
+
+# 	ux_err[i] = np.max(np.abs(ux - ux_ana(X,Z)) / np.abs(ux))
+
+# fig = plt.figure()
+# ax = fig.add_subplot(111)
+# ax.loglog(omega_i_array, ux_err)
+
+plt.show(block = False)
