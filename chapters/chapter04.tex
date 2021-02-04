@@ -26,7 +26,8 @@ In this chapter, we start by giving a general overview of the model and the equa
 \section{Model and equations}
 \label{sec:chap_4_model_and_eqns}
 
-In this section we describe the most general model we use. However, throughout this chapter aspects of the model will change. For example, in Section \ref{sec:oblique_field_uniform_density_profile_with_line_tied_bcs} and \ref{sec:oblique_field_piecewise_constant_density_profile} the background Alfv\'en speed is independent of $x$.
+In this section, we describe the most general model we will use. However, throughout this paper, we will start with a simple model. In subsequent sections, we will add complexity to the model as we head
+towards the most relevant description of resonance in coronal magnetic fields. For example, in Sections \ref{sec:oblique_field_uniform_density_profile_with_line_tied_bcs} and \ref{sec:oblique_field_piecewise_constant_density_profile}, the background Alfv\'en speed, $v_A$, will not depend on $x$ but, in Section \ref{sec:oblique_field_resonant_absorption}, we include a variation in $x$ as well as a model chromosphere. 
 
 We model perturbations on a static background equilibrium and make the same assumptions as those described by Equation \eqref{eq:linear_assumotion_v}-\eqref{eq:linear_assumotion_rho}. The system is assumed to be ideal, i.e. we neglect viscosity and resistivity. We model the plasma as cold, i.e. $\beta=0$, which means the magnetic pressure force is negligible. We assume the Lorentz force dominates and neglect the gravitational force. The background magnetic field is at an angle $\alpha$ to the $z$-axis in the $y$-$z$ plane, i.e.
 \begin{equation}
@@ -110,6 +111,27 @@ where
 \end{gather}
 are the derivatives perpendicular and parallel to the
 equilibrium magnetic field respectively.
+
+In this chapter, we will derive exact analytic solutions to the equations. However, the formulas we derive are often cumbersome, and so our discussion will often focus on approximate (but less cumbersome) solutions in our narrower parameter space. The parameter space we will focus on is
+\begin{gather}
+    \label{eq:parm_space_1}
+    k_x \gg k_{||+}, \\
+     \label{eq:parm_space_2}
+    k_{||-} \gg k_{||+}, \\
+    \label{eq:parm_space_ky}
+    0 < k_y \le O(k_{||+}), \\
+    \label{eq:parm_space_4}
+    0 < \tan\alpha \le O(1), 
+\end{gather}
+where 
+\begin{gather}
+    \label{eq:k_par_pm}
+    k_{||\pm} = \frac{\omega}{v_{A\pm}}, \\
+    \label{eq:k_par0}
+    k_{||0} = \frac{\omega}{v_{A0}}
+\end{gather}
+gives the Alfv\'en wavenumber and $\omega$ gives the wave frequency. We model $k_x\gg k_{||+}$ as this approximates the conditions near a singularity in a resonant absorption experiment. The results should also apply to other cases where $k_x\gg k_{||+}$, for example, during the nonlinear development of an instability. Our condition for $\alpha$ prevents the background magnetic field from being tangential to the $z=0$ plane.
+
 
 \section{Energy equations}
 \label{sec:chap_4_energy_equations}
@@ -604,13 +626,14 @@ k_{z4} \\
 \end{pmatrix}
 =
 \begin{pmatrix}
- \omega / (v_{A0} \cos\alpha) - k_y\tan\alpha \\
--\omega / (v_{A0} \cos\alpha) - k_y\tan\alpha \\
- i\sqrt{k_x^2+k_y^2 - \omega^2/v_{A0}^2} \\
--i\sqrt{k_x^2+k_y^2 - \omega^2/v_{A0}^2}
-\end{pmatrix}.
+ k_{||0} / \cos\alpha - k_y\tan\alpha \\
+-k_{||0} / \cos\alpha - k_y\tan\alpha \\
+ i\sqrt{k_x^2+k_y^2 - k_{||0}^2} \\
+-i\sqrt{k_x^2+k_y^2 - k_{||0}^2}
+\end{pmatrix},
 \end{equation}
-Where $k_{z1}$, $k_{z2}$ correspond to Alfv\'en wave solutions and $k_{z3}$, $k_{z4}$ correspond to fast wave solutions. Note that the fast wave solutions are evanescent for $k_x^2+k_y^2>\omega^2/v_{A0}^2$.
+where $k_{||0}$ is given by Equation \eqref{eq:k_par0}.
+The first two terms, $k_{z1}$, $k_{z2}$, correspond to Alfv\'en wave solutions and $k_{z3}$, $k_{z4}$ correspond to fast wave solutions. Note that the fast wave solutions are evanescent for $k_x^2+k_y^2>k_{||0}^2$.
 
 \subsection{Normal mode solution}
 
@@ -637,6 +660,7 @@ where each $k_{zn}$ is given by Equation \eqref{eq:chap_4_oblique_field_uniform_
 
 We impose an incident Alfv\'en wave from the right by setting $u_{\perp1}=u_0$, where $u_0$ gives the incident wave amplitude. We impose the amplitude of the incident fast waves to be zero, therefore, $u_{\perp4}=0$.  From Equation \eqref{eq:chap_4_ux_u_perp_eqn_uniform_in_x} we know that
 \begin{equation}
+    \label{eq:uxn_oblique_field_uniform_density}
     \begin{aligned}
     u_{x n} &= \frac{-ik_x\nabla_{\perp n}}{\mathcal{L}_{n}-k_x^2}u_{\perp n} \\
     &= \hat{u}_{x n}u_{\perp n},
@@ -645,7 +669,7 @@ We impose an incident Alfv\'en wave from the right by setting $u_{\perp1}=u_0$, 
 where
 \begin{gather}
     \hat{u}_{x n} = \frac{-ik_x\nabla_{\perp n}}{\mathcal{L}_{n}-k_x^2}, \\
-    \mathcal{L}_{n}=\nabla_{||n}^2+\omega^2/v_{A0}^2, \\
+    \mathcal{L}_{n}=\nabla_{||n}^2+k_{||0}^2, \\
     \nabla_{\perp n} = i(k_y\cos\alpha - k_{zn}\sin\alpha), \\
     \nabla_{||n} = i(k_y\sin\alpha+k_{zn}\cos\alpha).
 \end{gather}
@@ -668,6 +692,7 @@ u_{\perp 3} \\
 \end{equation}
 Hence,
 \begin{equation}
+    \label{eq:u_perp_n_oblique_field_uniform_density}
     \begin{pmatrix}
     u_{\perp 1} \\
     u_{\perp 2} \\
@@ -682,77 +707,86 @@ Hence,
 \end{equation}
 From Equations \eqref{eq:chap_4_bx_eqn1}, \eqref{eq:chap_4_b_perp_eqn1} and \eqref{eq:chap_4_b_par_eqn1}, we know that
 \begin{gather}
-    \hat{b}_{xn0} = \frac{\nabla_{||n}}{i\omega}u_{xn0}, \\
-    \hat{b}_{\perp n0} = \frac{\nabla_{||n}}{i\omega}u_{\perp n0}, \\
+    \label{eq:bxn_oblique_field_uniform_density}
+    v_{A0}\hat{b}_{xn} = \frac{\nabla_{||n}}{ik_{||0}}u_{xn}, \\
+    \label{eq:b_perp_n_oblique_field_uniform_density}
+    v_{A0}\hat{b}_{\perp n} = \frac{\nabla_{||n}}{ik_{||0}}u_{\perp n}, \\
     \label{eq:chap_4_uniform_density_b_par0}
-    \hat{b}_{|| n0} = -\frac{1}{i\omega}\qty[ik_x u_{xn0}+\nabla_{\perp n} u_{\perp n0}].
+    v_{A0}\hat{b}_{|| n} = -\frac{1}{ik_{||0}}\qty[ik_x u_{xn}+\nabla_{\perp n} u_{\perp n}].
 \end{gather}
 
-To help visualise the solutions and to check $u_x=u_\perp=0$ at $z=0$ we plot the solutions in Figure \ref{fig:uniform_density_profile}. We choose a large value of $k_x$, namely, $k_x = 50\omega/v_{A0}$, to simulate the conditions near a singularity in a resonant absorption experiment. This means that the fast wave terms are evanescent. The plots show that for $\hat{b}_x$ and $\hat{b}_{||}$ the evanescent fast waves dominate near $z=0$. For $u_x$ and $b_{\perp}$ the evanescent fast waves and Alfv\'en waves are of a similar order near $z=0$. For $u_\perp$, the Alfv\'en waves dominate.
+To help visualise the solutions and to check $u_x=u_\perp=0$ at $z=0$ we plot the solutions in Figure \ref{fig:uniform_density_profile}. We choose a large value of $k_x$, namely, $k_x = 50k_{||0}$, to simulate the conditions near a singularity in a resonant absorption experiment. This means that the fast wave terms are evanescent. The plots show that for $\hat{b}_x$ and $\hat{b}_{||}$ the evanescent fast waves dominate near $z=0$. For $u_x$ and $b_{\perp}$ the evanescent fast waves and Alfv\'en waves are of a similar order near $z=0$. For $u_\perp$, the Alfv\'en waves dominate.
 
 \begin{figure}
     \centering
     \vspace{-20pt}
     \includegraphics[width=\textwidth,height=0.9\textheight,keepaspectratio]{figures/chapter04/uniform_density_profile.png}
     \vspace{-10pt}
-    \caption{This figure shows plots of the real and imaginary parts of $u_x$, $u_\perp$, $b_x$, $b_\perp$ and $b_{||}$ as a function of $z$. We calculated the solutions using Equations \eqref{eq:chap_4_uniform_density_full_soln}-\eqref{eq:chap_4_uniform_density_b_par0}. The code used to make this figure is available on GitHub in the following directory:\newline
+    \caption{This figure shows plots of the real and imaginary parts of $u_x$, $u_\perp$, $b_x$, $b_\perp$ and $b_{||}$ as a function of $z$. We calculated the solutions using Equations \eqref{eq:chap_4_uniform_density_full_soln}-\eqref{eq:chap_4_uniform_density_b_par0}. The code used to make this figure is available on GitHub in the following directory \textcolor{red}{Need to change normalisation for the magnetic field.}:\newline
     \texttt{$\rightarrow$ Python/Chapter4/uniform\_density\_profile.py}}
     \label{fig:uniform_density_profile}
     \vspace{-20pt}
 \end{figure}
 
-In Section \ref{sec:normal_field_resonant_absorption_with_line_tied_bcs}, we showed that resonant absorption produces very short length-scales in $x$. Approaching resonant singularities, the length-scales in $x$ shrink to zero. Therefore, we are interested in the limit $k_x\rightarrow \infty$. Note that for $k_x\rightarrow\infty$ the fast wave solutions are evanescent. To help us understand the effects of line-tied boundary conditions, we will now calculate asymptotic expansions for $u_{xn}$, $u_{\perp n}$, $b_{x n}$, $b_{\perp n}$ and $b_{||n}$. We use the following maple file
+Equations \eqref{eq:chap_4_uniform_density_full_soln}-\eqref{eq:chap_4_uniform_density_b_par0} give the the full set of solutions to the equations. However, we do not express the solutions in full here as they are cumbersome. We find the equations are easier to interpret if we construct series solutions by taking appropriate limits. Resonant absorption cannot occur because the background Alfv\'en speed is uniform. Therefore, singularities cannot form in our model.
+In Section \ref{sec:normal_field_resonant_absorption_with_line_tied_bcs}, we showed that resonant absorption produces very short length-scales in $x$. Approaching resonant singularities, the length-scales in $x$ shrink to zero. Therefore, we are interested in the limit $k_x/k_{||0}\rightarrow \infty$. Note that for $k_x\rightarrow\infty$ the fast wave solutions are evanescent. To help us understand the effects of line-tied boundary conditions, we will now calculate asymptotic expansions for $u_{xn}$, $u_{\perp n}$, $b_{x n}$, $b_{\perp n}$ and $b_{||n}$. We use the following maple file
 \begin{verbatim}
     Maple/Chapter4/uniform_in_x_vA0.mw
 \end{verbatim}
-on GitHub to calculate the asymptotic expansions. The leading order asymptotic expansion for the $u_x$ coefficients is given by
+on GitHub to calculate the asymptotic expansions. 
+To simplify the notation, let
+\begin{equation}
+    \hat{k}_{y0} = \frac{k_y}{k_{||0}}.
+\end{equation}
+The leading order asymptotic expansion for the $u_x$ coefficients is given by
 \begin{gather}
     \label{eq:chap_4_oblique_ux1}
-    u_{x1}= -u_0\frac{k_yv_{A0}-\omega\sin\alpha}{v_{A0}\cos\alpha}\frac{1}{k_x} + O\qty(\frac{1}{k_x^2}), \\
-    u_{x2}= u_0\frac{k_yv_{A0}+\omega\sin\alpha}{v_{A0}\cos\alpha}\frac{1}{k_x} + O\qty(\frac{1}{k_x^2}), \\
+    \frac{u_{x1}}{u_0}= -\frac{\hat{k}_{y0}-\sin\alpha}{\cos\alpha}\frac{k_{||0}}{k_x} + O\qty(\frac{k_{||0}^2}{k_x^2}), \\
+    \frac{u_{x2}}{u_0}= \frac{\hat{k}_{y0}+\sin\alpha}{\cos\alpha}\frac{k_{||0}}{k_x} + O\qty(\frac{k_{||0}^2}{k_x^2}), \\
     \label{eq:chap_4_oblique_ux3}
-    u_{x3}= -2u_0\tan\alpha\frac{\omega}{v_{A0}}\frac{1}{k_x} + O\qty(\frac{1}{k_x^2}).
+    \frac{u_{x3}}{u_0}= -2\tan\alpha\,\frac{k_{||0}}{k_x} + O\qty(\frac{k_{||0}^2}{k_x^2}).
 \end{gather}
 The leading order asymptotic expansion for the $u_\perp$ coefficients is given by
 \begin{gather}
-    u_{\perp1} = u_0, \\
-    u_{\perp2} = -u_0 + O\qty(\frac{1}{k_x}), \\
-    u_{\perp3} = 2iu_0\frac{\omega\sin^2\alpha}{v_{A0}\cos\alpha}\frac{1}{k_x} + O\qty(\frac{1}{k_x^2}).
+    \frac{u_{\perp1}}{u_0} = 1, \\
+    \frac{u_{\perp2}}{u_0} = -1 + O\qty(\frac{k_{||0}}{k_x}), \\
+    \frac{u_{\perp3}}{u_0} = 2i\frac{\sin^2\alpha}{\cos\alpha}\frac{k_{||0}}{k_x} + O\qty(\frac{k_{||0}^2}{k_x^2}).
 \end{gather}
-The leading order asymptotic expansion for the $\hat{b}_x$ coefficients is given by
+The $\hat{b}_x$ coefficients are given by
 \begin{gather}
-    b_{x1} = -u_0\frac{k_yv_{A0}-\omega\sin\alpha}{v_{A0}^2\cos\alpha}\frac{1}{k_x} + O\qty(\frac{1}{k_x^2}), \\
-    b_{x2} = -u_0\frac{k_yv_{A0}+\omega\sin\alpha}{v_{A0}^2\cos\alpha}\frac{1}{k_x} + O\qty(\frac{1}{k_x^2}), \\
-    b_{x3} = -2i\frac{u_0}{v_{A0}}\sin\alpha + O\qty(\frac{1}{k_x}).
+    \frac{v_{A0}\hat{b}_{x1}}{u_0} = -\frac{\hat{k}_{y0}-\sin\alpha}{\cos\alpha}\frac{k_{||0}}{k_x} + O\qty(\frac{k_{||0}^2}{k_x^2}), \\
+    \frac{v_{A0}\hat{b}_{x2}}{u_0} = -\frac{\hat{k}_{y0}+\sin\alpha}{\cos\alpha}\frac{k_{||0}}{k_x} + O\qty(\frac{k_{||0}^2}{k_x^2}), \\
+    \frac{v_{A0}\hat{b}_{x3}}{u_0} = -2i\sin\alpha + O\qty(\frac{k_{||0}}{k_x}).
 \end{gather}
-The leading order asymptotic expansion for the $\hat{b}_\perp$ coefficients is given by
+The $\hat{b}_\perp$ coefficients are given by
 \begin{gather}
-    b_{\perp1} = \frac{u_0}{v_{A0}}, \\
-    b_{\perp2} = \frac{u_0}{v_{A0}} + O\qty(\frac{1}{k_x}), \\
-    b_{\perp3} = -2\frac{u_0}{v_{A0}}\sin^2\alpha + O\qty(\frac{1}{k_x}).
+    \frac{v_{A0}\hat{b}_{\perp1}}{u_0} = 1, \\
+    \frac{v_{A0}\hat{b}_{\perp2}}{u_0} = 1 + O\qty(\frac{k_{||0}}{k_x}), \\
+    \frac{v_{A0}\hat{b}_{\perp3}}{u_0} = -2\sin^2\alpha + O\qty(\frac{k_{||0}}{k_x}).
 \end{gather}
-Finally, The leading order asymptotic expansion for the $\hat{b}_{||}$ coefficients is given by
+Finally, the $\hat{b}_{||}$ coefficients are given by
 \begin{gather}
-    b_{||1} = 0, \\
-    b_{||2} = 0, \\
+    \frac{v_{A0}\hat{b}_{||1}}{u_0} = 0, \\
+    \frac{v_{A0}\hat{b}_{||2}}{u_0} = 0, \\
     \label{eq:chap_4_oblique_b_par3}
-    b_{||3} = \frac{u_0}{v_{A0}}\sin(2\alpha) + O\qty(\frac{1}{k_x}).
+    \frac{v_{A0}\hat{b}_{||3}}{u_0} = \sin(2\alpha) + O\qty(\frac{k_{||0}}{k_x}).
 \end{gather}
 For the Alfv\'en wave terms the associated magnetic pressure, $b_{||}$, equals zero and this was shown in Section \ref{sec:mhd_waves_dispersion_relation}. The above equations show that to leading order the $u_x$ solution does include an evanescent fast wave term and this gives rise to the boundary layers seen in \citet{Halberstadt1993,Halberstadt1995,Arregui2003}. However, the leading order $u_\perp$ solution does not contain any fast wave terms. Note that for $b_x$ the boundary layer term dominates near $z=0$.
 
-We now aim to give a brief explanation for why the boundary layers form. Imposing $\vec{u}=0$ at $z=0$ forces the normal component of the magnetic field, $b_z=0$. For proof, consider the $z$-component of the induction equation,
+Now, we give a brief explanation as to why the boundary layers form. Imposing $\vec{u}=0$ at $z=0$ forces the normal component of the magnetic field, $b_z$, to be zero. For proof, consider the $z$-component of the induction equation,
 \[\pdv{b_z}{t}=\vec{\hat{z}}\cdot\curl(\vec{u}\cross\vec{B}_0).\]
-Note that the curl in the $z$-direction only depends on derivatives in $x$ and $y$. Since  $\vec{u}=0=$ constant at $z=0$, the $x$ and $y$ derivatives are zero. Therefore, if $b_z$ is initially zero it will remain zero for all time, $\implies b_z=0$. Therefore, at $z=0$,
-\[b_z = \cos\alpha\, b_{||} - \sin\alpha\, b_\perp=0,\]
+The curl in the $z$-direction only depends on derivatives in $x$ and $y$. Since  $\vec{u}=0=$ constant at $z=0$, the $x$ and $y$ derivatives are zero. Therefore, if $b_z$ is initially zero, it will remain zero for all time. Therefore, at $z=0$,
+\[b_z = \cos\alpha b_{||} - \sin\alpha b_\perp=0,\]
 rearranging gives
 \[b_{||} = \tan\alpha\, b_\perp.\]
-Here, $b_\perp$ gives the magnetic field component of the Alfv\'en wave and $b_{||}$ gives the magnetic pressure component of the fast wave. Hence, for $\alpha\ne0$ if there is a large amplitude Alfv\'en wave then there must also be a large amplitude fast wave (for $\alpha \ne 0$). If $v_A^2(k_x^2+k_y^2)>\omega^2$ then this forces the associated $k_z$ to be imaginary which means the fast wave must be evanescent. This explains why the boundary layers form.
+Here, $b_\perp$ gives the magnetic field component of the Alfv\'en wave and $b_{||}$ gives the magnetic pressure component of the fast wave. Hence, for $\alpha\ne0$, if there is a large-amplitude Alfv\'en wave, then there must also be a large-amplitude fast wave (for $\alpha \ne 0$). If $v_A^2(k_x^2+k_y^2)>\omega^2$, this forces the associated $k_z$ to be imaginary, which means the fast wave must be evanescent and so boundary layers will form.
 
-Note that for $k_x\rightarrow\infty$, $k_{z3}\rightarrow ik_x$. Therefore, energy associated with the evanescent fast waves is proportional to $\exp(-2k_x z)$. Note that
+Note that for $k_x\rightarrow\infty$, $k_{z3}\rightarrow ik_x$. Therefore, the time-averaged energy associated with the evanescent fast waves is proportional to $\exp(-2k_x z)$ and the total fast wave
+energy is proportional to
 \begin{equation}
-    \int_0^\infty \exp(-2 k_x z) dz = \frac{1}{2k_x}.
+    k_{||+}\int_0^\infty \exp(-2 k_x z) dz = \frac{k_{||+}}{2k_x}.
 \end{equation}
-This shows that the energy of evanescent fast waves $\rightarrow 0$ as $k_x\rightarrow \infty$ for $u_0$ fixed. This suggests that the evanescent fast waves will have a limited affect on the rate of resonant absorption since the energy associated with them does not grow as the length-scales in $x$ get shorter and so they cannot be absorbing energy. Moreover, the boundary layers cannot directly transport energy away as they are evanescent.
+Thus, the evanescent fast waves' energy tends to 0 as $k_x\rightarrow \infty$, for $u_0$ fixed. Hence, the evanescent fast waves will have a limited effect on the rate of resonant absorption. Since the energy associated with the boundary layers does not grow as the length-scales in $x$ get shorter, they cannot be absorbing energy. Moreover, the boundary layers cannot directly transport energy away as they are evanescent.
 
 \section{Oblique field: Piecewise constant density profile}
 \label{sec:oblique_field_piecewise_constant_density_profile}
@@ -768,6 +802,7 @@ Note that the region $z>0$ models the corona and $z<0$ models the chromosphere, 
 
 We assume the solutions are of the form
 \begin{equation}
+    \label{eq:oblique_field_piecewise_constant_summation}
     \begin{pmatrix}
     u_x \\
     u_\perp \\
@@ -814,12 +849,13 @@ k_{z4\pm} \\
 \end{pmatrix}
 =
 \begin{pmatrix}
- \omega/(v_{A\pm}\cos\alpha) - k_y\tan\alpha \\
--\omega/(v_{A\pm}\cos\alpha) - k_y\tan\alpha \\
- i\sqrt{k_x^2+k_y^2 - \omega^2/v_{A\pm}^2} \\
--i\sqrt{k_x^2+k_y^2 - \omega^2/v_{A\pm}^2}
-\end{pmatrix}.
+ k_{||\pm}/\cos\alpha - k_y\tan\alpha \\
+-k_{||\pm}/\cos\alpha - k_y\tan\alpha \\
+ i\sqrt{k_x^2+k_y^2 - k_{||\pm}^2} \\
+-i\sqrt{k_x^2+k_y^2 - k_{||\pm}^2}
+\end{pmatrix},
 \end{equation}
+and $k_{||\pm}$ is given by Equation \eqref{eq:k_par_pm}.
 
 We impose an incident Alfv\'en wave from $z>0$ by setting $u_{\perp1+}=u_0$, where $u_0$ gives the incident wave amplitude. We impose the amplitude of the incident fast waves to be zero, therefore, $u_{\perp 4+}=0$. There are no incident waves from the left, therefore, $u_{\perp2-}=u_{\perp3-}=0$. From Equation \eqref{eq:chap_4_ux_u_perp_eqn_uniform_in_x} we know that
 \begin{equation}
@@ -831,32 +867,32 @@ We impose an incident Alfv\'en wave from $z>0$ by setting $u_{\perp1+}=u_0$, whe
 where
 \begin{gather}
     \hat{u}_{x n\pm} = \frac{-ik_x\nabla_{\perp n\pm}}{\mathcal{L}_{n\pm}-k_x^2}, \\
-    \mathcal{L}_{n\pm}=\nabla_{||n\pm}^2+\omega^2/v_{A\pm}^2, \\
+    \mathcal{L}_{n\pm}=\nabla_{||n\pm}^2+k_{||\pm}^2, \\
     \nabla_{\perp n\pm} = i(k_y\cos\alpha - k_{zn\pm}\sin\alpha),
 \end{gather}
 We require continuity of $u_x$, $\pdv*{u_x}{z}$, $u_\perp$ and $\pdv*{u_\perp}{z}$ at $z=0$. This gives the following equations
-\[\sum_{n\in\{1,4\}}u_{xn0-}=\sum_{n=1}^3u_{xn0+}\implies \sum_{n\in\{1,4\}}\hat{u}_{xn0-}u_{\perp n0-}=\sum_{n=1}^3\hat{u}_{xn0+}u_{\perp n0+},\]
-\[\sum_{n\in\{1,4\}}k_{zn-}u_{xn0-}=\sum_{n=1}^3k_{zn+}u_{xn0+}\implies \sum_{n\in\{1,4\}}k_{zn-}\hat{u}_{xn0-}u_{\perp n0-}=\sum_{n=1}^3k_{zn+}\hat{u}_{xn0+}u_{\perp n0+},\]
-\[\sum_{n\in\{1,4\}}u_{\perp n0-}=\sum_{n=1}^3u_{\perp n0+},\]
-\[\sum_{n\in\{1,4\}}k_{zn-}u_{\perp n0-}=\sum_{n=1}^3k_{zn+}u_{\perp n0+}.\]
+\[\sum_{n\in\{1,4\}}u_{xn-}=\sum_{n=1}^3u_{xn+}\implies \sum_{n\in\{1,4\}}\hat{u}_{xn-}u_{\perp n-}=\sum_{n=1}^3\hat{u}_{xn+}u_{\perp n+},\]
+\[\sum_{n\in\{1,4\}}k_{zn-}u_{xn-}=\sum_{n=1}^3k_{zn+}u_{xn+}\implies \sum_{n\in\{1,4\}}k_{zn-}\hat{u}_{xn-}u_{\perp n0-}=\sum_{n=1}^3k_{zn+}\hat{u}_{xn+}u_{\perp n+},\]
+\[\sum_{n\in\{1,4\}}u_{\perp n-}=\sum_{n=1}^3u_{\perp n+},\]
+\[\sum_{n\in\{1,4\}}k_{zn-}u_{\perp n-}=\sum_{n=1}^3k_{zn+}u_{\perp n+}.\]
 Written in matrix form, these become
 \[
     \begin{pmatrix}
-    \hat{u}_{x10-} & \hat{u}_{x40-} & -\hat{u}_{x20+} & -\hat{u}_{x30+} \\
-    k_{z1-}\hat{u}_{x10-} & k_{z4-}\hat{u}_{x40-} & -k_{z2+}\hat{u}_{x20+} & -k_{z3+}\hat{u}_{x30+} \\
+    \hat{u}_{x1-} & \hat{u}_{x4-} & -\hat{u}_{x2+} & -\hat{u}_{x3+} \\
+    k_{z1-}\hat{u}_{x1-} & k_{z4-}\hat{u}_{x4-} & -k_{z2+}\hat{u}_{x2+} & -k_{z3+}\hat{u}_{x3+} \\
     1 & 1 & -1 &-1 \\
     k_{z1-} & k_{z4-} & -k_{z2+} & -k_{z3+}
     \end{pmatrix}
     \begin{pmatrix}
-    u_{\perp 10-} \\
-    u_{\perp 40-} \\
-    u_{\perp 20+} \\
-    u_{\perp 30+}
+    u_{\perp 1-} \\
+    u_{\perp 4-} \\
+    u_{\perp 2+} \\
+    u_{\perp 3+}
     \end{pmatrix}
     =u_0
     \begin{pmatrix}
-    \hat{u}_{x10+} \\
-    k_{z1+}\hat{u}_{x10+} \\
+    \hat{u}_{x1+} \\
+    k_{z1+}\hat{u}_{x1+} \\
     1 \\
     k_{z1+}
     \end{pmatrix}.
@@ -867,10 +903,12 @@ We can solve this using symbolic and numerical computing environments e.g. Maple
 \end{verbatim} 
 From Equations \eqref{eq:chap_4_bx_eqn1}, \eqref{eq:chap_4_b_perp_eqn1} and \eqref{eq:chap_4_b_par_eqn1}, we know that
 \begin{gather}
-    \hat{b}_{xn0\pm} = \frac{\nabla_{||n\pm}}{i\omega}u_{xn0\pm}, \\
-    \hat{b}_{\perp n0\pm} = \frac{\nabla_{||n\pm}}{i\omega}u_{\perp n0\pm}, \\
-    \hat{b}_{|| n0\pm} = -\frac{1}{i\omega}\qty[ik_x u_{xn0\pm}+\nabla_{\perp n\pm} u_{\perp n0\pm}].
+    v_{A+}\hat{b}_{xn\pm} = \frac{\nabla_{||n\pm}}{ik_{||+}}u_{xn\pm}, \\
+    v_{A+}\hat{b}_{\perp n\pm} = \frac{\nabla_{||n\pm}}{ik_{||+}}u_{\perp n\pm}, \\
+    \label{eq:b_par_n_pm}
+    v_{A+}\hat{b}_{|| n\pm} = -\frac{1}{ik_{||+}}\qty[ik_x u_{xn\pm}+\nabla_{\perp n\pm} u_{\perp n\pm}].
 \end{gather}
+
 To help check that solutions to the matrix above do indeed ensure continuity of $u_x$, $\pdv*{u_x}{z}$, $u_\perp$, $\pdv*{u_\perp}{z}$ we plot the velocities and their derivatives as a function of $z$ in Figure \ref{fig:piecewise_constant_density_profile}. Also, to help visualise the solutions we plot the Alfv\'en wave component and fast wave component for $u_x$ separately. Since $k_x^2+k_y^2>\omega^2/v_{A\pm}$, the fast wave component is evanescent.
 
 \begin{figure}
@@ -883,6 +921,8 @@ To help check that solutions to the matrix above do indeed ensure continuity of 
     \vspace{-20pt}
     \label{fig:piecewise_constant_density_profile}
 \end{figure}
+
+Equations \eqref{eq:oblique_field_piecewise_constant_summation}-\eqref{eq:b_par_n_pm} give the full solution to the equations. However, the solution is too cumbersome to present directly. 
 
 Our goal now is to calculate asymptotic expansions for $k_x\rightarrow\infty$ to test if the boundary layers observed in the previous section still form without line-tied boundary conditions. Using the Maple file above we calculate the leading order asymptotic expansions for the $u_x$ coefficients as
 \begin{gather}
