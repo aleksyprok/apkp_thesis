@@ -125,6 +125,6 @@ ax.text(1.45, 0.1, \
 	r"$k_x$ = " + "{:02.1f}".format(kx / omega) + r"$k_{||0}$", \
 	transform=ax.transAxes)
 
-fig.savefig('temp_figures/uniform_density_profile.pdf', bbox_inches = 'tight', dpi=150)
+fig.savefig('temp_figures/uniform_density_profile.pdf', bbox_inches = 'tight')
 
 plt.show(block = False)

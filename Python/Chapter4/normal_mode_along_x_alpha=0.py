@@ -12,7 +12,7 @@ def a(x):
 	return vA(x) / dvA(x)
 
 def uxn_ana(x):
-	return -1j * ky * uy_n0 * xi_n * np.log(x - 1j * xi_n)
+	return -1j * ky * uy_n0 * xi_n * np.log((x - 1j * xi_n) / xi_n)
 
 def duxn_ana(x):
 	return -1j * ky * uy_n0 * xi_n / (x - 1j * xi_n)
@@ -167,6 +167,6 @@ ax.set_xlabel('$\omega_i / \omega_r$')
 # ax.set_title(r'Max $|u_{x1,num} - u_{x1,ana}|\ \slash\ |u_{x1,num}|$')
 ax.set_title(r'Max relative $u_x$ error')
 
-fig.savefig('temp_figures/normal_mode_along_x_alpha=0.png', bbox_inches = 'tight', dpi=150)
+fig.savefig('temp_figures/normal_mode_along_x_alpha=0.pdf', bbox_inches = 'tight')
 
 plt.show(block = False)
