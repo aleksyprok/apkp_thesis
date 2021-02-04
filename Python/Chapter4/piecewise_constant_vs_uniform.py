@@ -94,26 +94,27 @@ def b_par_piecewise(z):
 			b_par += b_par0_p[n] * exp_cap(1j * m_p[n] * z) * np.heaviside( z, 1)
 	return b_par
 
-Lz = 1
+vA_m = 0.01
+vA_p = 1.0
+vA0 = vA_p
+
+k_par = 1
+alpha = 0.25 * np.pi
+omega = vA_p * k_par
+kx = 10 * omega / vA_p
+ky = 0.5 * omega / vA_p
+u0 = 1
+
+Lz = np.pi / k_par * np.cos(alpha)
 nz = 8193
 z_min = 0
 z_max = Lz
 z = np.linspace(z_min, z_max, nz)
 
-z_min_prime = -2 / 1000
-z_max_prime = 2 / 1000
+z_min_prime = -2 * Lz / 10
+z_max_prime = 2 * Lz / 10
 z1_prime = np.linspace(0, z_max_prime, nz // 2 + 1)
 z2_prime = np.linspace(z_min_prime, z_max_prime, nz)
-
-vA_m = 0.01
-vA_p = 1.0
-vA0 = vA_p
-
-alpha = 0.25 * np.pi
-omega = np.pi * np.cos(alpha) * vA_p / Lz
-kx = 10 * omega / vA_p
-ky = 0.5 * omega / vA_p
-u0 = 1
 
 kz_m = omega / vA_m / np.cos(alpha)
 kz_p = omega / vA_p / np.cos(alpha)
@@ -205,9 +206,9 @@ fig1.set_size_inches(fig1_size)
 plt.subplots_adjust(left=0.125, bottom=0.07, right=0.9, top=0.9, wspace=0.2, hspace=0.5)
 
 ax = fig1.add_subplot(321)
-ax.plot(z, ux_uniform(z).real, label = r'Uniform $v_A$')
-ax.plot(z, ux_piecewise(z).real, '--', label = r'Piecewise constant $v_A$')
-ax.set_title(r"$k_x$ = " + "{:02.1f}".format(kx / omega) + r"$\omega / v_{A+}$", fontsize = 10)
+ax.plot(z / Lz, ux_uniform(z).real, label = r'Uniform $v_A$')
+ax.plot(z / Lz, ux_piecewise(z).real, '--', label = r'Piecewise constant $v_A$')
+ax.set_title(r"$k_x$ = " + "{:02.1f}".format(kx / omega) + r"$k_{||+}$", fontsize = 10)
 ax.set_xlabel(r'$z\,/\,L_z$')
 ax.ticklabel_format(axis = "y", style = "sci", scilimits=(0,0))
 ax.text(0.75, 1.15, \
@@ -243,9 +244,9 @@ ax.text(0.01, 0.075,
 		transform=ax.transAxes)
 
 ax = fig1.add_subplot(323)
-ax.plot(z, u_perp_uniform(z).real)
-ax.plot(z, u_perp_piecewise(z).real, '--')
-ax.set_title(r"$k_x$ = " + "{:02.1f}".format(kx / omega) + r"$\omega / v_{A+}$", fontsize = 10)
+ax.plot(z / Lz, u_perp_uniform(z).real)
+ax.plot(z / Lz, u_perp_piecewise(z).real, '--')
+ax.set_title(r"$k_x$ = " + "{:02.1f}".format(kx / omega) + r"$k_{||+}$", fontsize = 10)
 ax.set_xlabel(r'$z\,/\,L_z$')
 ax.ticklabel_format(axis = "y", style = "sci", scilimits=(0,0))
 ax.text(0.75, 1.15, \
@@ -274,12 +275,12 @@ ax.annotate(r'Continuity of' + '\n' + \
             )
 
 ax = fig1.add_subplot(325)
-ax.plot(z, b_par_uniform(z).real)
-ax.plot(z, b_par_piecewise(z).real, '--')
-ax.set_title(r"$k_x$ = " + "{:02.1f}".format(kx / omega) + r"$\omega / v_{A+}$", fontsize = 10)
+ax.plot(z / Lz, b_par_uniform(z).real)
+ax.plot(z / Lz, b_par_piecewise(z).real, '--')
+ax.set_title(r"$k_x$ = " + "{:02.1f}".format(kx / omega) + r"$k_{||+}$", fontsize = 10)
 ax.ticklabel_format(axis = "y", style = "sci", scilimits=(0,0))
 ax.text(0.65, 1.15, \
-	r'Re$\left[\hat{b}_{||}(0,0,z,0)\right]\, /\, (u_0\,/\,v_{A0})$', \
+	r'Re$\left[\hat{b}_{||}(0,0,z,0)\right]\, /\, (u_0\,/\,v_{A+})$', \
 	fontsize = 12, \
 	transform=ax.transAxes)
 ax.set_xlabel(r'$z\,/\,L_z$')
@@ -301,9 +302,9 @@ fig2.set_size_inches(fig2_size)
 plt.subplots_adjust(left=0.125, bottom=0.07, right=0.9, top=0.9, wspace=0.2, hspace=0.5)
 
 ax = fig2.add_subplot(321)
-ax.plot(z, ux_uniform(z).imag, label = r'Uniform $v_A$')
-ax.plot(z, ux_piecewise(z).imag, '--', label = r'Piecewise constant $v_A$')
-ax.set_title(r"$k_x$ = " + "{:02.1f}".format(kx / omega) + r"$\omega / v_{A+}$", fontsize = 10)
+ax.plot(z / Lz, ux_uniform(z).imag, label = r'Uniform $v_A$')
+ax.plot(z / Lz, ux_piecewise(z).imag, '--', label = r'Piecewise constant $v_A$')
+ax.set_title(r"$k_x$ = " + "{:02.1f}".format(kx / omega) + r"$k_{||+}$", fontsize = 10)
 ax.set_xlabel(r'$z\,/\,L_z$')
 ax.ticklabel_format(axis = "y", style = "sci", scilimits=(0,0))
 ax.text(0.75, 1.15, \
@@ -314,9 +315,9 @@ handles, labels = ax.get_legend_handles_labels()
 lgd = ax.legend(handles, labels, loc='upper center', bbox_to_anchor=(0.5,1.6))
 
 ax = fig2.add_subplot(323)
-ax.plot(z, u_perp_uniform(z).imag)
-ax.plot(z, u_perp_piecewise(z).imag, '--')
-ax.set_title(r"$k_x$ = " + "{:02.1f}".format(kx / omega) + r"$\omega / v_{A+}$", fontsize = 10)
+ax.plot(z / Lz, u_perp_uniform(z).imag)
+ax.plot(z / Lz, u_perp_piecewise(z).imag, '--')
+ax.set_title(r"$k_x$ = " + "{:02.1f}".format(kx / omega) + r"$k_{||+}$", fontsize = 10)
 ax.set_xlabel(r'$z\,/\,L_z$')
 ax.ticklabel_format(axis = "y", style = "sci", scilimits=(0,0))
 ax.text(0.75, 1.15, \
@@ -325,21 +326,26 @@ ax.text(0.75, 1.15, \
 	transform=ax.transAxes)
 
 ax = fig2.add_subplot(325)
-ax.plot(z, b_par_uniform(z).imag)
-ax.plot(z, b_par_piecewise(z).imag, '--')
-ax.set_title(r"$k_x$ = " + "{:02.1f}".format(kx / omega) + r"$\omega / v_{A+}$", fontsize = 10)
+ax.plot(z / Lz, b_par_uniform(z).imag)
+ax.plot(z / Lz, b_par_piecewise(z).imag, '--')
+ax.set_title(r"$k_x$ = " + "{:02.1f}".format(kx / omega) + r"$k_{||+}$", fontsize = 10)
 ax.ticklabel_format(axis = "y", style = "sci", scilimits=(0,0))
 ax.text(0.65, 1.15, \
-	r'Im$\left[\hat{b}_{||}(0,0,z,0)\right]\, /\, (u_0\,/\,v_{A0})$', \
+	r'Im$\left[\hat{b}_{||}(0,0,z,0)\right]\, /\, (u_0\,/\,v_{A+})$', \
 	fontsize = 12, \
 	transform=ax.transAxes)
 ax.set_xlabel(r'$z\,/\,L_z$')
+yr = ax.get_ylim()
 
 ############################################################################################################
 ############################################################################################################
 ############################################################################################################
 
 kx = 1000 * omega / vA_p
+z_min_prime = -2 * Lz / 1000
+z_max_prime = 2 * Lz / 1000
+z1_prime = np.linspace(0, z_max_prime, nz // 2 + 1)
+z2_prime = np.linspace(z_min_prime, z_max_prime, nz)
 
 m_m = np.array([
 				 kz_m - ky * np.tan(alpha), \
@@ -422,20 +428,20 @@ b_perp0 = nabla_perp0 * u_perp0 / (1j * omega)
 b_par0 = -(1j * kx * ux0 + nabla_perp0 * u_perp0) / (1j * omega)
 
 ax = fig1.add_subplot(322)
-ax.plot(z, ux_uniform(z).real)
-ax.plot(z, ux_piecewise(z).real, '--')
+ax.plot(z / Lz, ux_uniform(z).real)
+ax.plot(z / Lz, ux_piecewise(z).real, '--')
 ax.ticklabel_format(axis = "y", style = "sci", scilimits=(0,0))
 ax.ticklabel_format(axis = "x", style = "sci", scilimits=(0,0))
-ax.set_title(r"$k_x$ = " + "{:02.1f}".format(kx / omega) + r"$\omega / v_{A+}$", fontsize = 10)
+ax.set_title(r"$k_x$ = " + "{:02.1f}".format(kx / omega) + r"$k_{||+}$", fontsize = 10)
 ax.set_xlabel(r'$z\,/\,L_z$')
-ax.text(-0.05, 1.3, \
-	r"$\alpha = $" + "{:02.3f}".format(alpha / np.pi) + r"$\pi$" + '\n' + \
-	r"$v_{A-} = $" + "{:1.2f}".format(vA_m / vA_p) + r'$\,v_{A+}$' + '\n' + \
-	r"$v_{A0} = v_{A+}$", \
+ax.text(-0.05, 1.35, \
+	r"$\alpha = $" + "{:02.3f}".format(alpha / np.pi) + r"$\pi$" + '\n' \
+	r"$L_z = \pi \cos(\alpha) / k_{||+}$", \
 	transform=ax.transAxes)
-ax.text(0.5, 1.35, \
-	r"$\omega = \pi v_{A+} \cos\alpha / L_z$" + '\n' + \
-	r"$k_y$ = " + "{:02.1f}".format(ky / omega) + r"$\omega / v_{A+}$",
+ax.text(0.5, 1.27, \
+	r"$k_y$ = " + "{:02.1f}".format(ky / omega) + r"$k_{||+}$" + '\n' + \
+	r"$k_{||-}$ = " + "{:02.1f}".format(1 / vA_m) + r"$k_{||+}$" + '\n' + \
+	r"$k_{||0} = k_{||+}$",
 	transform=ax.transAxes)
 ax.arrow(0.075, 0.475, \
 		 0.35, 0.05, \
@@ -445,27 +451,27 @@ ax.arrow(0.075, 0.475, \
 		 head_width = 5 * 0.005)
 yr = ax.get_ylim()
 ax2 = fig1.add_axes([0.72, 0.8, 0.16, 0.09])
-ax2.plot(z1_prime, ux_uniform(z1_prime).real)
-ax2.plot(z2_prime, ux_piecewise(z2_prime).real, '--')
+ax2.plot(z1_prime / Lz, ux_uniform(z1_prime).real)
+ax2.plot(z2_prime / Lz, ux_piecewise(z2_prime).real, '--')
 ax2.ticklabel_format(axis = "y", style = "sci", scilimits=(0,0))
 ax2.ticklabel_format(axis = "x", style = "sci", scilimits=(0,0))
 ax2.set_yticks([])
 ax2.set_ylim(yr)
 
 ax = fig1.add_subplot(324)
-ax.plot(z, u_perp_uniform(z).real)
-ax.plot(z, u_perp_piecewise(z).real, '--')
+ax.plot(z / Lz, u_perp_uniform(z).real)
+ax.plot(z / Lz, u_perp_piecewise(z).real, '--')
 ax.ticklabel_format(axis = "y", style = "sci", scilimits=(0,0))
 ax.ticklabel_format(axis = "x", style = "sci", scilimits=(0,0))
-ax.set_title(r"$k_x$ = " + "{:02.1f}".format(kx / omega) + r"$\omega / v_{A+}$", fontsize = 10)
+ax.set_title(r"$k_x$ = " + "{:02.1f}".format(kx / omega) + r"$k_{||+}$", fontsize = 10)
 ax.set_xlabel(r'$z\,/\,L_z$')
 
 ax = fig1.add_subplot(326)
-ax.plot(z, b_par_uniform(z).real)
-ax.plot(z, b_par_piecewise(z).real, '--')
+ax.plot(z / Lz, b_par_uniform(z).real)
+ax.plot(z / Lz, b_par_piecewise(z).real, '--')
 ax.ticklabel_format(axis = "y", style = "sci", scilimits=(0,0))
 ax.ticklabel_format(axis = "x", style = "sci", scilimits=(0,0))
-ax.set_title(r"$k_x$ = " + "{:02.1f}".format(kx / omega) + r"$\omega / v_{A+}$", fontsize = 10)
+ax.set_title(r"$k_x$ = " + "{:02.1f}".format(kx / omega) + r"$k_{||+}$", fontsize = 10)
 ax.set_xlabel(r'$z\,/\,L_z$')
 # ax.annotate('Piecewise constant curve' + '\n' + \
 # 			r'has an amplitude$< 0.1$', \
@@ -476,8 +482,8 @@ ax.set_xlabel(r'$z\,/\,L_z$')
 #             horizontalalignment='left', verticalalignment='center', \
 #             )
 ax3 = fig1.add_axes([0.625, 0.14, 0.26, 0.125])
-ax3.plot(z1_prime, b_par_uniform(z1_prime).real)
-ax3.plot(z2_prime, b_par_piecewise(z2_prime).real, '--')
+ax3.plot(z1_prime / Lz, b_par_uniform(z1_prime).real)
+ax3.plot(z2_prime / Lz, b_par_piecewise(z2_prime).real, '--')
 ax3.ticklabel_format(axis = "y", style = "sci", scilimits=(0,0))
 ax3.ticklabel_format(axis = "x", style = "sci", scilimits=(0,0))
 ax3.set_yticks([])
@@ -487,6 +493,14 @@ ax.arrow(0.075, 0.1, \
 		 width = 0.005, \
 		 color = 'k', \
 		 head_width = 5 * 0.005)
+ax.annotate('The line-tied model can' + '\n' + \
+			'greatly overestimate the' + '\n' + \
+			'size of the boundary layer', \
+			xy=(0, 0.9),  transform=ax.transAxes, \
+            xytext=(-0.3, 0.9), \
+            arrowprops = dict(facecolor='black', shrink=0.06, width = 0.5, headwidth = 5, headlength = 5), \
+            horizontalalignment='right', verticalalignment='center',
+            )
 
 
 fig1.savefig('temp_figures/piecewise_constant_vs_uniform_real_part.pdf', bbox_inches = 'tight')
@@ -494,20 +508,20 @@ fig1.savefig('temp_figures/piecewise_constant_vs_uniform_real_part.pdf', bbox_in
 #################################################################################################
 
 ax = fig2.add_subplot(322)
-ax.plot(z, ux_uniform(z).imag)
-ax.plot(z, ux_piecewise(z).imag, '--')
+ax.plot(z / Lz, ux_uniform(z).imag)
+ax.plot(z / Lz, ux_piecewise(z).imag, '--')
 ax.ticklabel_format(axis = "y", style = "sci", scilimits=(0,0))
 ax.ticklabel_format(axis = "x", style = "sci", scilimits=(0,0))
-ax.set_title(r"$k_x$ = " + "{:02.1f}".format(kx / omega) + r"$\omega / v_{A+}$", fontsize = 10)
+ax.set_title(r"$k_x$ = " + "{:02.1f}".format(kx / omega) + r"$k_{||+}$", fontsize = 10)
 ax.set_xlabel(r'$z\,/\,L_z$')
-ax.text(-0.05, 1.3, \
-	r"$\alpha = $" + "{:02.3f}".format(alpha / np.pi) + r"$\pi$" + '\n' + \
-	r"$v_{A-} = $" + "{:1.2f}".format(vA_m / vA_p) + r'$\,v_{A+}$' + '\n' + \
-	r"$v_{A0} = v_{A+}$", \
+ax.text(-0.05, 1.35, \
+	r"$\alpha = $" + "{:02.3f}".format(alpha / np.pi) + r"$\pi$" + '\n' \
+	r"$L_z = \pi \cos(\alpha) / k_{||+}$", \
 	transform=ax.transAxes)
-ax.text(0.5, 1.35, \
-	r"$\omega = \pi v_{A+} \cos\alpha / L_z$" + '\n' + \
-	r"$k_y$ = " + "{:02.1f}".format(ky / omega) + r"$\omega / v_{A+}$",
+ax.text(0.5, 1.27, \
+	r"$k_y$ = " + "{:02.1f}".format(ky / omega) + r"$k_{||+}$" + '\n' + \
+	r"$k_{||-}$ = " + "{:02.1f}".format(1 / vA_m) + r"$k_{||+}$" + '\n' + \
+	r"$k_{||0} = k_{||+}$",
 	transform=ax.transAxes)
 ax.arrow(0.075, 0.45, \
 		 0.03, 0.03, \
@@ -517,8 +531,8 @@ ax.arrow(0.075, 0.45, \
 		 head_width = 5 * 0.005)
 yr = ax.get_ylim()
 ax4 = fig2.add_axes([0.6, 0.8, 0.16, 0.09])
-ax4.plot(z1_prime, ux_uniform(z1_prime).imag)
-ax4.plot(z2_prime, ux_piecewise(z2_prime).imag, '--')
+ax4.plot(z1_prime / Lz, ux_uniform(z1_prime).imag)
+ax4.plot(z2_prime / Lz, ux_piecewise(z2_prime).imag, '--')
 ax4.ticklabel_format(axis = "y", style = "sci", scilimits=(0,0))
 ax4.ticklabel_format(axis = "x", style = "sci", scilimits=(0,0))
 ax4.set_yticks([])
@@ -526,24 +540,24 @@ ax4.set_ylim(yr)
 
 
 ax = fig2.add_subplot(324)
-ax.plot(z, u_perp_uniform(z).imag)
-ax.plot(z, u_perp_piecewise(z).imag, '--')
+ax.plot(z / Lz, u_perp_uniform(z).imag)
+ax.plot(z / Lz, u_perp_piecewise(z).imag, '--')
 ax.ticklabel_format(axis = "y", style = "sci", scilimits=(0,0))
 ax.ticklabel_format(axis = "x", style = "sci", scilimits=(0,0))
-ax.set_title(r"$k_x$ = " + "{:02.1f}".format(kx / omega) + r"$\omega / v_{A+}$", fontsize = 10)
+ax.set_title(r"$k_x$ = " + "{:02.1f}".format(kx / omega) + r"$k_{||+}$", fontsize = 10)
 ax.set_xlabel(r'$z\,/\,L_z$')
 
 ax = fig2.add_subplot(326)
-ax.plot(z, b_par_uniform(z).imag)
-ax.plot(z, b_par_piecewise(z).imag, '--')
+ax.plot(z / Lz, b_par_uniform(z).imag)
+ax.plot(z / Lz, b_par_piecewise(z).imag, '--')
 ax.ticklabel_format(axis = "y", style = "sci", scilimits=(0,0))
 ax.ticklabel_format(axis = "x", style = "sci", scilimits=(0,0))
-ax.set_title(r"$k_x$ = " + "{:02.1f}".format(kx / omega) + r"$\omega / v_{A+}$", fontsize = 10)
+ax.set_title(r"$k_x$ = " + "{:02.1f}".format(kx / omega) + r"$k_{||+}$", fontsize = 10)
 ax.set_xlabel(r'$z\,/\,L_z$')
 
 ax5 = fig2.add_axes([0.625, 0.14, 0.26, 0.125])
-ax5.plot(z1_prime, b_par_uniform(z1_prime).imag)
-ax5.plot(z2_prime, b_par_piecewise(z2_prime).imag, '--')
+ax5.plot(z1_prime / Lz, b_par_uniform(z1_prime).imag)
+ax5.plot(z2_prime / Lz, b_par_piecewise(z2_prime).imag, '--')
 ax5.ticklabel_format(axis = "y", style = "sci", scilimits=(0,0))
 ax5.ticklabel_format(axis = "x", style = "sci", scilimits=(0,0))
 ax5.set_yticks([])
