@@ -945,6 +945,30 @@ To help check that solutions to the matrix above do indeed ensure continuity of 
 
 Equations \eqref{eq:oblique_field_piecewise_constant_summation}-\eqref{eq:b_par_n_pm} give the full solution to the equations. However, the solution is too cumbersome to present directly.  To build our intuition for how the solutions change with $k_x$ we plot the real/imaginary part of $u_x$, $u_\perp$ and $\hat{b}_{||}$  as a function of $z$ at $x=y=t=0$ in Figure \ref{fig:piecewise_constant_vs_uniform_real_part}/\ref{fig:piecewise_constant_vs_uniform_imag_part} respectively. We show the parameters we use in the top-right of each figure. The blue curve shows the solutions from Section \ref{sec:oblique_field_uniform_density_profile_with_line_tied_bcs} where line-tied boundary conditions ($\vec{u}=0$) are imposed at $z=0$. The dashed orange curve shows the solution where we impose continuity of $\vec{u}$ and $\pdv*{\vec{u}}{z}$ at $z=0$ with a piecewise constant background Alfv\'en speed. In the left-hand column, $k_x=10k_{||+}$, this means that the fast waves are evanescent for $z>0$ and can propagate for $z<0$. It shows that the solutions are in good agreement and suggests that line-tied boundary conditions give a good approximation for the solution where $z>0$. The small disagreement occurs due to line-tied boundary conditions causing perfect reflection, whereas, a finite jump in the background Alfv\'en speed results in partial reflection. In the right column, $k_x=1000k_{||+}$, this means that the fast waves are evanescent everywhere. The plots show poor agreement near $z=0$ and good agreement for $z\gg0$. They show that the model with line-tied boundary conditions can significantly overestimate the evanescent fast waves'/boundary layers' amplitude.
 
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth,height=0.8\textheight,keepaspectratio]{figures/chapter04/fast_wave_error_vs_kx.pdf}
+    \caption{This figure plots the relative difference (see Equation \ref{eq:relative_difference}) introduced by using line-tied boundary conditions to estimate the size of the boundary layers as a function of $k_x$. Unless stated otherwise, we use the parameters shown in the top-left. In the top plot, the different colours correspond to different values of $\alpha$, in the middle plot they correspond to different values of $k_y$ and in the bottom plot they correspond to different values of $k_{||-}$. If $k_x$ is to the left/right of the vertical dashed lines, then the fast waves can propagate/are evanescent for $z>0$ respectively. Similarly, if $k_x$ is to the left/right of the vertical dotted lines, the fast waves can propagate/are evanescent for $z<0$ respectively.}
+    \label{fig:fast_wave_error_vs_kx}
+\end{figure}
+
+We have seen that depending on the value of $k_x$, our models can sometimes agree on the evanescent fast waves' amplitude and sometimes disagree strongly. Our goal now is to quantify how well the model with line-tied boundary conditions approximates the amplitude of the evanescent fast wave/boundary layer as a function of $k_x$, for the parameter space given by Equations \ref{eq:parm_space_1} - \ref{eq:parm_space_4}. Figure \ref{fig:fast_wave_error_vs_kx} plots the relative difference, given by,
+\begin{equation}
+    \label{eq:relative_difference}
+    \text{relative difference} = \abs{\frac{u_{\perp3} - u_{\perp 3+}}{u_{\perp 3+}}},
+\end{equation}
+where $u_{\perp3}$ gives the amplitude of the fast wave component of $u_\perp$ at $z=0$ in the model where line-tied boundary conditions are imposed and $u_{\perp 3+}$ gives the amplitude in the model where a piecewise constant background Alfv\'en speed is used. Equations \eqref{eq:ux_u_perp}, \eqref{eq:bx_u_perp}, \eqref{eq:b_perp_u_perp}, \eqref{eq:b_par_u_perp} show that $u_{xn}$, $b_{xn}$, $b_{\perp n}$, $b_{|| n}$ are equal to scalar multiples of $u_{\perp n}$, similarly, Equations \eqref{eq:ux_pm_u_perp_pm}, \eqref{eq:bx_pm_u_perp_pm}, \eqref{eq:b_perp_pm_u_perp_pm}, \eqref{eq:b_par_pm_u_perp_pm} show that $u_{xn+}$, $b_{xn+}$, $b_{\perp n+}$, $b_{|| n+}$ are equal to scalar multiples of $u_{\perp n+}$, therefore,
+\begin{equation}
+    \abs{\frac{u_{\perp3} - u_{\perp 3+}}{u_{\perp +}}} = \abs{\frac{u_{x3} - u_{x 3+}}{u_{x 3+}}} = ... = \abs{\frac{b_{||3} - b_{|| 3+}}{b_{|| 3+}}}.
+\end{equation}
+We show all the plots as functions of $k_x$, and the parameters take values shown in the top-left (unless stated otherwise). The vertical dashed lines show where 
+\[k_x = \Re\qty(\sqrt{k_{||+}^2-k_y^2})\] 
+and the dotted lines show where 
+\[k_x = \Re\qty(\sqrt{k_{||-}^2-k_y^2})= k_{||-} + O\qty(\frac{k_{||+}}{k_{||-}}),\]
+where we assume $k_y$ satisfies Equation \eqref{eq:parm_space_ky}.
+If $k_x$ is to the right of these vertical lines, then the fast waves are evanescent, and if $k_x$ is to the left, then the fast waves can propagate. The plots show that the relative difference between the models is dependent on whether the fast waves are evanescent or propagating. If $k_x \gg k_{||-}$, then the models show poor agreement and the model with line-tied boundary conditions overestimates the size of the boundary layers. On the other hand, if $k_x \ll k_{||-}$
+then the models show good agreement.
+
 Our goal now is to calculate asymptotic expansions for $k_x\rightarrow\infty$ to test if the boundary layers observed in the previous section still form without line-tied boundary conditions. Using the Maple file above we calculate the leading order asymptotic expansions for the $u_x$ coefficients as
 \begin{gather}
     \label{eq:oblique_field_uniform_in_x_ux10-}
