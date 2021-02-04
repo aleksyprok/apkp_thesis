@@ -162,13 +162,14 @@ ax.set_title(r'$[\partial u_x(0,0,z,0) / \partial z]\ /\ (u_0\, /\, L_z)$')
 # 	r"$\omega = \pi v_{A+} \cos\alpha / L_z$" + '\n' + \
 # 	r"$v_{A-} = $" + "{:1.1f}".format(vA_m / vA_p) + r'$\,v_{A+}$', \
 # 	transform=ax.transAxes)
-ax.text(-0.05, 1.2, \
+ax.text(-0.05, 1.25, \
 	r"$\alpha = $" + "{:02.3f}".format(alpha / np.pi) + r"$\pi$" + '\n' \
 	r"$L_z = \pi \cos(\alpha) / k_{||+}$", \
 	transform=ax.transAxes)
 ax.text(0.5, 1.2, \
 	r"$k_y$ = " + "{:02.1f}".format(ky / omega) + r"$k_{||+}$" + '\n' + \
-	r"$k_{||-}$ = " + "{:02.1f}".format(1 / vA_m) + r"$k_{||+}$", \
+	r"$k_{||-}$ = " + "{:02.1f}".format(1 / vA_m) + r"$k_{||+}$" + '\n' + \
+	r"$k_x$ = " + "{:02.1f}".format(kx / omega) + r"$k_{||+}$", \
 	transform=ax.transAxes)
 
 

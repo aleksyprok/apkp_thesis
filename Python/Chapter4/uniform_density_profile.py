@@ -97,28 +97,34 @@ ax.set_title(r'$u_\perp(0,0,z,0) / u_0$')
 ax = fig.add_subplot(323)
 ax.plot(z, bx_ana(z).real)
 ax.plot(z, bx_ana(z).imag)
-ax.set_title(r'$\hat{b}_x(0,0,z,0)$')
+ax.set_title(r'$v_{A0}\hat{b}_x(0,0,z,0) / u_0$')
 
 ax = fig.add_subplot(324)
 ax.plot(z, b_perp_ana(z).real)
 ax.plot(z, b_perp_ana(z).imag)
-ax.set_title(r'$\hat{b}_\perp(0,0,z,0)$')
+ax.set_title(r'$v_{A0}\hat{b}_\perp(0,0,z,0) / u_0$')
 ax.set_xlabel(r'$z\,/\,L_z$')
 
 ax = fig.add_subplot(325)
 ax.plot(z, b_par_ana(z).real, label = 'Real part')
 ax.plot(z, b_par_ana(z).imag, label = 'Imag part')
-ax.set_title(r'$\hat{b}_{||}(0,0,z,0)$')
+ax.set_title(r'$v_{A0}\hat{b}_{||}(0,0,z,0) / u_0$')
 ax.set_xlabel(r'$z\,/\,L_z$')
 handles, labels = ax.get_legend_handles_labels()
 lgd = ax.legend(handles, labels, loc='upper center', bbox_to_anchor=(1.7,0.9))
+# ax.text(1.45, 0.1, \
+# 	r"$\omega = \pi v_{A0} \cos\alpha / L_z$" + '\n' + \
+# 	r"$\alpha = $" + "{:02.3f}".format(alpha / np.pi) + r"$\pi$" + '\n' + \
+# 	r"$k_x$ = " + "{:02.1f}".format(kx / omega) + r"$\omega / v_{A0}$" + '\n' + \
+# 	r"$k_y$ = " + "{:02.1f}".format(ky / omega) + r"$\omega / v_{A0}$",
+# 	transform=ax.transAxes)
 ax.text(1.45, 0.1, \
-	r"$\omega = \pi v_{A0} \cos\alpha / L_z$" + '\n' + \
 	r"$\alpha = $" + "{:02.3f}".format(alpha / np.pi) + r"$\pi$" + '\n' + \
-	r"$k_x$ = " + "{:02.1f}".format(kx / omega) + r"$\omega / v_{A0}$" + '\n' + \
-	r"$k_y$ = " + "{:02.1f}".format(ky / omega) + r"$\omega / v_{A0}$",
+	r"$L_z = \pi \cos(\alpha) / k_{||0}$" + '\n' + \
+	r"$k_y$ = " + "{:02.1f}".format(ky / omega) + r"$k_{||0}$" + '\n' + \
+	r"$k_x$ = " + "{:02.1f}".format(kx / omega) + r"$k_{||0}$", \
 	transform=ax.transAxes)
 
-fig.savefig('temp_figures/uniform_density_profile.png', bbox_inches = 'tight', dpi=150)
+fig.savefig('temp_figures/uniform_density_profile.pdf', bbox_inches = 'tight', dpi=150)
 
 plt.show(block = False)
