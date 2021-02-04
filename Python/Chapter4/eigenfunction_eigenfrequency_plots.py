@@ -137,7 +137,7 @@ n = 2
 
 ax = fig.add_subplot(423)
 ax.plot(z, phi(z,n))
-ax.set_title(r'$\phi_2(z)\ \slash\ \left(\sqrt{L_z}\, /\, v_{A+}\right)$')
+ax.set_title(r'$\phi_2(z)$')
 
 ax = fig.add_subplot(424)
 ax.plot(z, varphi(z,n), 'tab:orange')
