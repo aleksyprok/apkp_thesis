@@ -859,6 +859,7 @@ and $k_{||\pm}$ is given by Equation \eqref{eq:k_par_pm}.
 
 We impose an incident Alfv\'en wave from $z>0$ by setting $u_{\perp1+}=u_0$, where $u_0$ gives the incident wave amplitude. We impose the amplitude of the incident fast waves to be zero, therefore, $u_{\perp 4+}=0$. There are no incident waves from the left, therefore, $u_{\perp2-}=u_{\perp3-}=0$. From Equation \eqref{eq:chap_4_ux_u_perp_eqn_uniform_in_x} we know that
 \begin{equation}
+    \label{eq:uxn_pm_oblique_field_piecewise_constant_density}
     \begin{aligned}
     u_{x n\pm} &= \frac{-ik_x\nabla_{\perp n\pm}}{\mathcal{L}_{n\pm}-k_x^2}u_{\perp n\pm} \\
     &= \hat{u}_{x n\pm}u_{\perp n0\pm},
@@ -903,7 +904,9 @@ We can solve this using symbolic and numerical computing environments e.g. Maple
 \end{verbatim} 
 From Equations \eqref{eq:chap_4_bx_eqn1}, \eqref{eq:chap_4_b_perp_eqn1} and \eqref{eq:chap_4_b_par_eqn1}, we know that
 \begin{gather}
+    \label{eq:bxn_pm_oblique_field_piecewise_constant_density}
     v_{A+}\hat{b}_{xn\pm} = \frac{\nabla_{||n\pm}}{ik_{||+}}u_{xn\pm}, \\
+    \label{eq:b_perp_n_pm_oblique_field_piecewise_constant_density}
     v_{A+}\hat{b}_{\perp n\pm} = \frac{\nabla_{||n\pm}}{ik_{||+}}u_{\perp n\pm}, \\
     \label{eq:b_par_n_pm}
     v_{A+}\hat{b}_{|| n\pm} = -\frac{1}{ik_{||+}}\qty[ik_x u_{xn\pm}+\nabla_{\perp n\pm} u_{\perp n\pm}].
@@ -947,17 +950,21 @@ Equations \eqref{eq:oblique_field_piecewise_constant_summation}-\eqref{eq:b_par_
 
 \begin{figure}
     \centering
+    \vspace{-20pt}
     \includegraphics[width=\textwidth,height=0.8\textheight,keepaspectratio]{figures/chapter04/fast_wave_error_vs_kx.pdf}
-    \caption{This figure plots the relative difference (see Equation \ref{eq:relative_difference}) introduced by using line-tied boundary conditions to estimate the size of the boundary layers as a function of $k_x$. Unless stated otherwise, we use the parameters shown in the top-left. In the top plot, the different colours correspond to different values of $\alpha$, in the middle plot they correspond to different values of $k_y$ and in the bottom plot they correspond to different values of $k_{||-}$. If $k_x$ is to the left/right of the vertical dashed lines, then the fast waves can propagate/are evanescent for $z>0$ respectively. Similarly, if $k_x$ is to the left/right of the vertical dotted lines, the fast waves can propagate/are evanescent for $z<0$ respectively.}
+    \vspace{-10pt}
+    \caption{This figure plots the relative difference (see Equation \ref{eq:relative_difference}) introduced by using line-tied boundary conditions to estimate the size of the boundary layers as a function of $k_x$. Unless stated otherwise, we use the parameters shown in the top-left. In the top plot, the different colours correspond to different values of $\alpha$, in the middle plot they correspond to different values of $k_y$ and in the bottom plot they correspond to different values of $k_{||-}$. If $k_x$ is to the left/right of the vertical dashed lines, then the fast waves can propagate/are evanescent for $z>0$ respectively. Similarly, if $k_x$ is to the left/right of the vertical dotted lines, the fast waves can propagate/are evanescent for $z<0$ respectively. The code used to make this figure is available on GitHub in the following directory:\newline
+    \href{https://github.com/aleksyprok/apkp_thesis/blob/main/Python/Chapter4/fast_wave_error_vs_kx.py}{$\rightarrow$ Python/Chapter4/fast\_wave\_error\_vs\_kx.py}}
     \label{fig:fast_wave_error_vs_kx}
+    \vspace{-20pt}
 \end{figure}
 
-We have seen that depending on the value of $k_x$, our models can sometimes agree on the evanescent fast waves' amplitude and sometimes disagree strongly. Our goal now is to quantify how well the model with line-tied boundary conditions approximates the amplitude of the evanescent fast wave/boundary layer as a function of $k_x$, for the parameter space given by Equations \ref{eq:parm_space_1} - \ref{eq:parm_space_4}. Figure \ref{fig:fast_wave_error_vs_kx} plots the relative difference, given by,
+We have seen that depending on the value of $k_x$, our models can sometimes agree on the evanescent fast waves' amplitude and sometimes disagree strongly. Our goal now is to quantify how well the model with line-tied boundary conditions approximates the amplitude of the evanescent fast wave/boundary layer as a function of $k_x$, for the parameter space given by Equations \eqref{eq:parm_space_1}-\eqref{eq:parm_space_4}. Figure \ref{fig:fast_wave_error_vs_kx} plots the relative difference, given by,
 \begin{equation}
     \label{eq:relative_difference}
     \text{relative difference} = \abs{\frac{u_{\perp3} - u_{\perp 3+}}{u_{\perp 3+}}},
 \end{equation}
-where $u_{\perp3}$ gives the amplitude of the fast wave component of $u_\perp$ at $z=0$ in the model where line-tied boundary conditions are imposed and $u_{\perp 3+}$ gives the amplitude in the model where a piecewise constant background Alfv\'en speed is used. Equations \eqref{eq:ux_u_perp}, \eqref{eq:bx_u_perp}, \eqref{eq:b_perp_u_perp}, \eqref{eq:b_par_u_perp} show that $u_{xn}$, $b_{xn}$, $b_{\perp n}$, $b_{|| n}$ are equal to scalar multiples of $u_{\perp n}$, similarly, Equations \eqref{eq:ux_pm_u_perp_pm}, \eqref{eq:bx_pm_u_perp_pm}, \eqref{eq:b_perp_pm_u_perp_pm}, \eqref{eq:b_par_pm_u_perp_pm} show that $u_{xn+}$, $b_{xn+}$, $b_{\perp n+}$, $b_{|| n+}$ are equal to scalar multiples of $u_{\perp n+}$, therefore,
+where $u_{\perp3}$ gives the amplitude of the fast wave component of $u_\perp$ at $z=0$ in the model where line-tied boundary conditions are imposed and $u_{\perp 3+}$ gives the amplitude in the model where a piecewise constant background Alfv\'en speed is used. Equations \eqref{eq:uxn_oblique_field_uniform_density}, \eqref{eq:bxn_oblique_field_uniform_density}, \eqref{eq:b_perp_n_oblique_field_uniform_density}, \eqref{eq:chap_4_uniform_density_b_par0} show that $u_{xn}$, $b_{xn}$, $b_{\perp n}$, $b_{|| n}$ are equal to scalar multiples of $u_{\perp n}$, similarly, Equations \eqref{eq:uxn_pm_oblique_field_piecewise_constant_density}, \eqref{eq:bxn_pm_oblique_field_piecewise_constant_density}, \eqref{eq:b_perp_n_pm_oblique_field_piecewise_constant_density}, \eqref{eq:b_par_n_pm} show that $u_{xn+}$, $b_{xn+}$, $b_{\perp n+}$, $b_{|| n+}$ are equal to the same scalar multiples of $u_{\perp n+}$ respectively (for $k_{||+}=k_{||0}$). Therefore,
 \begin{equation}
     \abs{\frac{u_{\perp3} - u_{\perp 3+}}{u_{\perp +}}} = \abs{\frac{u_{x3} - u_{x 3+}}{u_{x 3+}}} = ... = \abs{\frac{b_{||3} - b_{|| 3+}}{b_{|| 3+}}}.
 \end{equation}
@@ -968,6 +975,43 @@ and the dotted lines show where
 where we assume $k_y$ satisfies Equation \eqref{eq:parm_space_ky}.
 If $k_x$ is to the right of these vertical lines, then the fast waves are evanescent, and if $k_x$ is to the left, then the fast waves can propagate. The plots show that the relative difference between the models is dependent on whether the fast waves are evanescent or propagating. If $k_x \gg k_{||-}$, then the models show poor agreement and the model with line-tied boundary conditions overestimates the size of the boundary layers. On the other hand, if $k_x \ll k_{||-}$
 then the models show good agreement.
+
+Since $k_{||-}\gg k_{||+}$ it is not clear if $k_x \gg k_{||-}$, even if the waves undergo resonant absorption. Our goal now is to check if it is possible for $k_x\gg k_{||-}$ in the corona by calculating the steady-state wavenumber, $k_x^*$, for driven standing phase-mixed Alfv\'en waves in a viscous and resistive domain (note that waves during resonant absorption undergo a similar phase-mixing process). In Section \ref{sec:chap_3_open_loop} we showed $k_x^*$ is given by
+\begin{equation}
+    \tag{\ref{eq:kx_star}}
+\begin{aligned}
+    k_x^* &= \qty[\frac{6\omega}{(\eta+\nu)a}]^{1/3} \\
+    &\approx 1.82 \times10^{-3} \qty[\qty(\frac{\omega}{10^{-2}\si{.s^{-1}}})\qty(\frac{10\si{.m^2.s^{-1}}}{\eta+\nu})\qty(\frac{10^6\si{.m}}{a})]^{1/3}
+\end{aligned}
+\end{equation}
+for typical coronal values, where $\eta+\nu$ denotes the sum of the magnetic diffusivity and kinematic viscosity coefficients and $a$ is given by
+\begin{equation}
+    \tag{\ref{eq:length_scale_alfven_travel_time}}
+    a(x) = \frac{v_A(x)}{\dv*{v_A}{x}},
+\end{equation}
+The Alfv\'en wavenumber parallel to the background magnetic field in the chromosphere, $k_{||-}$, is given by
+\small
+\begin{equation}
+    \label{eq:k_par-_typical_values}
+    k_{||-} = 10^{-5}\qty(\frac{\omega}{10^{-2}\si{.s^{-1}}})\qty(\frac{10^3\si{.m.s^{-1}}}{v_{A-}})\si{.m^{-1}}.
+\end{equation}
+\normalsize
+for typical values. Comparing Equations \eqref{eq:kx_star} and \eqref{eq:k_par-_typical_values}, they show that $k_x^*$ can greatly exceed $k_{||-}$ for waves undergoing resonant absorption in the corona. However, it takes time for waves to phase-mix to such short length scales. Therefore, for early times $k_x\ll k_{||-}$ is valid and after the waves have sufficiently phase-mixed $k_x \gg k_{||+}$ is valid. 
+
+\subsection{Asymptotic expansion: Case where \texorpdfstring{$k_{||+} \ll k_x\ll k_{||-}$}{kx||+ << kx << k||-}}
+
+Our goal now is to calculate the asymptotic expansions for the cases where $k_{||+} \ll k_x\ll k_{||-}$ and $k_{||-}$, $k_{||+} \ll k_x$ separately. In this section we calculate the asymptotic expansions for the case where $k_{||+} \ll k_x\ll k_{||-}$ and in the next section we calculate the solution for the case where $k_{||-}$, $k_{||+} \ll k_x$. Our line-tied boundary condition solutions from Section \ref{sec:oblique_field_uniform_density_profile_with_line_tied_bcs} provide a good approximation for the case where $k_x \ll k_{||-}$ as imposing line-tied boundary conditions is equivalent to modelling the chromospehre as infinitely denser than the corona which causes $k_{||-}\rightarrow \infty$.
+
+To simplify the notation, let
+\begin{gather}
+    \epsilon_- = \frac{k_x}{k_{||-}}, \\
+    \epsilon_+ = \frac{k_{||+}}{k_x}.
+\end{gather}
+To assist with the algebra we use a maple file which can found on Github in the following directory
+\[\text{}\]
+
+
+\subsection{Asymptotic expansion: Case where \texorpdfstring{$k_{||-}$, $k_{||+} \ll k_x$}{k||-, k||+ << kx}}
 
 Our goal now is to calculate asymptotic expansions for $k_x\rightarrow\infty$ to test if the boundary layers observed in the previous section still form without line-tied boundary conditions. Using the Maple file above we calculate the leading order asymptotic expansions for the $u_x$ coefficients as
 \begin{gather}
