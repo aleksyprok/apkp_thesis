@@ -127,11 +127,11 @@ n = 1
 
 ax = fig.add_subplot(421)
 ax.plot(z, phi(z,n))
-ax.set_title(r'$\phi_1(z)\ \slash\ \left(\sqrt{L_z}\, /\, v_{A+}\right)$')
+ax.set_title(r'$\phi_1(z)$')
 
 ax = fig.add_subplot(422)
 ax.plot(z, varphi(z,n), 'tab:orange')
-ax.set_title(r'$\varphi_1(z)\ \slash\ \left(\sqrt{L_z}\, /\, v_{A+}\right)$')
+ax.set_title(r'$\varphi_1(z)$')
 
 n = 2
 
@@ -141,18 +141,18 @@ ax.set_title(r'$\phi_2(z)\ \slash\ \left(\sqrt{L_z}\, /\, v_{A+}\right)$')
 
 ax = fig.add_subplot(424)
 ax.plot(z, varphi(z,n), 'tab:orange')
-ax.set_title(r'$\varphi_2(z)\ \slash\ \left(\sqrt{L_z}\, /\, v_{A+}\right)$')
+ax.set_title(r'$\varphi_2(z)$')
 
 n = 3
 
 ax = fig.add_subplot(425)
 ax.plot(z, phi(z,n))
-ax.set_title(r'$\phi_3(z)\ \slash\ \left(\sqrt{L_z}\, /\, v_{A+}\right)$')
+ax.set_title(r'$\phi_3(z)$')
 ax.set_xlabel(r'$z / L_z$')
 
 ax = fig.add_subplot(426)
 ax.plot(z, varphi(z,n), 'tab:orange')
-ax.set_title(r'$\varphi_3(z)\ \slash\ \left(\sqrt{L_z}\, /\, v_{A+}\right)$')
+ax.set_title(r'$\varphi_3(z)$')
 ax.set_xlabel(r'$z / L_z$')
 
 ax = fig.add_subplot(427)
@@ -191,6 +191,6 @@ ax.annotate(r'$n=4$', xy = (5, 1.3), xytext = (5.5, 1.3),
 ax.annotate(r'$n=5$', xy = (5, 1.7), xytext = (5.5, 1.7),
             arrowprops = dict(arrowstyle="->"))
 
-fig.savefig('temp_figures/eigenfunctions_and_eigenfrequencies.png', bbox_inches = 'tight', dpi=150)
+fig.savefig('temp_figures/eigenfunctions_and_eigenfrequencies.pdf', bbox_inches = 'tight')
 
 plt.show(block = False)
