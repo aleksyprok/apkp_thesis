@@ -26,3 +26,4 @@ nu = eta1 / rho
 
 print("{:1.2E}".format(nu))
 print("{:1.2E}".format(n_new))
+print("{:1.2E}".format(omega_tau))
