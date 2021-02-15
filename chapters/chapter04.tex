@@ -7,7 +7,7 @@ Resonant absorption is a process where magnetoacoustic waves mode convert to Alf
     \centering
     \vspace{-20pt}
     \includegraphics[width = 0.6\textwidth]{figures/chapter04/bartons_pendulums.png}
-    \vspace{-15pt}
+    \vspace{-10pt}
     \caption{A diagram of the Barton's pendulums experiment (courtesy Wikipedia).}
     \vspace{-10pt}
     \label{fig:bartons_pendulums}
@@ -551,11 +551,11 @@ These boundary conditions ensure that $u_{xn}=u_{yn}=\hat{b}_{zn}=0$, $\forall n
 
 \begin{figure}
     \centering
-    \vspace{-30pt}
-    \includegraphics[width=\textwidth,height=0.85\textheight,keepaspectratio]{figures/chapter04/normal_mode_along_x_alpha=0.pdf}
+    \vspace{-20pt}
+    \includegraphics[width=\textwidth,height=0.92\textheight,keepaspectratio]{figures/chapter04/normal_mode_along_x_alpha=0.pdf}
     \vspace{-10pt}
     \caption{This figure shows the real and imaginary parts of $u_{x1}(x)$, $u_{y1}(x)$, as well as the Poynting flux, $\langle S_{x1}\rangle$ as a function of $x$. The bottom-right shows the maximum relative error between the numerical and analytic solutions for $u_x$ against $\omega_i$ (see Equation \ref{eq:chap_4_max_relative_ux_error}). We calculated the blue curves numerically and calculated the orange curves analytically. Note that the Poynting flux is normalised by the absolute value of the jump, $\abs{\langle\Delta S_{x1}\rangle}$, from Equation \eqref{eq:chap_4_jump_in_poynting_flux}. The code used to make this figure is available on GitHub in the following directory:\newline
-    \texttt{$\rightarrow$ Python/Chapter4/normal\_mode\_along\_x\_alpha=0.py}}
+    \href{https://github.com/aleksyprok/apkp_thesis/blob/main/Python/Chapter4/normal_mode_along_x_alpha\%3D0.py}{$\rightarrow$ Python/Chapter4/normal\_mode\_along\_x\_alpha=0.py}}
     \vspace{-20pt}
     \label{fig:normal_mode_along_x_alpha=0}
 \end{figure}
@@ -724,7 +724,7 @@ To help visualise the solutions and to check $u_x=u_\perp=0$ at $z=0$ we plot th
 \begin{figure}
     \centering
     \vspace{-20pt}
-    \includegraphics[width=\textwidth,height=0.9\textheight,keepaspectratio]{figures/chapter04/uniform_density_profile.pdf}
+    \includegraphics[width=\textwidth,height=0.95\textheight,keepaspectratio]{figures/chapter04/uniform_density_profile.pdf}
     \vspace{-10pt}
     \caption{This figure shows plots of the real and imaginary parts of $u_x$, $u_\perp$, $b_x$, $b_\perp$ and $b_{||}$ as a function of $z$. We calculated the solutions using Equations \eqref{eq:chap_4_uniform_density_full_soln}-\eqref{eq:chap_4_uniform_density_b_par0}. The code used to make this figure is available on GitHub in the following directory:\newline
     \href{https://github.com/aleksyprok/apkp_thesis/blob/main/Python/Chapter4/uniform_density_profile.py}{$\rightarrow$ Python/Chapter4/uniform\_density\_profile.py}}
@@ -914,7 +914,7 @@ From Equations \eqref{eq:chap_4_bx_eqn1}, \eqref{eq:chap_4_b_perp_eqn1} and \eqr
 \begin{figure}
     \centering
     \vspace{-20pt}
-    \includegraphics[width=\textwidth,height=0.85\textheight,keepaspectratio]{figures/chapter04/piecewise_constant_density_profile.pdf}
+    \includegraphics[width=\textwidth,height=0.94\textheight,keepaspectratio]{figures/chapter04/piecewise_constant_density_profile.pdf}
     \vspace{-10pt}
     \caption{This figure shows plots of the velocity $u_x$, $u_\perp$ and their $z$-derivatives as a function of $z$ at $x=y=t=0$. It shows that the velocities and their $z$-derivatives are continuous. The bottom row shows the Alfv\'en wave and fast components of $u_x$ separately, where the Alfv\'en wave component have wavenumbers $k_{z1\pm}$, $k_{z2\pm}$ and the fast wave component have wavenumbers $k_{z3\pm}$, $k_{z4\pm}$. The code used to make this figure is available on GitHub in the following directory:\newline
     \href{https://github.com/aleksyprok/apkp_thesis/blob/main/Python/Chapter4/piecewise_constant_density_profile.py}{$\rightarrow$ Python/Chapter4/piecewise\_constant\_density\_profile.py}}
@@ -927,7 +927,7 @@ To help check that solutions to the matrix above do indeed ensure continuity of 
 \begin{figure}
     \centering
     \vspace{-20pt}
-    \includegraphics[width=\textwidth,height=0.8\textheight,keepaspectratio]{figures/chapter04/piecewise_constant_vs_uniform_real_part.pdf}
+    \includegraphics[width=\textwidth,height=0.9\textheight,keepaspectratio]{figures/chapter04/piecewise_constant_vs_uniform_real_part.pdf}
     \vspace{-10pt}
     \caption{This figure shows plots of the real part of $u_x$ (top row), $u_\perp$ (middle row) and $\hat{b}_{||}$ (bottom row) at $x=y=t=0$ as a function of $z$ for $k_x=10k_{||+}$ (left column) and $k_x = 1000k_{||+}$ (right column). The case where the background Alfv\'en speed is uniform and line-tied boundary conditions is imposed is shown in blue and the case where the Alfv\'en speed is piecewise constant and continuity of $\vec{u}$ is imposed is shown in dashed orange. A description of this figure is continued in the caption of Figure \ref{fig:piecewise_constant_vs_uniform_imag_part}. The code used to make this figure and Figure \ref{fig:piecewise_constant_vs_uniform_imag_part} is available on GitHub in the following directory:\newline
     \href{https://github.com/aleksyprok/apkp_thesis/blob/main/Python/Chapter4/piecewise_constant_vs_uniform.py}{$\rightarrow$ Python/Chapter4/piecewise\_constant\_vs\_uniform.py}}
@@ -938,9 +938,9 @@ To help check that solutions to the matrix above do indeed ensure continuity of 
 \begin{figure}
     \centering
     \vspace{-20pt}
-    \includegraphics[width=\textwidth,height=0.8\textheight,keepaspectratio]{figures/chapter04/piecewise_constant_vs_uniform_imag_part.pdf}
+    \includegraphics[width=\textwidth,height=0.9\textheight,keepaspectratio]{figures/chapter04/piecewise_constant_vs_uniform_imag_part.pdf}
     \vspace{-10pt}
-    \caption{This figure is similar to Figure \ref{fig:piecewise_constant_vs_uniform_real_part} except it plots the imaginary part of each variable instead. The blue and orange curves show good agreement in the left-hand column for both figures. The small differences occur due to the waves represented by the blue curves undergoing perfect reflection and the orange waves undergoing imperfect reflection at $z=0$. The right-hand column shows less agreement between the plots, and this is because the fast waves are evanescent, whereas in the left-column the fast waves can propagate for $z<0$. Equations  \eqref{eq:uniform_alfven_wave_asymptotic_expansion_1}-\eqref{eq:uniform_fast_wave_asymptotic_expansion_2} and \eqref{eq:piecewise_alfven_wave_asymptotic_expansion_1}-\eqref{eq:piecewise_fast_wave_asymptotic_expansion_2} show that the fast wave terms in the blue solutions are of a higher order than the orange solutions.}
+    \caption{This figure is similar to Figure \ref{fig:piecewise_constant_vs_uniform_real_part} except it plots the imaginary part of each variable instead. The blue and orange curves show good agreement in the left-hand column for both figures. The small differences occur due to the blue curves' waves undergoing perfect reflection and the orange waves undergoing imperfect reflection at $z=0$. The right-hand column shows less agreement between the plots, and this is because the fast waves are evanescent, whereas in the left-column the fast waves can propagate for $z<0$. Equations  \eqref{eq:uniform_alfven_wave_asymptotic_expansion_1}-\eqref{eq:uniform_fast_wave_asymptotic_expansion_2} and \eqref{eq:piecewise_alfven_wave_asymptotic_expansion_1}-\eqref{eq:piecewise_fast_wave_asymptotic_expansion_2} show that the fast wave terms in the blue solutions are of a higher order than the orange solutions.}
     \label{fig:piecewise_constant_vs_uniform_imag_part}
     \vspace{-20pt}
 \end{figure}
@@ -949,8 +949,8 @@ Equations \eqref{eq:oblique_field_piecewise_constant_summation}-\eqref{eq:b_par_
 
 \begin{figure}
     \centering
-    \vspace{-20pt}
-    \includegraphics[width=\textwidth,height=0.8\textheight,keepaspectratio]{figures/chapter04/fast_wave_error_vs_kx.pdf}
+    \vspace{-25pt}
+    \includegraphics[width=\textwidth,height=0.89\textheight,keepaspectratio]{figures/chapter04/fast_wave_error_vs_kx.pdf}
     \vspace{-10pt}
     \caption{This figure plots the relative difference (see Equation \ref{eq:relative_difference}) introduced by using line-tied boundary conditions to estimate the size of the boundary layers as a function of $k_x$. Unless stated otherwise, we use the parameters shown in the top-left. In the top plot, the different colours correspond to different values of $\alpha$, in the middle plot they correspond to different values of $k_y$ and in the bottom plot they correspond to different values of $k_{||-}$. If $k_x$ is to the left/right of the vertical dashed lines, then the fast waves can propagate/are evanescent for $z>0$ respectively. Similarly, if $k_x$ is to the left/right of the vertical dotted lines, the fast waves can propagate/are evanescent for $z<0$ respectively. The code used to make this figure is available on GitHub in the following directory:\newline
     \href{https://github.com/aleksyprok/apkp_thesis/blob/main/Python/Chapter4/fast_wave_error_vs_kx.py}{$\rightarrow$ Python/Chapter4/fast\_wave\_error\_vs\_kx.py}}
@@ -1385,7 +1385,7 @@ Hence,
 \begin{figure}
     \centering
     \vspace{-20pt}
-    \includegraphics[width=\textwidth,height=0.9\textheight,keepaspectratio]{figures/chapter04/eigenfunctions_and_eigenfrequencies.pdf}
+    \includegraphics[width=\textwidth,height=0.95\textheight,keepaspectratio]{figures/chapter04/eigenfunctions_and_eigenfrequencies.pdf}
     \vspace{-10pt}
     \caption{The 1\textsuperscript{st}, 2\textsuperscript{nd} and 3\textsuperscript{rd} rows of this Figure show the 1\textsuperscript{st}, 2\textsuperscript{nd} and 3\textsuperscript{rd} eigenfunctions, $\phi_n(z)$, $\varphi_n(z)$, respectively, where $v_{A-}=v_{A+}/5$. In the bottom-left plot we show the first 5 eigenfrequencies, $\omega_n$, $\varpi_n$ as a function of $v_{A+} / v_{A-}$. The code we used to make this figure is available on GitHub in the following directory:\newline
     \href{https://github.com/aleksyprok/apkp_thesis/blob/main/Python/Chapter4/eigenfunction_eigenfrequency_plots.py}{$\rightarrow$ Python/Chapter4/eigenfunction\_eigenfrequency\_plots.py}}
@@ -1771,8 +1771,8 @@ To calculate $u_{xn}^{(1)}(x_{min})$, $u_{xn}^{(2)}(x_{min})$, $b_{||n}^{(1)}(x_
 
 \begin{figure}
     \centering
-    \vspace{-20pt}
-    \includegraphics[width=\textwidth,height=0.8\textheight,keepaspectratio]{figures/chapter04/oblique_field_spectral_method_along_x.pdf}
+    \vspace{-25pt}
+    \includegraphics[width=\textwidth,height=0.91\textheight,keepaspectratio]{figures/chapter04/oblique_field_spectral_method_along_x.pdf}
     \vspace{-10pt}
     \caption{This figure shows plots of the real and imaginary parts of $u_x'$ (top row), $u_\perp'$ (middle row) and $\langle S_x' \rangle$ (bottom left) as a function of $x$ at $z=l_z$. We calculated the blue curves numerically and the orange curves plot Equations \eqref{eq:chap_4_oblique_u_perp_final}, \eqref{eq:chap_4_oblique_ux_final} and \eqref{eq:oblique_field_poy_flux_ana}. The bottom right plot shows the relative error between the numerical and analytic solutions for $u_x$ as a function of $\omega_i / \omega_r$. The velocity curves are normalised by $u_0$ which gives the amplitude of $u_\perp$ at $x=0$. The Poynting flux is normalised by $\abs{\langle \Delta S_x' \rangle}$ at $z=l_z$ (see Equation \eqref{eq:chap_4_jump_in_poy_flux}). The code used to make this figure is available on GitHub in the following directory:\newline
     \href{https://github.com/aleksyprok/apkp_thesis/blob/main/Python/Chapter4/spectral_code/line_along_x.py}{$\rightarrow$ Python/Chapter4/spectral\_code/line\_along\_x.py}}
@@ -1783,7 +1783,7 @@ To calculate $u_{xn}^{(1)}(x_{min})$, $u_{xn}^{(2)}(x_{min})$, $b_{||n}^{(1)}(x_
 \begin{figure}
     \centering
     \vspace{-20pt}
-    \includegraphics[width=\textwidth,height=0.9\textheight,keepaspectratio]{figures/chapter04/oblique_field_spectral_method_along_z.pdf}
+    \includegraphics[width=\textwidth,height=0.95\textheight,keepaspectratio]{figures/chapter04/oblique_field_spectral_method_along_z.pdf}
     \vspace{-10pt}
     \caption{This figure is similar to Figure \ref{fig:oblique_field_spectral_method_along_x} except it plots the variables as function of $z$ at $x=0$ instead. The code used to make this figure is available on GitHub in the following directory:\newline
     \href{https://github.com/aleksyprok/apkp_thesis/blob/main/Python/Chapter4/spectral_code/line_along_z.py}{$\rightarrow$ Python/Chapter4/spectral\_code/line\_along\_z.py}}
@@ -1813,11 +1813,11 @@ After that, we tested the validity of line-tied boundary conditions by checking 
 \[k_x \le \Re(\sqrt{k_{||-}^2 - k_y^2}).\]
 However, if the fast waves are evanescent in the chromosphere, i.e. 
 \[k_x \ge \Re(\sqrt{k_{||-}^2 - k_y^2}).\]
-then line-tied boundary conditions will overestimate the size of the boundary layers by a factor of the order $k_x / k_{||-}$. If $k_x\gg k_{||-}$ then Equations \eqref{eq:oblique_field_uniform_in_x_ux10-}-\eqref{eq:oblique_field_uniform_in_x_b_par30+} approximate the solution, however, if $k_{||+} \ll k_x\ll k_{||-}$ then the line-tied solutions (Equations \ref{eq:chap_4_oblique_ux1}-\ref{eq:chap_4_oblique_b_par3}) provide a better approximation. We estimated that if the Alfv\'en waves are able to phase-mix to the shortest length scales allowed by the resistivity and viscosity in the corona then the $k_x\gg k_{||-}$ is usually most appropriate limit. However, during the early stages, before the waves have phase-mixed, $k_x\ll k_{||-}$ is the most valid limit.
+then line-tied boundary conditions will overestimate the size of the boundary layers by a factor of the order $k_x / k_{||-}$. If $k_x\gg k_{||-}$ then Equations \eqref{eq:oblique_field_uniform_in_x_ux10-}-\eqref{eq:oblique_field_uniform_in_x_b_par30+} approximate the solution, however, if $k_{||+} \ll k_x\ll k_{||-}$ then the line-tied solutions (Equations \ref{eq:chap_4_oblique_ux1}-\ref{eq:chap_4_oblique_b_par3}) provide a better approximation. We estimated that if the Alfv\'en waves are able to phase-mix to the shortest length scales allowed by the resistivity and viscosity in the corona then the $k_x\gg k_{||-}$ is usually most appropriate limit. However, during the early stages, before the waves have phase-mixed, $k_x\ll k_{||-}$ is the most valid limit. Future work could investigate the solutions with an exponential background density instead of our piecewise-constant background density. This may allow us to calculate a condition which $k_x$ must satisfy which is dependent on the pressure scale height rather than on $k_{||-}$.
 
 The results from Section \ref{sec:oblique_field_piecewise_constant_density_profile} suggest that the fast wave component of the velocity should go to zero near singular locations in a resonant absorption experiment since $k_x\rightarrow \infty$ approaching the singularity. In the final section (Section \ref{sec:oblique_field_resonant_absorption}), we tested this by calculating the normal mode resonant absorption solution in a domain where the background Alfv\'en speed is a function of $x$ and piecewise constant in $z$. We used periodic boundary condition in $z$ for convenience and because this simulates a loop which goes from the corona to the chromosphere then back to the corona and so on. In Section \ref{sec:oblique_field_resonant_absorption_analytic_soln} we calculated the leading order singular solutions near a resonant location analytically. In Section \ref{fig:oblique_field_spectral_method_along_z} and \ref{fig:oblique_field_spectral_method_along_x} we plot the analytic and numerical solutions together and show that they agree. We verified that to leading order, $u_x$ and $u_\perp$ do not contain any boundary layers near the singularity. This confirms that imposing line-tied boundary conditions can cause the model to significantly overestimate the boundary layers' amplitude. However, in Section \ref{sec:oblique_field_piecewise_constant_density_profile} we showed as $k_x\rightarrow\infty$ the amplitude of the boundary layers does not increase. This suggests that the boundary layers have a limited effect on the rate at which the resonant absorption occurs. Moreover, since the boundary layers are evanescent, they cannot directly transport energy away.
 
-In conclusion, Alfv\'en waves will (in general) mode convert to form fast waves at the transition region. The fast waves can be evanescent or can propagate depending on the value of $\vec{k}\vdot\vec{k} - \omega^2$. We have demonstrated that line-tied boundary conditions can be more problematic than many authors realise. If $k_x$ grows large enough such that it causes the fast waves in the chromosome to be evanescent, then the line-tied model will fail to reduce the boundary layer's size accurately. We believe that few authors are aware of this because it is quite counter-intuitive that $k_x$ (which gives the length-scales in a direction tangential to the chromosphere/corona interface) can be important in determining the validity of line-tied boundary conditions. Increasing $k_x$ can result in the line-tied model greatly overestimating the boundary layer's amplitude by approximately a factor $k_x / k_{||-}$. With that in mind, we believe authors should continue to use line-tied boundary conditions for their simplicity and ability to reduce computation time, provided that their flaws are understood. For example, we have shown that line-tied boundary conditions provide a good approximation (with an error of the order $v_{A-}/v_{A+}$) if the fast waves can propagate in the chromosphere. If the fast waves are evanescent in the chromosphere, then line-tied boundary conditions are less useful. However, sometimes this won't be important. For example, when studying energetics, as the boundary layers are evanescent and cannot transport energy away. Moreover, we showed in Section \ref{sec:oblique_field_uniform_density_profile_with_line_tied_bcs} that their energy does not grow as $k_x\rightarrow \infty$.
+In conclusion, Alfv\'en waves will (in general) mode convert to form fast waves at the transition region. The fast waves can be evanescent or can propagate depending on the value of $\vec{k}\vdot\vec{k} - \omega^2/v_A^2$. We have demonstrated that line-tied boundary conditions can be more problematic than many authors realise. If $k_x$ grows large enough such that it causes the fast waves in the chromosome to be evanescent, then the line-tied model will fail to reduce the boundary layer's size accurately. We believe that few authors are aware of this because it is quite counter-intuitive that $k_x$ (which gives the length-scales in a direction tangential to the chromosphere/corona interface) can be important in determining the validity of line-tied boundary conditions. Increasing $k_x$ can result in the line-tied model greatly overestimating the boundary layer's amplitude by approximately a factor $k_x / k_{||-}$. With that in mind, we believe authors should continue to use line-tied boundary conditions for their simplicity and ability to reduce computation time, provided that their flaws are understood. For example, we have shown that line-tied boundary conditions provide a good approximation (with an error of the order $v_{A-}/v_{A+}$) if the fast waves can propagate in the chromosphere. If the fast waves are evanescent in the chromosphere, then line-tied boundary conditions are less useful. However, sometimes this won't be important. For example, when studying energetics, as the boundary layers are evanescent and cannot transport energy away. Moreover, we showed in Section \ref{sec:oblique_field_uniform_density_profile_with_line_tied_bcs} that their energy does not grow as $k_x\rightarrow \infty$.
 
 % The primary aim of this chapter is to test if line-tied boundary conditions cause unphysically large boundary layers/evanescent fast waves to form in resonant absorption experiments. To test this, Section \ref{sec:oblique_field_uniform_density_profile_with_line_tied_bcs} calculated the solutions with line-tied boundary conditions imposed and Section \ref{sec:oblique_field_piecewise_constant_density_profile} calculated the solutions with the chromosphere included in the model instead. We compared results from both sections and found that the boundary layers only appear in the leading order solution for $u_x$ in the model with line-tied boundary conditions, they are absent if the chromosphere is included.
 % This shows that imposing line-tied boundary condition causes the model to overestimate significantly the amplitude of the evanescent fast waves/boundary layers. Note that Sections \ref{sec:oblique_field_uniform_density_profile_with_line_tied_bcs} and \ref{sec:oblique_field_piecewise_constant_density_profile} used a background Alfv\'en speed which did not depend on $x$ so resonant absorption could not occur. However, we simulated the conditions near a singularity in a resonant absorption experiment by imposing very short length scales in $x$. To help verify the conclusions made from Section \ref{sec:oblique_field_uniform_density_profile_with_line_tied_bcs} and \ref{sec:oblique_field_piecewise_constant_density_profile} we used an Alfv\'en speed which depended on $x$ in Section \ref{sec:oblique_field_resonant_absorption}. This enabled resonant absorption to occur and we confirmed that near the singularity the boundary layers are absent in the solution for $u_x$ and $u_\perp$ to leading order. We believe line-tied boundary conditions are useful for their simplicity and convenience, provided their flaws and limitations are understood.

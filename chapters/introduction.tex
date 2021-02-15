@@ -5,7 +5,7 @@
 
 The Sun is the brightest and most energetic object in the solar system. Despite it being $1.5\times10^8\si{.km}$ away, our understanding of how it works has dramatically improved over the last century. Solar physics has played a vital role in some of the most important discoveries of the last century. For example, before the 20th century, the fuel source for the Sun was a complete mystery. It was not until the early 20th century that Hydrogen's fusion into Helium was first proposed as the dominant process that powers the stars. More recently, the solar neutrino problem was solved due to developments in particle and quantum physics. The solar neutrino problem concerned a large discrepancy between solar neutrinos' flux as predicted from the Sun's luminosity and measured directly. The difference was first observed in the mid-1960s and finally resolved around 2002. Another fundamental discovery was the derivation of the MHD equations (see Section \ref{sec:mhd equations}) which combines the equation of fluid dynamics with electromagnetism. These equations enable the plasma, which makes up the Sun to be modelled and played a key role in allowing Eugene Parker to predict the solar wind's existence in 1957. The MHD equations are also currently being used to develop space weather prediction models to give early warnings of dangerous flares and coronal mass ejections, see for example, \citet{Feynman2000}.
 
-Over recent decades, due to improvements in our observational instruments, we are now able to measure wave amplitudes and frequencies in the solar atmosphere directly. This thesis focuses on studying linear magneto-kinetic waves in the solar atmosphere. Improving our understanding of these waves could lead to coronal seismology developments. It may help solve one of the biggest problems in solar physics, namely, the coronal heating problem (see Section \ref{sec:coronal_heating_problem}). Coronal seismology is a technique where mathematical models are used to infer hard to measure quantities, e.g. the coronal magnetic field strength or density gradients from easier to measure quantities, e.g. wave frequencies and damping time. We take a theoretical, as opposed to an observational approach to build our simple models. We calculate analytic solutions which we verify numerically. Most of the code used for this thesis, including Latex files, is available on GitHub via the following URL:
+Over recent decades, due to improvements in our observational instruments, we are now able to measure wave amplitudes and frequencies in the solar atmosphere directly. This thesis focuses on studying linear magneto-kinetic waves in the solar atmosphere. Improving our understanding of these waves could lead to coronal seismology developments. It may help solve one of the biggest problems in solar physics, namely, the coronal heating problem (see Section \ref{sec:coronal_heating_problem}). Coronal seismology is a technique where mathematical models are used to infer hard to measure quantities, e.g. the coronal magnetic field strength or density gradients from easier to measure quantities, e.g. wave frequencies and damping time. We take a theoretical, as opposed to an observational approach to build our simple models. We calculate analytic solutions which we verify numerically. Most of the code used for this thesis, including LaTeX files, is available on GitHub via the following URL:
 \[\text{\href{https://github.com/aleksyprok/apkp_thesis}{https://github.com/aleksyprok/apkp\_thesis}}\]
 In this chapter, we introduce some of the solar atmosphere's critical properties relevant to this thesis. After that, we will introduce the MHD equations which allow us to model plasma dynamics we will be studying. In Section \ref{sec:mhd_waves_dispersion_relation}, we model waves in a domain where the background quantities are uniform and introduce some of the key aspects and terminology used in solar MHD wave theory. Finally, in Section \ref{sec:mhd_waves_power_spectrum}, we discuss recent observations of waves in the solar atmosphere and show how the energy distributes as a function of wave frequency.
 
@@ -23,7 +23,7 @@ The solar atmosphere refers to the outer layer of gas and plasma surrounding the
 
 \begin{figure}[!htp]
     \centering
-    \includegraphics[width=0.9\textwidth]{figures/introduction/coronal_loop_trace.jpg}
+    \includegraphics[width=\textwidth]{figures/introduction/coronal_loop_trace.jpg}
     \caption{This image of coronal loops was taken using the TRACE (Transition Region and Coronal Explorer) instrument (courtesy \citet{images_of_coronal_loops}). It shows coronal plasma at a temperature of about 1 million kelvin.}
     \label{fig:coronal_loops_trace}
 \end{figure}
@@ -855,7 +855,7 @@ v_n &= \frac{1}{N}\sum_{k=0}^{N-1}V_k\exp(2i\pi  k n / N) \\
 where
 \[t_n = n\Delta t,\]
 \[f_k = \frac{k}{N \Delta t},\]
-where $\{V_k\}$ is the discrete Fourier transform of $\{v_n\}$, given by
+and $\{V_k\}$ is the discrete Fourier transform of $\{v_n\}$, given by
 \[\begin{aligned}
 V_k&=\sum_{n=0}^{N-1}v_n\exp(-2i\pi k n / N) \\
 &=\sum_{n=0}^{N-1}v_n\exp(-2i\pi f_k t_n).
