@@ -142,6 +142,6 @@ ax.axes.set_aspect('equal')
 ax.set_title(r'$\zeta(p)$')
 ax.set_xlabel(r'$p$')
 
-fig.savefig('temp_figures/multiple_harmonics.png', bbox_inches = 'tight', dpi=150)
+fig.savefig('temp_figures/multiple_harmonics.pdf', bbox_inches = 'tight')
 
 plt.show(block = False)

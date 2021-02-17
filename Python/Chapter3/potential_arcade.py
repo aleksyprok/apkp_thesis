@@ -46,6 +46,6 @@ ax.plot(x0 / (np.pi * Lambda_B), a / Lambda_B)
 ax.set_xlabel(r'$x_0\, /\, (\pi \Lambda_B)$')
 ax.set_title(r'$a(x_0)\, /\, \Lambda_B $')
 
-fig.savefig('temp_figures/potential_arcade.png', bbox_inches = 'tight', dpi=150)
+fig.savefig('temp_figures/potential_arcade.pdf', bbox_inches = 'tight')
 
 plt.show(block = False)

@@ -106,6 +106,6 @@ ax.text(0.1, 0.1, \
 	transform=ax.transAxes)
 
 
-fig.savefig('temp_figures/closed_loop_gamma.png', bbox_inches = 'tight', dpi=150)
+fig.savefig('temp_figures/closed_loop_gamma.pdf', bbox_inches = 'tight')
 
 plt.show(block = False)

@@ -154,6 +154,6 @@ ax.text(0.5, 0.05, \
 
 
 
-fig.savefig('temp_figures/leaky_loop.png', bbox_inches = 'tight', dpi=150)
+fig.savefig('temp_figures/leaky_loop.pdf', bbox_inches = 'tight')
 
 plt.show(block = False)
