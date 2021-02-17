@@ -37,6 +37,6 @@ ax = fig.add_subplot(122)
 ax.loglog(f, P(f))
 ax.set_xlabel(r'$f\ (Hz)$')
 
-fig.savefig('temp_figures/power_spectrum_morton.png', bbox_inches = 'tight', dpi = 150)
+fig.savefig('temp_figures/power_spectrum_morton.pdf', bbox_inches = 'tight')
 
 plt.show()
