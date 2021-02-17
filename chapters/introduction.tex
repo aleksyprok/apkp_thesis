@@ -71,7 +71,7 @@ Figure \ref{fig:VAL_atmosphere} shows data from what is commonly referred to as 
 \section{Coronal heating problem}
 \label{sec:coronal_heating_problem}
 
-The chromospheric and coronal heating problem relates to the question; 'why are they so hot?' It remains one of the biggest unsolved problems in solar physics. Figure \ref{fig:VAL_atmosphere} shows that the temperature increases with distance from the photosphere in the corona and chromosphere. Looking at Figure \ref{fig:VAL_atmosphere}, two questions come to mind. Why does the temperature increase with distance away from the Sun's core? Intuitively, the temperature should decrease away from a heat source. Since the temperature is higher in the corona and chromosphere, this means that conduction is an energy loss mechanism. They are also optically thin, which means they lose more energy via radiation than they gain. So what is balancing the conductive and radiative losses in the chromosphere and corona?
+The chromospheric and coronal heating problem relates to the question; `why are they so hot?' It remains one of the biggest unsolved problems in solar physics. Figure \ref{fig:VAL_atmosphere} shows that the temperature increases with distance from the photosphere in the corona and chromosphere. Looking at Figure \ref{fig:VAL_atmosphere}, two questions come to mind. Why does the temperature increase with distance away from the Sun's core? Intuitively, the temperature should decrease away from a heat source. Since the temperature is higher in the corona and chromosphere, this means that conduction is an energy loss mechanism. They are also optically thin, which means they lose more energy via radiation than they gain. So what is balancing the conductive and radiative losses in the chromosphere and corona?
 The energy losses are balanced by converting kinetic and magnetic energy into heat via Ohmic and viscous dissipation \citep{Klimchuk2015}. However, we do not have a verified model giving a precise description of how the temperatures are maintained.
 
 Regarding the first question, we now understand why the solar atmosphere's temperature increases with distance from the Sun's core. For example, \citet{Martens2010} successfully models a similar temperature profile  (although a detailed description of the heating source is still unknown). These models use the internal energy equation with a user-defined heating function superimposed. This heating function simulates the Ohmic and viscous dissipation of magnetic and kinetic energy. They find that even if the heating function is more significant at the footpoints, their models still produce the same basic structure as the solar atmosphere. This counter-intuitive temperature profile is partly explained by the fact that for coronal/chromospheric plasma, the radiative losses can decrease with rising temperature (see for example \citealt{Klimchuck2008}).
@@ -787,6 +787,15 @@ Note that if $\omega=\pm k_z v_A$ then Equations \eqref{eq:uy0}-\eqref{eq:bz0} s
 \end{gather}
 This shows that the magnetic pressure perturbation is zero and so all the energy is contained within the magnetic tension.
 
+It is also worth noting that our Alfv\'en wave is invariant in the  $\vec{u}$-direction, in other words,
+\begin{equation}
+\begin{aligned}
+    \vec{u}\vdot\grad &= i(u_xk_x  + u_yk_y) \\
+    &= 0\ \text{(using Equation \eqref{eq:uy0_alfven}).}
+\end{aligned}
+\end{equation}
+This means the Alfv\'en wave is incompressible.
+
 \subsection{Fast waves}
 
 We define fast waves in $\beta=0$ plasma as waves with velocity amplitude, $\vec{u}$, which satisfy the classical wave equation,
@@ -809,6 +818,16 @@ Note that if $\omega=\pm v_{A0}\sqrt{k_x^2 + k_y^2 + k_z^2}$, then Equations \eq
     \hat{b}_{z0} = \mp\frac{k_x^2+k_y^2}{k_x\sqrt{k_x^2 + k_y^2 + k_z^2}}\frac{u_{x0}}{v_{A0}},
 \end{gather}
 The above equation shows that, unlike Alfv\'en waves, the magnetic pressure perturbation, $b_z$, is in general non-zero. Fast waves are oscillations in kinetic and magnetic energy, where the restoring force can be magnetic tension and the magnetic pressure. More generally, in a $\beta>0$ plasma, the plasma pressure also acts as a restoring force and contributes towards the energy associated with the fast wave.
+
+The fast wave is compressible, however, it is invariant in the $\vec{\hat{B}}_0\cross\vec{u}$, direction, in other words,
+\begin{equation}
+\begin{aligned}
+    (\vec{\hat{z}}\cross \vec{u})\vdot\grad &= (-u_y \vec{\hat{x}} + u_x \vec{\hat{y}})\vdot\grad \\
+    &= i(-u_yk_x + u_xk_y) \\
+    &= 0\ \text{(using Equation \eqref{eq:uy0_fast}).}
+\end{aligned}
+\end{equation}
+In the last section we showed that the Alfv\'en waves are invariant in the $\vec{u}$ direction. Therefore, there is always at least one invariant direction for both our fast and Alfv\'en waves.
 
 \subsection{Poynting flux}
 
@@ -896,7 +915,7 @@ where $k=0,1...,\lfloor N / 2\rfloor$. This ensures that $P_k[\{v_n\}]$ satisfie
 \begin{figure}
     \vspace{-20pt}
     \centering
-    \includegraphics[width=\textwidth]{figures/introduction/power_spectrum_morton.png}
+    \includegraphics[width=\textwidth]{figures/introduction/power_spectrum_morton.pdf}
     \vspace{-35pt}
     \caption{This figure shows the approximate power spectrum for velocity fluctuations in the corona using data from \citet{Morton2016} and an approximation used in \citet{Pagano2019}. The left-hand side uses a linear axis while the right-hand side uses a log-log axis. The code used to make this figure is available on GitHub in the following directory:\newline
     \href{https://github.com/aleksyprok/apkp_thesis/blob/main/Python/Introduction/power_spectrum.py}{$\rightarrow$ Python/Introduction/power\_spectrum.py}}
