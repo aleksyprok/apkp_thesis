@@ -46,6 +46,7 @@ R = 0.1
 ax.plot(omega / omega_1, np.real(abs_b0(omega)))
 ax.set_title(r'$|b(0,t)| / b_0$')
 ax.set_xlabel(r'$\omega / \omega_1$')
-fig.savefig('temp_figures/steady_state_soln_at_z=0.png', bbox_inches = 'tight', dpi=150)
+fig.savefig('temp_figures/steady_state_soln_at_z=0.pdf', bbox_inches = 'tight')
+
 
 plt.show(block = False)

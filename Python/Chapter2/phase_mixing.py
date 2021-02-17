@@ -103,4 +103,4 @@ ax.set_ylabel(r'$z / L_z$')
 
 fig.savefig('temp_figures/phase_mixing.png', bbox_inches = 'tight', dpi=150)
 
-plt.show(block = False)
+plt.show()

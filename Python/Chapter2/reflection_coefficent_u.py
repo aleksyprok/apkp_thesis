@@ -53,33 +53,33 @@ z = np.linspace(z_min, z_max, nz)
 U0 = np.array([u_ana(z_min), du_dz_ana(z_min)])
 sol = solve_ivp(wave_eqn, [z_min, z_max], U0, t_eval = z, rtol = 1e-5, atol = 1e-10)
 
-# fig = plt.figure()
-# fig_size = fig.get_size_inches()
-# fig_size[1] = fig_size[1] / 2
-# fig.set_size_inches(fig_size)
+fig = plt.figure()
+fig_size = fig.get_size_inches()
+fig_size[1] = fig_size[1] / 2
+fig.set_size_inches(fig_size)
 
-# ax = fig.add_subplot(121)
-# ax.plot(z * 1e-6, np.real(u_ana(z)), label = 'Analytic')
-# ax.plot(z * 1e-6, np.real(sol.y[0,:]), ':', label = 'Numerical')
-# ax.set_xlabel(r'$z\ $ (Mm)')
-# ax.set_title(r'Re$(u)$ / $u_0$')
-# handles, labels = ax.get_legend_handles_labels()
-# lgd = ax.legend(handles, labels, loc='upper center', bbox_to_anchor=(1.1,1.3))
-# ax.text(0.25, 0.35, \
-# 	'$f$ = ' + '{:1.1f}'.format(omega / (2 * np.pi)) + ' Hz' + '\n' + \
-# 	r'$v_{A0}$ = ' + '{:1.0f}'.format(vA0 / 1e6) + r' Mm$\,s^{-1}$', \
-# 	transform=ax.transAxes)
+ax = fig.add_subplot(121)
+ax.plot(z * 1e-6, np.real(u_ana(z)), label = 'Analytic')
+ax.plot(z * 1e-6, np.real(sol.y[0,:]), ':', label = 'Numerical')
+ax.set_xlabel(r'$z\ $ (Mm)')
+ax.set_title(r'Re$(u)$ / $u_0$')
+handles, labels = ax.get_legend_handles_labels()
+lgd = ax.legend(handles, labels, loc='upper center', bbox_to_anchor=(1.1,1.3))
+ax.text(0.25, 0.35, \
+	'$f$ = ' + '{:1.1f}'.format(omega / (2 * np.pi)) + ' Hz' + '\n' + \
+	r'$v_{A0}$ = ' + '{:1.0f}'.format(vA0 / 1e6) + r' Mm$\,s^{-1}$', \
+	transform=ax.transAxes)
 
-# ax = fig.add_subplot(122)
-# ax.plot(z * 1e-6, np.imag(u_ana(z)))
-# ax.plot(z * 1e-6, np.imag(sol.y[0,:]), ':')
-# ax.set_xlabel(r'$z\ $ (Mm)')
-# ax.set_title(r'Im$(u)$ / $u_0$')
-# ax.text(0.4, 0.4, \
-# 	'$h$ = ' + '{:1.0f}'.format(h / (1e3)) + ' km', \
-# 	transform=ax.transAxes)
+ax = fig.add_subplot(122)
+ax.plot(z * 1e-6, np.imag(u_ana(z)))
+ax.plot(z * 1e-6, np.imag(sol.y[0,:]), ':')
+ax.set_xlabel(r'$z\ $ (Mm)')
+ax.set_title(r'Im$(u)$ / $u_0$')
+ax.text(0.4, 0.4, \
+	'$h$ = ' + '{:1.0f}'.format(h / (1e3)) + ' km', \
+	transform=ax.transAxes)
 
-# fig.savefig('temp_figures/reflection_coefficent_u.png', bbox_inches = 'tight', dpi = 150)
+fig.savefig('temp_figures/reflection_coefficent_u.pdf', bbox_inches = 'tight')
 
 fig = plt.figure()
 fig_size = fig.get_size_inches()
@@ -113,6 +113,6 @@ ax.set_title(r'$1 - R$ ')
 handles, labels = ax.get_legend_handles_labels()
 lgd = ax.legend(handles, labels)
 
-fig.savefig('temp_figures/reflection_coefficent.png', bbox_inches = 'tight', dpi = 150)
+fig.savefig('temp_figures/reflection_coefficent.pdf', bbox_inches = 'tight')
 
 plt.show(block = False)

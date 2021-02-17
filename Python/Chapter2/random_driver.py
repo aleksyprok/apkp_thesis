@@ -143,7 +143,7 @@ ax.plot(t * omega_n, red_noise(white_noise_array, t))
 ax.set_xlabel(r'$\omega_n t$')
 ax.set_title('Red noise')
 
-fig.savefig('temp_figures/noisy_driver.png', bbox_inches = 'tight', dpi=150)
+fig.savefig('temp_figures/noisy_driver.pdf', bbox_inches = 'tight')
 
 plt.show(block = False)	
 

@@ -191,7 +191,7 @@ ax.plot(z, np.imag(b_num), '+', color = 'xkcd:orange', markevery = mk0)
 ax.set_xlabel(r'$z / L_z$')
 
 
-fig.savefig('temp_figures/steady_state_soln_along_z.png', bbox_inches = 'tight', dpi=150)
+fig.savefig('temp_figures/steady_state_soln_along_z.pdf', bbox_inches = 'tight')
 
 
 plt.show(block = False)
