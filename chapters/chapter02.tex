@@ -679,7 +679,7 @@ Equation \eqref{eq:variance_fourier}, with the coefficients above gives an  $f_n
 \begin{figure}
     \centering
     \vspace{-30pt}
-    \includegraphics[width=\textwidth,height=0.9\textheight,keepaspectratio]{figures/chapter02/noisy_driver.png}
+    \includegraphics[width=\textwidth,height=0.9\textheight,keepaspectratio]{figures/chapter02/noisy_driver.pdf}
     \vspace{-10pt}
     \caption{This figure's top row shows the normalised variance of $y_n$ and $\dot{y}_n$, where we use Newton's dot notation to denote the time derivative. They plot the exact solution and the Fourier approximations. The equations for the normalising constants, $y_{n0}$ and $\dot{y}_{n0}$ is also shown. The middle row shows the error at $t=P$ between the exact solution and the Fourier approximation as a function of the number of terms in the approximation. Finally, the bottom row illustrates an example of red and white noise. The code used to make this figure is available on GitHub in the following directory:\newline
     \href{https://github.com/aleksyprok/apkp_thesis/blob/main/Python/Chapter2/random_driver.py}{$\rightarrow$ Python/Chapter2/random\_driver.py}}
@@ -859,7 +859,7 @@ Solving the above matrix equation gives
 \begin{figure}
     \centering
     \vspace{-20pt}
-    \includegraphics[width=\textwidth]{figures/chapter02/reflection_coefficent_u.png}
+    \includegraphics[width=\textwidth]{figures/chapter02/reflection_coefficent_u.pdf}
     \vspace{-20pt}
     \caption{This figure shows the real and imaginary parts of the normal mode velocity solution. The plots compare the solution calculated using Equation \eqref{eq:reflection_coefficent_u} with the solution calculated numerically. The parameters, $f$, $v_{A0}$, $h$, are listed as well. The code used to make this figure is available on GitHub in the following directory:\newline
     \href{https://github.com/aleksyprok/apkp_thesis/blob/main/Python/Chapter2/reflection_coefficent_u.py}{$\rightarrow$ Python/Chapter2/reflection\_coefficent\_u.py}}
@@ -874,7 +874,7 @@ We used a frequency of $f=0.1\si{.Hz}$, from Figure \ref{fig:power_spectrum_mort
 \begin{figure}
     \centering
     \vspace{-20pt}
-    \includegraphics{figures/chapter02/reflection_coefficent.png}
+    \includegraphics{figures/chapter02/reflection_coefficent.pdf}
     \vspace{-20pt}
     \caption{This figure shows 1 minus the reflection coefficient, $R$, (right) for the Alfv\'en speed shown on the left. We show the full solution in blue and the approximation, given by Equation \eqref{eq:reflection_coefficent_approximation}, is shown in dotted orange. The code used to make this figure is available on GitHub in the following directory:\newline
     \href{https://github.com/aleksyprok/apkp_thesis/blob/main/Python/Chapter2/reflection_coefficent_u.py}{$\rightarrow$ Python/Chapter2/reflection\_coefficent\_u.py}}
@@ -966,7 +966,7 @@ Note that this is almost the same as Equation \eqref{eq:closed_loop_general_solu
 \begin{figure}
     \centering
     \vspace{-30pt}
-    \includegraphics[width=\textwidth,height=0.95\textheight,keepaspectratio]{figures/chapter02/leaky_pulse.png}
+    \includegraphics[width=\textwidth,height=0.95\textheight,keepaspectratio]{figures/chapter02/leaky_pulse.pdf}
     \vspace{-10pt}
     \caption{This figure plots $u$, $b$, $\mathcal{Z}^{+}$, $\mathcal{Z^{-}}$ for the case where $f_{driv}(t)$ is given by Equation \eqref{eq:f_driv_leaky_pulse} and this gives a pulse wave. Here the reflection coefficient is given by $R=0.5$. Note that $b_0$ is given by Equation \eqref{eq:b0}. The code used to make this figure is available on GitHub in the following directory:\newline
     \href{https://github.com/aleksyprok/apkp_thesis/blob/main/Python/Chapter2/leaky_pulse.py}{$\rightarrow$ Python/Chapter2/leaky\_pulse.py}}
@@ -987,7 +987,7 @@ where $t_0$ is given by Equation \eqref{eq:t0}. The reflection coefficient is gi
 \begin{figure}
     \centering
     \vspace{-30pt}
-    \includegraphics[width=\textwidth,height=0.95\textheight,keepaspectratio]{figures/chapter02/leaky_wave.png}
+    \includegraphics[width=\textwidth,height=0.95\textheight,keepaspectratio]{figures/chapter02/leaky_wave.pdf}
     \vspace{-10pt}
     \caption{This figure plots $u$, $b$, $\mathcal{Z}^{+}$, $\mathcal{Z^{-}}$ for the case where $f_{driv}(t)$ is given by Equation \eqref{eq:f_driv_leaky_wave} and this gives a continuous sinusoidal wave. Here the reflection coefficient is given by $R=0.75$. The top row show plots at $z=-l_z$ (left) and $z=l_z$ (right) and they show that the boundary conditions given by Equation \eqref{eq:bcs_elsasser} are satisfied. The code used to make this figure is available on GitHub in the following directory:\newline
     \href{https://github.com/aleksyprok/apkp_thesis/blob/main/Python/Chapter2/leaky_wave.py}{$\rightarrow$ Python/Chapter2/leaky\_wave.py}}
@@ -1046,7 +1046,7 @@ Using Equation \eqref{eq:by_eqn_linear} the magnetic field is given by
 \begin{figure}
     \centering
     \vspace{-30pt}
-    \includegraphics[width=\textwidth,height=0.95\textheight,keepaspectratio]{figures/chapter02/steady_state_soln_along_z.png}
+    \includegraphics[width=\textwidth,height=0.95\textheight,keepaspectratio]{figures/chapter02/steady_state_soln_along_z.pdf}
     \vspace{-10pt}
     \caption{This figure shows plots of the steady state velocity (left) and magnetic field (right) along $z$. In each row a different frequency driver is used. The analytic solutions (solid line) were calculated using Equations \eqref{eq:leaky_steady_state_u} and \eqref{eq:leaky_steady_state_b}. The numerical solutions (+ symbols) were calculated by solving the boundary value problem described by Equation \eqref{eq:numerical_elssasser_eqn} using \texttt{solve\_bvp} in \citet{SciPy2020}. The code used to make this figure is available on GitHub in the following directory:\newline
     \href{https://github.com/aleksyprok/apkp_thesis/blob/main/Python/Chapter2/steady_state_soln.py}{$\rightarrow$ Python/Chapter2/steady\_state\_soln.py}}
@@ -1064,7 +1064,7 @@ Note that this system of ODEs is coupled due to the boundary conditions given by
 \begin{figure}
     \centering
     \vspace{-20pt}
-    \includegraphics[width=\textwidth,height=0.9\textheight,keepaspectratio]{figures/chapter02/steady_state_soln_at_z=0.png}
+    \includegraphics[width=\textwidth,height=0.9\textheight,keepaspectratio]{figures/chapter02/steady_state_soln_at_z=0.pdf}
     \vspace{-30pt}
     \caption{This figure shows plots of the absolute value of the velocity and magnetic field at $z=0$ as a function of the driver frequency, $\omega$, for $R=0.9$, 0.5 and 0.1. The absolute values were calculated using Equations \eqref{eq:abs_leaky_steady_state_u} and \eqref{eq:abs_leaky_steady_state_b}. Note that $b_0$ is given by Equation \eqref{eq:b0}. The code used to make this figure is available on GitHub in the following directory:\newline
     \href{https://github.com/aleksyprok/apkp_thesis/blob/main/Python/Chapter2/steady_state_soln_at_z\%3D0.py}{$\rightarrow$ Python/Chapter2/steady\_state\_soln\_at\_z=0.py}}
