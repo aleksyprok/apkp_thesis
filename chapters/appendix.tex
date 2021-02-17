@@ -105,16 +105,16 @@ to $\vec{B}_0$, so if $\epsilon_1=10^{-1}$ then this corresponds to an angle of 
 \section{Dispersion relation}
 
 Our goal now is to assume the variables are the form given in Equation \eqref{eq:apdx_exp_form} to derive a dispersion relation for the waves in our model. From Equations \eqref{eq:ux_eqn1}, \eqref{eq:uy_eqn1}, \eqref{eq:uz_eqn1} and \eqref{eq:bz_eqn1} we know that
-\[\qty(v_A^2k_z^2 + i\nu_0 k_x^2 \omega  -\omega^2)u_x + i\nu_0 k_xk_y\omega u_y - 2i\nu_0 k_xk_z\omega u_z - v_A^2 k_x \omega \hat{b}_z = 0,\]
-\[i\nu_0 k_xk_y\omega u_x + \qty(v_A^2k_z^2 + i\nu_0 k_y^2 \omega  -\omega^2)u_y - 2i\nu_0 k_yk_z\omega u_z - v_A^2 k_y \omega \hat{b}_z = 0,\]
-\[-2\nu_0 k_xk_z u_x - 2\nu_0 k_y k_z u_y + (i\omega + 4\nu_0 k_z^2)u_z=0,\]
-\[ik_x u_x + ik_y u_y + ik_z u_z + i\omega \hat{b}_z = 0.\]
-Written as a matrix, these equations become
+% \[\qty(v_A^2k_z^2 + i\nu_0 k_x^2 \omega  -\omega^2)u_x + i\nu_0 k_xk_y\omega u_y - 2i\nu_0 k_xk_z\omega u_z - v_A^2 k_x \omega \hat{b}_z = 0,\]
+% \[i\nu_0 k_xk_y\omega u_x + \qty(v_A^2k_z^2 + i\nu_0 k_y^2 \omega  -\omega^2)u_y - 2i\nu_0 k_yk_z\omega u_z - v_A^2 k_y \omega \hat{b}_z = 0,\]
+% \[-2\nu_0 k_xk_z u_x - 2\nu_0 k_y k_z u_y + (i\omega + 4\nu_0 k_z^2)u_z=0,\]
+% \[ik_x u_x + ik_y u_y + ik_z u_z + i\omega \hat{b}_z = 0.\]
+% Written as a matrix, these equations become
 \[\begin{pmatrix}
-v_A^2k_z^2 + i\nu_0 k_x^2 \omega  -\omega^2 & i\nu_0 k_xk_y\omega & -2i\nu_0 k_xk_z\omega & -v_A^2 k_x \omega \\
-i\nu_0 k_xk_y\omega & v_A^2k_z^2 + i\nu_0 k_y^2 \omega  -\omega^2 & -2i\nu_0 k_yk_z\omega & -v_A^2 k_y \omega \\
--2\nu_0 k_xk_z & -2\nu_0 k_y k_z & i\omega + 4\nu_0 k_z^2 & 0 \\
-k_x & k_y & k_z & \omega
+v_A^2k_z^2 - i\nu_0 k_x^2 \omega  -\omega^2 & -i\nu_0 k_xk_y\omega & 2i\nu_0 k_xk_z\omega & v_A^2 k_x \omega \\
+-i\nu_0 k_xk_y\omega & v_A^2k_z^2 - i\nu_0 k_y^2 \omega  -\omega^2 & 2i\nu_0 k_yk_z\omega & v_A^2 k_y \omega \\
+-2\nu_0 k_xk_z & -2\nu_0 k_y k_z & -i\omega + 4\nu_0 k_z^2 & 0 \\
+k_x & k_y & k_z & -\omega
 \end{pmatrix}
 \begin{pmatrix}
 u_x \\
@@ -124,67 +124,68 @@ u_z \\
 \end{pmatrix}
 =\vec{0}.\]
 To avoid the trivial solution we require the determinant of the above matrix to equal zero. Hence,
-\[\omega(\omega^2 - v_A^2k_z^2)[\omega^3-i\nu_0(k_x^2 + k_y^2 + 4k_z^2)\omega^2 - v_A^2(k_x^2+k_y^2+k_z^2)\omega + 6i\nu_0 v_A^2(k_x^2+k_y^2+2k_z^2/3)k_z^2]=0.\]
+\[\omega(\omega^2 - v_A^2k_z^2)[\omega^3+i\nu_0(k_x^2 + k_y^2 + 4k_z^2)\omega^2 - v_A^2(k_x^2+k_y^2+k_z^2)\omega - 6i\nu_0 v_A^2(k_x^2+k_y^2+2k_z^2/3)k_z^2]=0.\]
 where we used maple file located at X on GitHub to assist with algebra.
 Note that 
 \[(\omega^2 - v_A^2k_z^2)=0\]
 corresponds to the Alfv\'en wave solutions and 
 \[[\omega^3-i\nu_0(k_x^2 + k_y^2 + 4k_z^2)\omega^2 - v_A^2(k_x^2+k_y^2+k_z^2)\omega + 6i\nu_0 v_A^2(k_x^2+k_y^2+2k_z^2/3)k_z^2]=0,\]
 corresponds to the magnetoacoustic wave solutions.
-This is a quadratic in $k_z^2$. Dividing through by $v_A^3k_{||A}^3$ gives
+This is a quadratic in $k_z^2$. Dividing through by $-v_A^3k_{||A}^3$ gives
 \begin{equation}
     a\qty(\frac{k_z}{k_{||A}})^4 - b \qty(\frac{k_z}{k_{||A}})^2 + c = 0,
 \end{equation}
 where
 \begin{gather}
     a = 4i\epsilon_1, \\
-    b = 1 + 2i\epsilon_1(2-3\epsilon_2), \\
-    c = 1 - \epsilon_2 - i\epsilon_1\epsilon_2.
+    b = 1 - 2i\epsilon_1(2-3\epsilon_2), \\
+    c = -(1 - \epsilon_2 + i\epsilon_1\epsilon_2).
 \end{gather}
 Hence, we have two types of solution, the first type of solution is given by
 \begin{equation}
     \label{eq:apdx_k_z+}
     \qty(\frac{k_z}{k_{||A}})_+^2 = \frac{b+\sqrt{b^2-4ac}}{2a},
 \end{equation}
-which corresponds to the slow wave solution. The second solution is given by
+which corresponds to the fast wave solution. The second solution is given by
 \begin{equation}
     \label{eq:apdx_k_z-}
     \qty(\frac{k_z}{k_{||A}})_-^2 = \frac{b-\sqrt{b^2-4ac}}{2a},
 \end{equation}
-which corresponds to the fast wave solution and this will be clearer in our Taylor expansions. Taking the multivariate Taylor expansion of $\epsilon_1(k_z/k_{||A})_+^2$ about $\epsilon_1=\epsilon_2=0$ gives
+which corresponds to the slow wave solution and this will be clearer in our Taylor expansions. Taking the multivariate Taylor expansion of $(k_z/k_{||A})_+^2$ about $\epsilon_1=\epsilon_2=0$ gives
 \begin{equation}
-    \epsilon_1\qty(\frac{k_z}{k_{||A}})_+^2 = -\frac{i}{4} - \frac{\epsilon_1 \epsilon_2}{2} + ...\,.
+    \label{eq:apdx_k_z+_taylor}
+    \qty(\frac{k_z}{k_{||A}})_+^2 = 1 - \epsilon_2  - i\epsilon_1\epsilon_2 + ...\,.
 \end{equation}
-Taking the multivariate Taylor expansion of $(k_z/k_{||A})_-^2$ about $\epsilon_1=\epsilon_2=0$ gives
+Taking the multivariate Taylor expansion of $\epsilon_1(k_z/k_{||A})_-^2$ about $\epsilon_1=\epsilon_2=0$ gives
 \begin{equation}
     \label{eq:apdx_k_z-_taylor}
-    \qty(\frac{k_z}{k_{||A}})_-^2 = 1 - \epsilon_2  + 3i\epsilon_1\epsilon_2 + ...\,.
+    \epsilon_1\qty(\frac{k_z}{k_{||A}})_-^2 = \frac{i}{4} - \frac{\epsilon_1 \epsilon_2}{2} + ...\,.
 \end{equation}
 
 \section{Damping length}
 
-In \citet{Withbroe1977,Parker1991} they suggest that the waves need to decay on a length scale of 1-2$R_\odot$ to play a significant role in coronal heating, where $R_\odot$ denotes the solar radius. This section aims to use Equation \eqref{eq:apdx_k_z-_taylor} to check if the waves decay over a short enough length-scale. We take the positive root of Equation \eqref{eq:apdx_k_z-_taylor} because this corresponds to the fast wave solution which propagates radially outward. Hence,
+In \citet{Withbroe1977,Parker1991} they suggest that the waves need to decay on a length scale of 1-2$R_\odot$ to play a significant role in coronal heating, where $R_\odot$ denotes the solar radius. This section aims to use Equation \eqref{eq:apdx_k_z-_taylor} to check if the waves decay over a short enough length-scale. We take the positive root of Equation \eqref{eq:apdx_k_z+_taylor} because this corresponds to the fast wave solution which propagates radially outward. Hence,
 \begin{equation}
-    \frac{k_z}{k_{||A}} = 1 - \frac{1}{2}\epsilon_2  + \frac{3}{2}i\epsilon_1\epsilon_2 + ...\,.
+    \frac{k_z}{k_{||A}} = 1 - \frac{1}{2}\Big(\epsilon_2  + i\epsilon_1\epsilon_2 + ...\Big)\,.
 \end{equation}
 Therefore, the imaginary part is given by
 \begin{equation}
-    \frac{k_{zi}}{k_{||A}} \approx \frac{3}{2}\epsilon_1\epsilon_2,
+    \frac{k_{zi}}{k_{||A}} \approx -\frac{1}{2}\epsilon_1\epsilon_2,
 \end{equation}
 to leading order.
 The decay length-scale is given by
 \begin{equation}
     \label{eq:apdx_decay_length}
     \begin{aligned}
-    L_{zi} &= \frac{2\pi}{k_{zi}} \\
-    &\approx 2\pi\frac{2}{3}\epsilon_1^{-1}k_{||A}^{-1}\epsilon_2^{-1} \\
-    &= 2\pi\frac{2}{3}\qty(\frac{1}{\nu_0})\frac{v_A^3}{\omega^2}\epsilon_2^{-1} \\
-    &= 2\pi\frac{2}{3}\qty(\frac{3}{2.21}\times10^{16}\ln\Lambda\, T^{-5/2}\rho)\frac{v_A^3}{\omega^2}\epsilon_2^{-1} \\
-    &\approx 1.18\times10^9\qty(\frac{\ln \Lambda}{20})\qty(\frac{T}{3\times10^6\si{.K}})^{-5/2}\qty(\frac{\rho}{10^{-13}\si{.kg.m^{-3}}})\qty(\frac{v_A}{4\times10^5\si{.m.s^{-1}}})^3 \\
-    &\qquad\qquad\qquad\qty(\frac{\omega}{2\pi\times10^{-2}\si{.s^{-1}}})^{-2}\qty(\frac{\epsilon_2}{10^{-1}})^{-1}\si{.m},
+    L_{zi} &= -\frac{2\pi}{k_{zi}} \\
+    &\approx 4\pi\epsilon_1^{-1}k_{||A}^{-1}\epsilon_2^{-1} \\
+    &= 4\pi\qty(\frac{1}{\nu_0})\frac{v_A^3}{\omega^2}\epsilon_2^{-1} \\
+    &= 4\pi\qty(\frac{3}{2.21}\times10^{16}\ln\Lambda\, T^{-5/2}\rho)\frac{v_A^3}{\omega^2}\epsilon_2^{-1} \\
+    &\approx 0.87\times10^9\qty(\frac{\ln \Lambda}{20})\qty(\frac{T}{3\times10^6\si{.K}})^{-5/2}\qty(\frac{\rho}{10^{-13}\si{.kg.m^{-3}}})\qty(\frac{v_A}{4\times10^5\si{.m.s^{-1}}})^3 \\
+    &\qquad\qquad\qquad\qty(\frac{\omega}{4\pi\times10^{-2}\si{.s^{-1}}})^{-2}\qty(\frac{\epsilon_2}{10^{-1}})^{-1}\si{.m},
     \end{aligned}
 \end{equation}
-Equation \eqref{eq:apdx_decay_length} suggests that for typical coronal values, it is possible that fast waves could decay on a length-scale less than 2 solar radii, $R_\odot\approx 7\times10^8\si{.m}$. Our values for the density and Alfv\'en speed come from mean observed values in a coronal hole and were taken from the top row of Table 1 in \citet{Morton2016}. Figure \ref{fig:power_spectrum_morton} shows that our choice of frequency was quite high (where $\omega= 2\pi f$) and we discuss this further in the next section.
+Equation \eqref{eq:apdx_decay_length} suggests that for typical coronal values, it is possible that fast waves could decay on a length-scale less than 2 solar radii, $R_\odot\approx 7\times10^8\si{.m}$. Our values for the density and Alfv\'en speed come from mean observed values in a coronal hole and were taken from the top row of Table 1 in \citet{Morton2016}. Figure \ref{fig:power_spectrum_morton} shows that we chose a high frequency (where $\omega= 2\pi f$) and we discuss this further in the next section.
 
 \section{Discussion}
 
