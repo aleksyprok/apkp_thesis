@@ -2,10 +2,11 @@ In this appendix, we expand upon a proposed topic for further research mentioned
 
 \section{Model and assumptions}
 
-In this section, we will describe the model we will use. Our domain is designed to approximate the conditions in a coronal hole while remaining as simple as possible. We model perturbations on a static background equilibrium and make the same assumptions as those described by Equation \eqref{eq:linear_assumotion_v}-\eqref{eq:linear_assumotion_rho}.The plasma is modelled as cold, i.e. $\beta=0$, which means the magnetic pressure force is negligible. We assume the Lorentz force dominates and neglect the gravitational force. Our background quantities are assumed to be uniform with the background magnetic field pointing approximately radially outward from the sun and given by
+In this section, we will describe the model we will use. Our domain is designed to approximate the quiet sun conditions near the equator. We model perturbations on a static background equilibrium and make the same assumptions as those described by Equation \eqref{eq:linear_assumotion_v}-\eqref{eq:linear_assumotion_rho}.The plasma is modelled as cold, i.e. $\beta=0$, which means the magnetic pressure force is negligible. We assume the Lorentz force dominates and neglect the gravitational force. Our background quantities are assumed to be uniform with the background magnetic field pointing south to north and approximately tangential to the solar surface at the equator,
 \begin{equation}
-    \vec{B}_0 = B_0\vec{\hat{z}}.
+    \vec{B}_0 = B_0\vec{\hat{z}},
 \end{equation}
+The $\vec{\hat{x}}$ direction points radially outwards from the solar surface.
 
 We model the linearised momentum equation as
 \begin{equation}
@@ -34,159 +35,71 @@ We assume $\omega_{ci}/\nu_i\ll1$ and neglect the $\vec{W}^{(1)}$, $\vec{W}^{(2)
 where $\eta_0$ is given by Equation \eqref{eq:braginskii_eta_0} and 
 \begin{gather}
     \vec{\hat{B}}_0 = \frac{\vec{B}_0}{B_0}, \\
-    \begin{aligned}
-    Q &= 3\vec{\hat{B}}_0\vdot\grad(\vec{\hat{B}}_0\vdot\vec{u}) - \div{\vec{u}} \\
-    &= 3\dv{u_z}{z} - \div{\vec{u}} \\
-    & = 2\dv{u_z}{z} - \qty(\pdv{u_x}{x} + \pdv{u_y}{y}).
-    \end{aligned}
+    Q = 3\vec{\hat{B}}_0\vdot\grad(\vec{\hat{B}}_0\vdot\vec{u}) - \div{\vec{u}}
 \end{gather}
-Let
-\begin{gather}
-    \vec{u} = u_x \vec{\hat{x}} + u_y \vec{\hat{y}} + u_z \vec{\hat{z}}, \\
-    \vec{\hat{b}} = \hat{b}_x \vec{\hat{x}} + \hat{b}_y \vec{\hat{y}} + \hat{b}_z \vec{\hat{z}},
-\end{gather}
-hence,
-\begin{gather}
-    \pdv{u_x}{t} = v_A^2\qty[\pdv{\hat{b}_x}{z} - \pdv{\hat{b}_z}{x}] + \nu_0\qty(\pdv[2]{u_x}{x} + \pdv{u_y}{x}{y} - 2\pdv[2]{u_z}{x}{z}), \\
-    \pdv{u_y}{t} = v_A^2\qty[\pdv{\hat{b_y}}{z} - \pdv{\hat{b}_z}{y}] + \nu_0\qty(\pdv{u_x}{x}{y} + \pdv[2]{u_y}{y} - 2\pdv{u_z}{y}{z}), \\
-    \label{eq:uz_eqn1}
-    \pdv{u_z}{t} = -\nu_0\qty(\pdv{u_x}{x}{z} + \pdv{u_y}{y}{z} - 2\pdv[2]{u_z}{z}), \\
-    \pdv{\hat{b}_x}{t} = \pdv{u_x}{z}, \\
-    \pdv{\hat{b}_y}{t} = \pdv{u_y}{z}, \\
-        \label{eq:bz_eqn1}
-    \pdv{\hat{b}_z}{t} = -\qty(\pdv{u_x}{x} + \pdv{u_y}{y} + \pdv{u_z}{z}),
-\end{gather}
-where
-\[\nu_0 = \frac{\eta_0}{3\rho}.\]
-Eliminating $\hat{b}_x$ and $\hat{b}_y$ gives
-\begin{gather}
-    \label{eq:ux_eqn1}
-    \pdv[2]{u_x}{t} = v_A^2\qty[\pdv[2]{u_x}{z} - \pdv{\hat{b}_z}{x}{t}] + \nu_0\pdv{}{t}\qty(\pdv[2]{u_x}{x} + \pdv{u_y}{x}{y} - 2\pdv[2]{u_z}{x}{z}), \\
-    \label{eq:uy_eqn1}
-    \pdv[2]{u_y}{t} = v_A^2\qty[\pdv[2]{u_y}{z} - \pdv{\hat{b}_z}{y}{t}] + \nu_0\pdv{}{t}\qty(\pdv{u_x}{x}{y} + \pdv[2]{u_y}{y} - 2\pdv{u_z}{y}{z}).
-\end{gather}
-
-We assume the variables are of the form
+We will assume our variables are of the form
 \begin{equation}
     \label{eq:apdx_exp_form}
-    f(x,y,z,t) = f_0\exp[i(k_x x + k_y y + k_z z + \omega t)].
+    f(x,t) = f_0\exp[i(k_x x + \omega t)],
 \end{equation}
+where $\omega\in \mathds{R}^+$ and $k_x\in \mathds{C}$. This simulates waves, propagating/decaying radially outwards/inwards from the solar surface at the equator. Enforcing $\pdv*{}{y}=\pdv*{}{z}=0$ causes
+\[\pdv{}{t}\vec{u}\vdot\vec{\hat{y}}=\pdv{}{t}\vec{u}\vdot\vec{\hat{z}}=\pdv{}{t}\vec{\hat{b}}\vdot\vec{\hat{z}}=\pdv{}{t}\vec{\hat{b}}\vdot\vec{\hat{y}}=0\] 
+and we let
+\begin{gather}
+    \vec{u} = u_x \vec{\hat{x}}, \\
+    \vec{\hat{b}} = \hat{b}_z \vec{\hat{z}}.
+\end{gather}
+Hence,
+\begin{gather}
+    Q = -\pdv{u_x}{x}, \\
+    \label{eq:ux_eqn1}
+    \pdv{u_x}{t} = -v_A^2\pdv{\hat{b}_z}{x} + \nu_0\pdv[2]{u_x}{x}, \\
+    \label{eq:bz_eqn1}
+    \pdv{\hat{b}_z}{t} = -\pdv{u_x}{x}.
+\end{gather}
+
 We model the system as weakly viscous and assume that
 \begin{equation}
 \begin{aligned}
-    \epsilon_1 &= \frac{\nu_0 k_{||A}}{v_A} \\
-    &\approx 2.25\times10^{-1}\qty(\frac{\ln\Lambda}{20})^{-1}\qty(\frac{T}{3\times 10^6\si{.K}})^{5/2}\qty(\frac{\rho}{10^{-13}\si{.kg.m^{-3}}})^{-1} \\
-    & \qquad\qquad\qquad\qty(\frac{\omega}{2\pi\times10^{-2}\si{.s^{-1}}})\qty(\frac{v_A}{4\times10^5\si{.m.s^{-1}}})^{-2} \\
-    &\ll 1,
+    \epsilon &= \frac{\nu_0 \omega}{v_A^2} \\
+    &\approx 1.13\times10^{-1}\qty(\frac{\ln\Lambda}{20})^{-1}\qty(\frac{T}{3\times 10^6\si{.K}})^{5/2}\qty(\frac{\rho}{10^{-13}\si{.kg.m^{-3}}})^{-1} \\
+    & \qquad\qquad\qquad\qty(\frac{\omega}{\pi\times10^{-2}\si{.s^{-1}}})\qty(\frac{v_A}{4\times10^5\si{.m.s^{-1}}})^{-2} \\
+    &\ll 1.
 \end{aligned}
-\end{equation}
-where
-\begin{equation}
-    k_{||A} = \frac{\omega}{v_A},
-\end{equation}
-which gives the wavenumber for the Alv\'en waves. In this appendix, we aim to model fast waves. In Section \ref{sec:mhd_waves_dispersion_relation} we showed that ideal fast waves must satisfy the following dispersion relation
-\begin{equation}
-    k_x^2 + k_y^2 + k_z^2 = k_{||A}^2.
-\end{equation}
-Since our model is weakly viscous, we expect our fast waves to satisfy a similar dispersion relation. We assume the waves propagate approximately radially outward. Therefore, $\vec{k}$ should be roughly parallel to the background magnetic field $\vec{B}_0$, where $\vec{k}$ is given by
-\begin{equation}
-    \vec{k} = k_x \vec{\hat{x}} + k_y \vec{\hat{y}} + k_z \vec{\hat{z}}.
-\end{equation}
-More precisely, we will assume that 
-\begin{equation}
-    \epsilon_2 = \frac{k_x^2 + k_y^2}{k_{||A}^2} \ll 1.
-\end{equation}
-For ideal MHD, the fast waves propagate at an angle
-\begin{equation}
-    \theta = \sin^{-1}\qty(\sqrt{\epsilon_2}),
-\end{equation}
-to $\vec{B}_0$, so if $\epsilon_1=10^{-1}$ then this corresponds to an angle of $\theta\approx5.74^{\circ}$.
-
-\section{Dispersion relation}
-
-Our goal now is to assume the variables are the form given in Equation \eqref{eq:apdx_exp_form} to derive a dispersion relation for the waves in our model. From Equations \eqref{eq:ux_eqn1}, \eqref{eq:uy_eqn1}, \eqref{eq:uz_eqn1} and \eqref{eq:bz_eqn1} we know that
-% \[\qty(v_A^2k_z^2 + i\nu_0 k_x^2 \omega  -\omega^2)u_x + i\nu_0 k_xk_y\omega u_y - 2i\nu_0 k_xk_z\omega u_z - v_A^2 k_x \omega \hat{b}_z = 0,\]
-% \[i\nu_0 k_xk_y\omega u_x + \qty(v_A^2k_z^2 + i\nu_0 k_y^2 \omega  -\omega^2)u_y - 2i\nu_0 k_yk_z\omega u_z - v_A^2 k_y \omega \hat{b}_z = 0,\]
-% \[-2\nu_0 k_xk_z u_x - 2\nu_0 k_y k_z u_y + (i\omega + 4\nu_0 k_z^2)u_z=0,\]
-% \[ik_x u_x + ik_y u_y + ik_z u_z + i\omega \hat{b}_z = 0.\]
-% Written as a matrix, these equations become
-\[\begin{pmatrix}
-v_A^2k_z^2 - i\nu_0 k_x^2 \omega  -\omega^2 & -i\nu_0 k_xk_y\omega & 2i\nu_0 k_xk_z\omega & v_A^2 k_x \omega \\
--i\nu_0 k_xk_y\omega & v_A^2k_z^2 - i\nu_0 k_y^2 \omega  -\omega^2 & 2i\nu_0 k_yk_z\omega & v_A^2 k_y \omega \\
--2\nu_0 k_xk_z & -2\nu_0 k_y k_z & -i\omega + 4\nu_0 k_z^2 & 0 \\
-k_x & k_y & k_z & -\omega
-\end{pmatrix}
-\begin{pmatrix}
-u_x \\
-u_y \\
-u_z \\
-\hat{b}_z
-\end{pmatrix}
-=\vec{0}.\]
-To avoid the trivial solution we require the determinant of the above matrix to equal zero. Hence,
-\[\omega(\omega^2 - v_A^2k_z^2)[\omega^3+i\nu_0(k_x^2 + k_y^2 + 4k_z^2)\omega^2 - v_A^2(k_x^2+k_y^2+k_z^2)\omega - 6i\nu_0 v_A^2(k_x^2+k_y^2+2k_z^2/3)k_z^2]=0.\]
-where we used maple file located at X on GitHub to assist with algebra.
-Note that 
-\[(\omega^2 - v_A^2k_z^2)=0\]
-corresponds to the Alfv\'en wave solutions and 
-\[[\omega^3-i\nu_0(k_x^2 + k_y^2 + 4k_z^2)\omega^2 - v_A^2(k_x^2+k_y^2+k_z^2)\omega + 6i\nu_0 v_A^2(k_x^2+k_y^2+2k_z^2/3)k_z^2]=0,\]
-corresponds to the magnetoacoustic wave solutions.
-This is a quadratic in $k_z^2$. Dividing through by $-v_A^3k_{||A}^3$ gives
-\begin{equation}
-    a\qty(\frac{k_z}{k_{||A}})^4 - b \qty(\frac{k_z}{k_{||A}})^2 + c = 0,
-\end{equation}
-where
-\begin{gather}
-    a = 4i\epsilon_1, \\
-    b = 1 - 2i\epsilon_1(2-3\epsilon_2), \\
-    c = -(1 - \epsilon_2 + i\epsilon_1\epsilon_2).
-\end{gather}
-Hence, we have two types of solution, the first type of solution is given by
-\begin{equation}
-    \label{eq:apdx_k_z+}
-    \qty(\frac{k_z}{k_{||A}})_+^2 = \frac{b+\sqrt{b^2-4ac}}{2a},
-\end{equation}
-which corresponds to the fast wave solution. The second solution is given by
-\begin{equation}
-    \label{eq:apdx_k_z-}
-    \qty(\frac{k_z}{k_{||A}})_-^2 = \frac{b-\sqrt{b^2-4ac}}{2a},
-\end{equation}
-which corresponds to the slow wave solution and this will be clearer in our Taylor expansions. Taking the multivariate Taylor expansion of $(k_z/k_{||A})_+^2$ about $\epsilon_1=\epsilon_2=0$ gives
-\begin{equation}
-    \label{eq:apdx_k_z+_taylor}
-    \qty(\frac{k_z}{k_{||A}})_+^2 = 1 - \epsilon_2  - i\epsilon_1\epsilon_2 + ...\,.
-\end{equation}
-Taking the multivariate Taylor expansion of $\epsilon_1(k_z/k_{||A})_-^2$ about $\epsilon_1=\epsilon_2=0$ gives
-\begin{equation}
-    \label{eq:apdx_k_z-_taylor}
-    \epsilon_1\qty(\frac{k_z}{k_{||A}})_-^2 = \frac{i}{4} - \frac{\epsilon_1 \epsilon_2}{2} + ...\,.
 \end{equation}
 
 \section{Damping length}
 
-In \citet{Withbroe1977,Parker1991} they suggest that the waves need to decay on a length scale of 1-2$R_\odot$ to play a significant role in coronal heating, where $R_\odot$ denotes the solar radius. This section aims to use Equation \eqref{eq:apdx_k_z-_taylor} to check if the waves decay over a short enough length-scale. We take the positive root of Equation \eqref{eq:apdx_k_z+_taylor} because this corresponds to the fast wave solution which propagates radially outward. Hence,
+In \citet{Withbroe1977,Parker1991} they suggest that the waves need to decay on a length scale of 1-2$R_\odot$ to play a significant role in coronal heating, where $R_\odot$ denotes the solar radius. This section aims to to derive a dispersion relation for the waves in our model to calculate a damping length. Taking the time derivative of \eqref{eq:ux_eqn1} to eliminate $\hat{b}_z$ gives
 \begin{equation}
-    \frac{k_z}{k_{||A}} = 1 - \frac{1}{2}\Big(\epsilon_2  + i\epsilon_1\epsilon_2 + ...\Big)\,.
+    \pdv[2]{u_x}{t} = v_A^2\pdv[2]{u_x}{x} + \nu_0\pdv{}{t}\pdv[2]{u_x}{x}.
 \end{equation}
-Therefore, the imaginary part is given by
+Dividing through by $v_A^2$ and assuming $u_x$ is of the form given by Equation \eqref{eq:apdx_exp_form} gives
 \begin{equation}
-    \frac{k_{zi}}{k_{||A}} \approx -\frac{1}{2}\epsilon_1\epsilon_2,
+    \frac{\omega^2}{v_A^2} = (1+i\epsilon)k_x^2.
 \end{equation}
-to leading order.
+Using the binomial expansion gives
+\begin{equation}
+    k_x^2 = \frac{\omega^2}{v_A^2}\qty[1 -i\epsilon + O(\epsilon^2)].
+\end{equation}
+We assume $k_x$ is given by the negative root as the waves propagate away from the solar surface in the positive $x$-direction. Hence,
+\begin{equation}
+    k_x = -\frac{\omega^2}{v_A^2}\qty[1 -\frac{1}{2}i\epsilon + O(\epsilon^2)].
+\end{equation}
 The decay length-scale is given by
 \begin{equation}
     \label{eq:apdx_decay_length}
     \begin{aligned}
-    L_{zi} &= -\frac{2\pi}{k_{zi}} \\
-    &\approx 4\pi\epsilon_1^{-1}k_{||A}^{-1}\epsilon_2^{-1} \\
-    &= 4\pi\qty(\frac{1}{\nu_0})\frac{v_A^3}{\omega^2}\epsilon_2^{-1} \\
-    &= 4\pi\qty(\frac{3}{2.21}\times10^{16}\ln\Lambda\, T^{-5/2}\rho)\frac{v_A^3}{\omega^2}\epsilon_2^{-1} \\
-    &\approx 0.87\times10^9\qty(\frac{\ln \Lambda}{20})\qty(\frac{T}{3\times10^6\si{.K}})^{-5/2}\qty(\frac{\rho}{10^{-13}\si{.kg.m^{-3}}})\qty(\frac{v_A}{4\times10^5\si{.m.s^{-1}}})^3 \\
-    &\qquad\qquad\qquad\qty(\frac{\omega}{4\pi\times10^{-2}\si{.s^{-1}}})^{-2}\qty(\frac{\epsilon_2}{10^{-1}})^{-1}\si{.m},
+    L_d &= \frac{2\pi}{\Im(k_x)} \\
+    &\approx4\pi\frac{1}{\epsilon}\frac{v_A^2}{\omega^2} \\
+    &= 4\pi\qty(\frac{1}{\nu_0})\frac{v_A^3}{\omega^2} \\
+    &= 4\pi\qty(\frac{3}{2.21}\times10^{16}\ln\Lambda\, T^{-5/2}\rho)\frac{v_A^3}{\omega^2}\\
+    &\approx 1.42\times10^9\qty(\frac{\ln \Lambda}{20})\qty(\frac{T}{3\times10^6\si{.K}})^{-5/2}\qty(\frac{\rho}{10^{-13}\si{.kg.m^{-3}}})\qty(\frac{v_A}{4\times10^5\si{.m.s^{-1}}})^3 \\
+    &\qquad\qquad\qquad\qty(\frac{\omega}{\pi\times10^{-2}\si{.s^{-1}}})^{-2}\si{.m},
     \end{aligned}
 \end{equation}
-Equation \eqref{eq:apdx_decay_length} suggests that for typical coronal values, it is possible that fast waves could decay on a length-scale less than 2 solar radii, $R_\odot\approx 7\times10^8\si{.m}$. Our values for the density and Alfv\'en speed come from mean observed values in a coronal hole and were taken from the top row of Table 1 in \citet{Morton2016}. Figure \ref{fig:power_spectrum_morton} shows that we chose a high frequency (where $\omega= 2\pi f$) and we discuss this further in the next section.
+Equation \eqref{eq:apdx_decay_length} suggests that for typical coronal values, it is possible that fast waves could decay on a length-scale about 2 solar radii, $R_\odot\approx 7\times10^8\si{.m}$. Our values for the density and Alfv\'en speed come from mean observed values and were taken from Table 1 in \citet{Morton2016}. Figure \ref{fig:power_spectrum_morton} shows that we chose a high frequency (where $\omega= 2\pi f$) and we discuss this further in the next section.
 
 \section{Discussion}
 
-We have shown that our model can dissipate fast waves on a length-scale less than 2 solar radii, and this suggests that this mechanism could play a significant role in coronal heating. However, we made many simplifications in our analysis, and it is unclear if relaxing these assumptions will increase or decrease the damping length. For example, we modelled the quantities as uniform and linear. This meant waves could not reflect and prevents reflection-driven turbulence \citep{Hollweg1986a,vanBallegooijen2011,Shoda2019}. Authors typically study Alfv\'en wave turbulence, but we think it could be interesting to investigate fast wave turbulence as these are compressible and therefore dissipate via viscosity more easily. We used a high frequency in \eqref{eq:apdx_decay_length} to account for the fact that waves may be able to cascade to higher frequencies due to turbulence. Including a more complex field can lead to several effects such as fast wave refraction towards null points \citep{McLaughlin2006,McLaughlin2011,McLaughlin2016}, the triggering of reconnection \citep{McLaughlin2009} and enhanced phase mixing \citep{Similon1989,Howson2020a}. In summary, the results provided here suggest further study could be fruitful. However,  a more extensive analysis is needed to determine if fast waves' viscous dissipation plays a significant role in coronal heating.
+We have shown that our model can dissipate fast waves on a length-scale of about 2 solar radii, and this suggests that this mechanism could play a significant role in coronal heating. However, we made many simplifications in our analysis, and it is unclear if relaxing these assumptions will increase or decrease the damping length. For example, we modelled the quantities as uniform and linear. This meant waves could not reflect and prevents reflection-driven turbulence \citep{Hollweg1986a,vanBallegooijen2011,Shoda2019}. Authors typically study Alfv\'en wave turbulence, but we think it could be interesting to investigate fast wave turbulence as these are compressible and therefore dissipate via viscosity more easily. We used a high frequency in \eqref{eq:apdx_decay_length} to account for the fact that waves may be able to cascade to higher frequencies due to turbulence. Including a more complex field can lead to several effects such as fast wave refraction towards null points \citep{McLaughlin2006,McLaughlin2011,McLaughlin2016}, the triggering of reconnection \citep{McLaughlin2009} and enhanced phase mixing \citep{Similon1989,Howson2020a}. We modelled the fast waves as propagating perpendicular to the field, in reality a component will propagate parallel and this could decrease the heating. Therefore, we would expect less heating at coronal holes where the field is approximately normal to the solar surface. In summary, the results provided here suggest further study could be fruitful. However, a more extensive analysis is needed to determine if fast waves' viscous dissipation plays a significant role in coronal heating.
