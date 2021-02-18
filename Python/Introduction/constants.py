@@ -94,3 +94,13 @@ c_SI = 2.9979e8
 kB_SI = 1.3807e-23
 
 coulomb_log = 20
+B = 1e-3
+T = 1e6
+n = 1e15
+print('{:e}'.format(omega_ce_nu_e1(B,n,T)))
+print('{:e}'.format(omega_ce_nu_e2(B,n,T)))
+print('{:e}'.format(lambda_e(n,T)))
+print('{:e}'.format(lambda_i(n,T)))
+print('{:e}'.format(r_e(B,T)))
+print('{:e}'.format(omega_ci_nu_i1(B,n,T)))
+print('{:e}'.format(omega_ci_nu_i2(B,n,T)))
