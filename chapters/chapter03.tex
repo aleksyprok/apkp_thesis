@@ -43,17 +43,17 @@ Table \ref{tab:energy_losses_corona_chromosphere} shows the power losses due to 
 \end{equation}
 where $h$ is the pressure scale height given by Equation \eqref{eq:pressure_scale_height}. Note that for typical values ($m=m_p/2$, $g_{\odot}=274\si{.m^2.s^{-1}}$) the pressure scale height is given by
 \begin{equation}
-    h = 1.51\times10^8\qty(\frac{T}{10^6\si{.K}})\si{.m}
+    h \approx 0.60\times10^8\qty(\frac{T}{10^6\si{.K}})\si{.m}
 \end{equation}
 Most heating will occur within a height $2h$ of the solar surface, the radius of the Sun is about $0.70\times10^9\si{.m}$ \citep{sun_vital_statistics} which is greater than $h$. Therefore, the error associated with approximating the gravitational field strength as uniform will be small. 
 We now need to integrate Equation \eqref{eq:coronal_heating_rate_per_unit_volume} in the radial direction from $r_0$ to $r_1$, where $r_0$ gives the radial coordinate of the base of the corona and $r_1$ gives the coordinate of the top of the corona. The height of the corona is not clearly defined, however, we know that $r_1-r_0\gg h$, therefore, we can approximate $r_1\rightarrow \infty$. Hence, the integral of Equation \eqref{eq:coronal_heating_rate_per_unit_volume} is given by
 \begin{equation}
     \begin{aligned}
     \int_{r_0}^\infty H_c \, dr &= \frac{h}{2}\frac{7}{8}\frac{\chi}{k_B^2}\frac{p(r_0)^2}{T_{max}^{5/2}} \\
-    &\approx 3.47\times10^{2}\qty(\frac{\chi}{10^{-32}\si{.K^{1/2}.W.m^3}})\qty(\frac{p(r_0)}{10^{-2}\si{.Pa}})^2\qty(\frac{10^6\si{.K}}{T_{max}})^{3/2}\si{.W.m^{-2}}.
+    &\approx 1.38\times10^{2}\qty(\frac{\chi}{10^{-32}\si{.K^{1/2}.W.m^3}})\qty(\frac{p(r_0)}{10^{-2}\si{.Pa}})^2\qty(\frac{10^6\si{.K}}{T_{max}})^{3/2}\si{.W.m^{-2}}.
     \end{aligned}
 \end{equation}
-Note that Table \ref{tab:energy_losses_corona_chromosphere}, shows that the energy losses are in the range $[3\times10^2,10^4]\si{.W.m^{-2}}$ and our calculation above lies in this range. Therefore, the theoretical and observational calculations are in agreement. 
+Note that Table \ref{tab:energy_losses_corona_chromosphere}, shows that the energy losses are of the order $[10^2,10^4]\si{.W.m^{-2}}$ and our calculation above lies in this range. Therefore, the theoretical and observational calculations are in approximate agreement. 
 
 In \citet{McIntosh2011,McIntosh2012}, they observe velocity wave amplitudes, $u_0$, in the quiet sun of around $20\si{.km.s^{-1}}$ and in active regions of around $5\si{.km.s^{-1}}$. We can use this data to estimate the corona's wave energy by assuming the time-averaged kinetic energy associated with the waves equals the time-averaged magnetic perturbation energy. This gives a wave energy, $E_{wave}$, of approximately
 \begin{equation}
@@ -100,7 +100,7 @@ and the $y$-component of the perturbed magnetic field, given by
     \vec{b}(x,z,t) = b(x,z,t)\vec{\hat{y}}.
 \end{equation}
 
-The $y$-component of the linearised momentum equation, see Equation \eqref{eq:momentum}, with gravity neglected, see Equation \eqref{eq:ignore_gravity}, is given by
+The $y$-component of the linearised momentum equation, see Equation \eqref{eq:momentum}, is given by
 \begin{equation}
     \label{eq:chap_3_momentum_eqn1}
     \begin{aligned}
@@ -124,7 +124,7 @@ Like in the previous paragraph, we simplify this equation further by assuming th
     \label{eq:chap_3_induction}
     \pdv{b}{t} = B_0\pdv{u}{z}+\eta\pdv[2]{b}{x}.
 \end{equation}
-Note that we have neglected the Hall term because it is dependent on derivatives which are parallel to the background magnetic field. In, for example, \citet{Threlfall2017} they investigate the effects of the Hall term on phase mixing. They find that the hall terms' introduction causes wave dispersion which reduces the heating rate per unit of wave energy, $\gamma$. We aim to show that linear phase mixed Alfv\'en waves at observed wavelengths have an insufficient $\gamma$ to heat the corona. Therefore, if $\gamma$ is insufficient without the Hall term, we know it must be insufficient with the Hall term.
+Note that we have neglected the Hall term because it is only dependent on derivatives which are parallel to the background magnetic field (for our system). In, for example, \citet{Threlfall2017} they investigate the effects of the Hall term on phase mixing. They find that the hall terms' introduction causes wave dispersion which reduces the heating rate per unit of wave energy, $\gamma$. We aim to show that linear phase mixed Alfv\'en waves at observed wavelengths have an insufficient $\gamma$ to heat the corona. Therefore, if $\gamma$ is insufficient without the Hall term, we know it must be insufficient with the Hall term.
 
 Substituting Equation \eqref{eq:chap_3_induction} into the time derivative of Equation \eqref{eq:chap_3_momentum_eqn2} gives
 \[\pdv[2]{u}{t}=v_A^2(x)\pdv[2]{u}{z}+v_A^2(x)\pdv[2]{}{x}\qty(\frac{\eta}{B_0}\pdv{b}{z})+\nu\pdv{}{t}\pdv[2]{u}{x}.\]
@@ -307,7 +307,7 @@ In Section \ref{sec:intro_assumptions} we showed that in the strong field limit,
 \end{equation}
 For typical values, the phase-mixed length scale in $x$ is given by
 \begin{equation}
-    \frac{2\pi}{k_x^*}=1.1\qty(\frac{\pi\times10^{-2}\si{.Hz}}{\omega})\qty(\frac{\eta+\nu}{1\si{.m^2.s^{-1}}})^{1/3}\qty(\frac{a}{1\si{.Mm}})^{1/3}\si{.Mm}.
+    \frac{2\pi}{k_x^*}=1.10\qty(\frac{\pi\times10^{-2}\si{.Hz}}{\omega})\qty(\frac{\eta+\nu}{1\si{.m^2.s^{-1}}})^{1/3}\qty(\frac{a}{1\si{.Mm}})^{1/3}\si{.Mm}.
 \end{equation}
 This shows Equation \eqref{eq:length_scale_condition_perpendicular} is usually satisfied.
 
@@ -802,8 +802,8 @@ Therefore, the ratio, $w_{0,1}$, between the heating generated by $\vec{W}^{(0)}
 \begin{aligned}
     w_{0,1} &= \frac{\eta_0\vec{W}^{(0)}:\grad{\vec{u}}}{\eta_1\vec{W}^{(1)}:\grad{\vec{u}}} \\
     &\approx 3\epsilon^2\frac{\eta_0}{\eta_1}\qty(\frac{k_z}{k_x^*})^2 \\
-    &\approx 4.0471\times10^{-6}\frac{e^{2/3}\mu}{(\ln\Lambda)^{4/3}}\epsilon^2\frac{T^{8/9}\omega^{4/3}}{\rho^{1/3}B_0^{4/3}}a^{2/3} \\
-    &\approx 0.59\times10^{-2}\qty(\frac{\epsilon}{10^{-1}})^2\qty(\frac{T}{10^{6}\si{.K}})^{8/9}\qty(\frac{\omega}{\pi\times10^{-2}\si{.Hz}})^{4/3}\\
+    &\approx 4.0471\times10^{-6}\frac{e^{2/3}\mu}{(\ln\Lambda)^{4/3}}\epsilon^2\frac{T^{8/3}\omega^{4/3}}{\rho^{1/3}B_0^{4/3}}a^{2/3} \\
+    &\approx 0.59\times10^{-2}\qty(\frac{\epsilon}{10^{-1}})^2\qty(\frac{T}{10^{6}\si{.K}})^{8/3}\qty(\frac{\omega}{\pi\times10^{-2}\si{.Hz}})^{4/3}\\
     &\times\qty(\frac{10^{-12}\si{.kg.m^{-3}}}{\rho})^{1/3}\qty(\frac{10^{-3}\si{.T}}{B_0})^{4/3}\qty(\frac{a}{10^5\si{.m}})^{2/3},
 \end{aligned}
 \end{equation}
@@ -852,11 +852,11 @@ Finally, we modelled the plasma as isothermal, and we discuss this in Section \r
 
 The results and discussions in this chapter suggest that the dissipation of the gradients produced by phase mixing plays a negligible role in coronal heating. However, it is possible that phase mixing could trigger the Kelvin-Helmholtz and tearing mode instabilities which cause a turbulent cascade. Then dissipation can occur primarily due to the $\vec{W}^{(0)}$ component of the viscosity tensor which dissipates gradients parallel to the magnetic and velocity fields. In Section \ref{sec:chap_3_introduction} we showed that we require $\gamma\approx10^{-1}\si{.s^{-1}}$ and Equation \eqref{eq:upper_bound_for_gammma} shows that our upper bound for $\gamma$ is too small by approximately 3 orders of magnitude. This upper bound was modelled to be an average upper bound across the whole corona. Phase mixing models can give a larger value of $\gamma$ near, for example, null points or at highly divergent magnetic fields due to the greater presence of viscosity and the Alfv\'en speed-length scale, $a$, being larger.
 
-In Section \ref{sec:chap_3_open_loop} we calculated the solution for a phase-mixed resistive Alfv\'en wave in an open-loop using the method of multiple scales. We then verified this numerically via a graphical approach, see Figure \ref{fig:phase_mxing_open_loop}. We showed that the wave decays with a cubic Gaussian, $\exp[-(z/L_{ph})^3]$, in $z$ with a length scale $L_{ph}$ given by Equation \eqref{eq:phase_mixed_z_length_scale}. This shows that as the wave propagates a larger fraction of the wave decays faster due to the wave phase mixing and the length-scales across the field getting shorter. We estimate at $z=L_{ph}$ the length scales in $x$ are given by Equation \eqref{eq:phase_mixed_x_length_scale}, and we find this is still sufficiently long for collisional transport theory to be valid in the corona. \citet{Heyvaerts1983} shows that propagating Alfv\'en are stable to the Kelvin-Helmholtz instability because the magnetic field and velocity perturbations are in phase with each other. For standing Alfv\'en waves, the velocity and magnetic field perturbations are out of phase with each other in space and time. So the magnetic field cannot stabilise the velocity shear from the Kelvin-Helmholtz instability.
+In Section \ref{sec:chap_3_open_loop} we calculated the solution for a phase-mixed resistive Alfv\'en wave in an open-loop using the method of multiple scales. We then verified this numerically via a graphical approach, see Figure \ref{fig:phase_mxing_open_loop}. We showed that the wave decays with a cubic Gaussian, $\exp[-(z/L_{ph})^3]$, in $z$ with a length scale $L_{ph}$ given by Equation \eqref{eq:phase_mixed_z_length_scale}. This shows that as the wave propagates the wave decays faster due to the wave phase mixing and the length-scales across the field getting shorter. We estimate at $z=L_{ph}$ the length scales in $x$ are given by Equation \eqref{eq:phase_mixed_x_length_scale}, and we find this is still sufficiently long for collisional transport theory to be valid in the corona. \citet{Heyvaerts1983} shows that propagating Alfv\'en are stable to the Kelvin-Helmholtz instability because the magnetic field and velocity perturbations are in phase with each other. For standing Alfv\'en waves, the velocity and magnetic field perturbations are out of phase with each other in space and time. So the magnetic field cannot stabilise the velocity shear from the Kelvin-Helmholtz instability.
 
 In Section \ref{sec:chap_3_closed_loop} we extended our analytic solution from Section \ref{sec:chap_3_open_loop} to calculate an analytic solution for a closed-loop using a method of images approach. We then verified this numerically and plotted the results in Figure \ref{fig:phase_mixing_closed_loop}. After that, we calculated the solution for the case where multiple harmonics are excited. We showed that an upper bound for the heating rate per unit of wave energy, $\gamma$, can be well approximated with Equation \eqref{eq:gamma_approx_alpha=1} where this assumes a power spectrum with slope $\alpha=1$. We use this formula in Section \ref{sec:chap_3_coronal_heating} to conclude that dissipation of the gradients produced by phase mixing plays a negligible role in coronal heating.
 
-In Section \ref{sec:chap_3_leaky_loop}, we calculate the solution for the case where waves can leak out of the corona. We find that this acts to reduce $\gamma$, and this is because waves leak out of the corona before they can phase-mix to short length scales where significant heating happens. This means that our upper bound for $\gamma$ can ignore the effects of leakage.
+In Section \ref{sec:chap_3_leaky_loop}, we calculate the solution for the case where waves can leak out of the corona. We find that this acts to reduce $\gamma$, and this is because waves leak out of the corona before they can phase-mix to short length scales where significant heating can occur. This means that our upper bound for $\gamma$ can ignore the effects of leakage.
 
 Finally, in Section \ref{sec:chap_3_coronal_heating} we brought results from the previous sections to conclude that the dissipation of the gradients produced by phase mixed Alfv\'en plays a negligible role in coronal heating. We then discussed the validity of this conclusion and whether we have missed any essential physics in our model, which might change our judgment. This included: whether our value for the characteristic Alfv\'en speed length-scale, $a$, was valid. Whether unobserved high-frequency waves could be significant. The importance of nonlinearities. The implications of assuming $\pdv*{}{y}=0$. 
 Finally, how including the thermodynamic response of the system may affect the results.
