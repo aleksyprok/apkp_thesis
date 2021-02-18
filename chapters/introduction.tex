@@ -120,7 +120,7 @@ where $L$ denotes the macroscopic length scales. For fully ionised Hydrogen plas
 \begin{gather}
     \begin{aligned}
     \frac{\omega_{ce}}{\nu_e} &= \frac{1}{3.64\times10^{-6}}\frac{eBT^{3/2}}{m_en_e\ln\Lambda} \\
-    &\approx 2.42\times10^5\qty(\frac{20}{\ln\Lambda})\qty(\frac{B}{10^{-3}\si{.T}})\qty(\frac{T_e}{10^6\si{.K}})^{3/2}\qty(\frac{10^{15}\si{.m^{-3}}}{n_e}),
+    &\approx 2.42\times10^6\qty(\frac{20}{\ln\Lambda})\qty(\frac{B}{10^{-3}\si{.T}})\qty(\frac{T_e}{10^6\si{.K}})^{3/2}\qty(\frac{10^{15}\si{.m^{-3}}}{n_e}),
     \end{aligned} \\
     \begin{aligned}
     \lambda_{Te} &= \frac{1}{3.64\times10^{-6}}\frac{\sqrt{k_B/m_e}}{\ln\Lambda}\frac{T_e^2}{n_e} \\
@@ -234,7 +234,7 @@ where the electron inertia and electron pressure gradient terms have been neglec
 \end{equation}
 Plugging in typical coronal values, the resistivity coefficents can be approximated by
 \begin{gather}
-    \frac{1}{\sigma}\approx1.37\times10^{-6}\qty(\frac{T}{10^6\si{.K}})^{-3/2}\si{.mho.m^{-1}},  \\
+    \frac{1}{\sigma}\approx2.58\times10^{-6}\qty(\frac{T}{10^6\si{.K}})^{-3/2}\si{.mho.m^{-1}},  \\
     \frac{\abs{\vec{B}}}{en_e}\approx6.24\,\qty(\frac{\abs{\vec{B}}}{10^{-3}\si{.T}})\qty(\frac{10^{15}\si{.m^{-3}}}{n_e}).
 \end{gather}
 The coulomb logarithm, $\ln\Lambda$, lies between 5 and 20 and has a weak temperature dependence. For coronal plasma, a suitable approximation is $\ln\Lambda\approx20$. It is tempting to neglect the direct current term in favour of the Hall term. However, the Hall term is dependent only on currents parallel to the field. Throughout this thesis, the currents perpendicular to the field dominate.
@@ -331,18 +331,18 @@ where $\rho_0$ denotes the typical density in the system, $l_0$ denotes the typi
 \end{equation}
 Given that the Reynolds number is significantly greater than unity we will often neglect viscosity. Note that if we ignore all viscous and resistive terms, then the equations are ideal.
 
-Consider the ratio of the Lorentz force with the gravitational force
-\[\frac{|\vec{j}\cross\vec{B}|}{\rho g_\odot}\approx \frac{v_{A0}^2}{v_g^2},\]
-where $v_{A0}$ denotes the typical size of the Alfv\'en speed, and $v_g$ is the gravitational free-fall speed given by
-\begin{equation}
-    v_g = \sqrt{g_\odot l_0},
-\end{equation}
-where $l_0$ gives the characteristic length-scale of the system. In this Thesis we will be studying waves in loops with a maximum length of $100\si{.Mm}$. A typical value for the Alfv\'en speed in the corona is about $1\si{.Mm.s^{-1}}$ \citep{McIntosh2011,McIntosh2012}. Therefore, we can approximate this ratio as
-\begin{equation}
-    \label{eq:ignore_gravity}
-    \frac{v_A^2}{v_g^2}\approx 0.60\times 10^{-3}\qty(\frac{v_{A0}^2}{1\si{.Mm^2.s^{-2}}})\qty(\frac{100 \si{.Mm^2}}{l_0}).
-\end{equation}
-Since this ratio is significantly smaller than one we will usually neglect the gravitational force in favour of the Lorentz force.
+% Consider the ratio of the Lorentz force with the gravitational force
+% \[\frac{|\vec{j}\cross\vec{B}|}{\rho g_\odot}\approx \frac{v_{A0}^2}{v_g^2},\]
+% where $v_{A0}$ denotes the typical size of the Alfv\'en speed, and $v_g$ is the gravitational free-fall speed given by
+% \begin{equation}
+%     v_g = \sqrt{g_\odot l_0},
+% \end{equation}
+% where $l_0$ gives the characteristic length-scale of the system. In this Thesis we will be studying waves in loops with a maximum length of $100\si{.Mm}$. A typical value for the Alfv\'en speed in the corona is about $1\si{.Mm.s^{-1}}$ \citep{McIntosh2011,McIntosh2012}. Therefore, we can approximate this ratio as
+% \begin{equation}
+%     \label{eq:ignore_gravity}
+%     \frac{v_A^2}{v_g^2}\approx 3.6\times10^1\qty(\frac{v_{A0}^2}{1\si{.Mm^2.s^{-2}}})\qty(\frac{10 \si{.Mm}}{l_0}).
+% \end{equation}
+
 
 % \begin{wrapfigure}{r}{0.5\textwidth}
 %   \vspace{-10pt}
@@ -484,7 +484,7 @@ where $\eta$ is the magnetic diffusivity, given by
     \label{eq:eta_typical_values}
     \begin{aligned}
         \eta&=\frac{1}{\mu_0\sigma} \\
-        &\approx 1.09\qty(\frac{T}{10^6\si{.K}})^{-3/2}\si{.m^2.s^{-1}},
+        &\approx 2.06\qty(\frac{T}{10^6\si{.K}})^{-3/2}\si{.m^2.s^{-1}},
     \end{aligned}
 \end{equation}
 for typical coronal temperatures. The magnetic Reynolds number is defined as
@@ -494,7 +494,7 @@ for typical coronal temperatures. The magnetic Reynolds number is defined as
 where $l_0$ denotes the system's typical length scales and $V_0$ denotes the typical velocity in the system. In the corona, the magnetic Reynolds number can be approximated by
 \begin{equation}
     \label{eq:mag_reynolds_number}
-    R_m\approx0.95\times10^{10}\qty(\frac{l_0}{10^6\si{.m}})\qty(\frac{V_0}{10^4\si{.m.s^{-1}}})\qty(\frac{T_0}{10^6\si{.K}})^{3/2}.
+    R_m\approx4.86\times10^{9}\qty(\frac{l_0}{10^6\si{.m}})\qty(\frac{V_0}{10^4\si{.m.s^{-1}}})\qty(\frac{T_0}{10^6\si{.K}})^{3/2}.
 \end{equation}
 We usually neglect the diffusive term in the induction equation in favour of the advective term. However, sometimes the length scales can become sufficiently small that we cannot ignore the diffusion term. Note that our approximation for the corona's velocities uses results from \citet{McIntosh2011,McIntosh2012}.
 
@@ -936,9 +936,9 @@ Note that the dimensions of $P(f)$ are somewhat meaningless without knowledge of
 
 \section{Outline of the thesis}
 
-This thesis aims to model MHD waves' dynamics in the solar atmosphere by using simple models to calculate analytic solutions. In Chapter \ref{chap:ideal_footpoint_driven_alfven_waves} we study the simplest type of MHD wave, namely, Alfv\'en waves. These are waves with a velocity amplitude which satisfies the Alfv\'en wave equation, Equation \eqref{eq:alfven_wave_equation}. We calculate the solutions for the case where we impose a footpoint driver as a boundary condition. We aim to show how to set up resonance when the driver is sinusoidal and gives a white/red noise force. We also consider the case where waves can leak out of the corona.
+This thesis aims to improve our understanding of MHD waves' dynamics in the solar atmosphere by using models which are complex enough to build our intuition and simple enough to easily be comprehended. In Chapter \ref{chap:ideal_footpoint_driven_alfven_waves} we study the simplest type of MHD wave, namely, Alfv\'en waves. These are waves with a velocity amplitude which satisfies the Alfv\'en wave equation (Equation \ref{eq:alfven_wave_equation}). Our goal is to introduce some of the key concepts relevant to the rest of the thesis. We calculate the solutions for the case where we impose a footpoint driver as a boundary condition. We aim to calculate the solution for when the driver is sinusoidal and a white/red noise force. After that, we extend the model by allowing waves to leak out of the corona.
 
-In Chapter \ref{chap:resistive_phase_mixed_alfven_waves} we study linear Alfv\'en waves with resistivity and viscosity included in the model with the $y$-direction assumed invariant. We show that if neighbouring field lines have different natural frequencies, this can lead to the formation of steep gradients across the field via phase mixing. We aim to test if the dissipation of phase-mixed Alfv\'en waves plays a significant role in coronal heating. To do this, we introduce a quantity called the heating rate per unit of wave energy which we denote with $\gamma$. We estimate the required heating rate by assuming it must balance our estimates of the corona's conductive and radiative losses. We also use observational data of velocity fluctuations to estimate the average wave energy in the corona. Using these values, we calculate that $\gamma$ needs to equal about $10^{-1}\si{.s^{-1}}$ for a wave heating mechanism to play a major role in coronal heating. We calculate a theoretical upper bound for $\gamma$ and use this to test if the dissipation of phase-mixed Alfv\'en wave is a viable heating mechanism. Our model also includes partial reflection and allows for a power spectrum of harmonics to be excited.
+In Chapter \ref{chap:resistive_phase_mixed_alfven_waves} our goal is to assess the viability of a process called phase mixing as a heating mechanism. We study linear Alfv\'en waves with resistivity and viscosity included in the model with the $y$-direction assumed invariant. We show that if neighbouring field lines have different natural frequencies, this can lead to the formation of steep gradients across the field via phase mixing. To test if this is a viable heating mechanism, we introduce a quantity called the heating rate per unit of wave energy which we denote with $\gamma$. We estimate the required heating rate by assuming it must balance our estimates of the corona's conductive and radiative losses. We also use observational data of velocity fluctuations to estimate the average wave energy in the corona. Using these values, we calculate that $\gamma$ needs to equal about $10^{-1}\si{.s^{-1}}$ for a wave heating mechanism to play a major role in coronal heating. We calculate a theoretical upper bound for $\gamma$ and use this to test if the dissipation of phase-mixed Alfv\'en wave is a viable heating mechanism. Our model also includes partial reflection and allows for a power spectrum of harmonics to be excited.
 
 Chapter \ref{chap:resonant_absorption_in_an_oblique_field} allows for $\pdv*{}{y}\ne0$. This enables a phenomenon called resonant absorption to occur. This is where a propagating fast wave with a given frequency gets absorbed by a magnetic field line, called the resonant field line, with the same natural Alfv\'en frequency. Energy concentrates at the resonant field line and the waves form a standing Alfv\'en wave. We model the magnetic field to be at an arbitrary angle, $\alpha$, to the transition region. In for example, \citet{Halberstadt1993,Halberstadt1995,Arregui2003}, they show that in general, steep boundary layers / evanescent fast waves form. However, their model only includes the corona, and they impose line-tied boundary conditions. This chapter includes the chromosphere and corona and tests if the boundary layers still form if we do not impose line-tied boundary conditions. This allows us to test if the boundary layers are physical or fictitious artefacts generated by using line-tied boundary conditions.
 
