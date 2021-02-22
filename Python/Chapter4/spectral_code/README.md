@@ -1,4 +1,4 @@
-This Python 3 code solves the cold ideal linearised MHD equations using a combination of spectral and method of lines techniques.
+This Python 3 code solves the cold ideal linearised MHD equations using spectral and method of lines techniques.
 For more information on how the code works, see Manual/manual.pdf.
 
 control.py defines the variables, e.g. the background Alfven speed, the angle of the background magnetic field to the z-axis (alpha) and the number of harmonics to use (N).
