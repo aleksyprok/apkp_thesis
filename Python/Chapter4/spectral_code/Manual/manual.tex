@@ -1,0 +1,588 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\usepackage{amsmath}
+\usepackage{physics}
+\usepackage{dsfont}
+\usepackage{graphicx}
+\usepackage{hyperref}
+
+\let\vec\boldsymbol
+
+\geometry{margin = 2cm}
+\title{Eigenfunction approach}
+\author{Alexander Prokopyszyn}
+\date{September 2020}
+
+\begin{document}
+
+\maketitle
+
+\section*{Equations}
+
+The equations are given by
+\[\pdv{u_x}{t}=v_A^2(x,z)\qty[\nabla_{||}b_x - \pdv{b_{||}}{x}],\]
+\[\pdv{u_\perp}{t}=v_A^2(x,z)\qty[\nabla_{||}b_\perp-\nabla_\perp b_{||}],\]
+\[\pdv{b_x}{t}=\nabla_{||}u_x,\]
+\[\pdv{b_\perp}{t}=\nabla_{||}u_{\perp},\]
+\[\pdv{b_{||}}{t}=-\qty[\pdv{u_x}{x}+\nabla_\perp u_{\perp}],\]
+where
+\[\nabla_\perp = \cos\alpha\pdv{}{y} - \sin\alpha\pdv{}{z},\]
+\[\nabla_{||} = \sin\alpha\pdv{}{y} + \cos\alpha\pdv{}{z}.\]
+The field perturbations $b_x$, $b_\perp$ and $b_{||}$ are dimensionless as they have been normalised by $B_0$. The background field is given by
+\[\vec{B}_0=B_0(\sin\alpha\,\vec{\hat{y}}+\cos\alpha\,\vec{\hat{z}}).\]
+The Alfv\'en speed is given by $v_A(x,z) = \hat{v}_A(x)v_{A}(0,z)$, where
+\[
+    v_A(0,z)= \begin{cases}
+    v_{A1}, & z \le L_z, \\
+    v_{A2}, & z > L_z.
+    \end{cases}
+\]
+
+The system is periodic in $z$, with period $2L_z$.
+We assume the variables are of the form
+\[f(x,y,z,t) = f'(x,z)\exp\{i[k_\perp(\cos\alpha\,y - \sin\alpha\,z)+\omega t]\}.\]
+Note that
+\[\nabla_\perp f(x,y,z,t) = \exp\{i[k_\perp(\cos\alpha\,y - \sin\alpha\,z)+\omega t]\}\qty(ik_\perp - \sin\alpha\pdv{}{z})f',\]
+\[\nabla_{||} f(x,y,z,t) = \exp\{i[k_\perp(\cos\alpha\,y - \sin\alpha\,z)+\omega t]\}\cos\alpha\pdv{f'}{z} .\]
+Therefore, the above equations can be simplified to
+\[i\omega u_x'=v_A^2(x,z)\qty[\nabla_{||}'b_x' - \pdv{b_{||}'}{x}],\]
+\[i\omega u_\perp'=v_A^2(x,z)\qty[\nabla_{||}'b_\perp'-\nabla_\perp' b_{||}'],\]
+\[i\omega b_x'=\nabla_{||}'u_x',\]
+\[i\omega b_\perp'=\nabla_{||}'u_{\perp}',\]
+\[i\omega b_{||}'=-\qty[\pdv{u_x'}{x}+\nabla_\perp' u_{\perp}'],\]
+where
+\[\nabla_\perp' = \qty(ik_\perp - \sin\alpha\pdv{}{z}),\]
+\[\nabla_{||}' = \cos\alpha\pdv{}{z}.\]
+From this point on, to keep the notation clear, we drop the ' notation.
+
+The equations can be rearranged to give
+\[-\omega^2u_x=v_A^2\qty[\nabla_{||}^2u_x -i\omega \pdv{b_{||}}{x}],\]
+\[-\omega^2u_\perp=v_A^2\qty[\nabla_{||}^2u_\perp -i\omega\nabla_\perp b_{||}],\]
+hence,
+\[\mathcal{L}u_x = i\omega\pdv{b_{||}}{x}\]
+\[\mathcal{L}u_\perp = i\omega \nabla_\perp b_{||},\]
+where
+\[\mathcal{L} = \nabla_{||}^2 + \frac{\omega^2}{v_A^2(x,z)},\]
+Therefore,
+\[\boxed{\pdv{u_x}{x} = -\qty[i\omega b_{||} + \nabla_\perp u_\perp],}\]
+\[\boxed{\pdv{b_{||}}{x} = -\frac{i}{\omega}\mathcal{L}u_x,}\]
+\[\mathcal{L}u_\perp = i\omega \nabla_\perp b_{||}.\]
+For $z\ne0, L_z$,
+\[\boxed{\mathcal{L}\nabla_\perp u_\perp = i\omega \nabla_\perp^2 b_{||}.}\]
+
+To solve this, we postulate a solution of the form
+\[u_x(x,z) = u_{x0}^{(1)}(x)\phi_0(z) + \sum_{n=1}^\infty u_{xn}^{(1)}(x)\phi_n(z) + u_{xn}^{(2)}(x)\varphi_n(z),\]
+\[b_{||}(x,z) = b_{||0}^{(1)}(x)\phi_0(z) + \sum_{n=1}^\infty b_{||n}^{(1)}(x)\phi_n(z) + b_{||n}^{(2)}(x)\varphi_n(z),\]
+\[\nabla_\perp u_\perp(x,z) = \Delta_{\perp0}^{(1)}(x)\phi_0(z) + \sum_{n=1}^\infty \Delta_{\perp n}^{(1)}(x)\phi_n(z) + \Delta_{\perp n}^{(2)}(x)\varphi_n(z),\]
+where $\phi_n$, $\varphi_n$ are eigenfunctions, with eigenfrequencies, $\omega_n$, $\varpi_n$ satisfying 
+\[\qty[\nabla_{||}^2+\frac{\omega_n^2}{v_A^2(0,z)}]\phi_n(z)=0,\]
+\[\qty[\nabla_{||}^2+\frac{{\varpi}_n^2}{v_A^2(0,z)}]\varphi_n(z)=0,\]
+as well as the boundary conditions. We will choose $\omega$ to be complex, therefore, $\omega\ne\varpi_n$, $\omega\ne\varpi_n$.
+
+\section*{Eigenfunctions and eigenfrequencies}
+
+The boundary conditions are given by 
+\[\phi_n(0)=\phi_n(2L_z),\ 
+\varphi_n(0)=\varphi_n(2L_z),\ 
+\left.\dv{\phi_n}{z}\right|_{z=0}=\left.\dv{\phi_n}{z}\right|_{z=2L_z},\ 
+\left.\dv{\varphi_n}{z}\right|_{z=0}=\left.\dv{\varphi_n}{z}\right|_{z=2L_z}.\ \]
+Also, we require continuity of $\phi$, $\varphi$, $\dv*{\phi}{z}$, $\dv*{\varphi}{z}$ at $z=L_z$. By symmetry, we assume the eigenfunctions are of the form,
+\[\phi_n(z)=\begin{cases}
+a\cos[k_{z1n} (z-l_z)], & z \le L_z, \\
+c\cos[k_{z2n} (z-3l_z)], & z > L_z, \\
+\end{cases}\]
+\[\varphi_n(z)=\begin{cases}
+b\sin[\bar{k}_{z1n} (z-l_z)], & z \le L_z, \\
+d\sin[\bar{k}_{z2n} (z-3l_z)], & z > L_z. \\
+\end{cases}\]
+Hence
+\[\dv{\phi_n}{z}=\begin{cases}
+-ak_{z1n}\sin[k_{z1n} (z-l_z)], & z \le L_z, \\
+-ck_{z2n}\sin[k_{z2n} (z-3l_z)], & z > L_z, \\
+\end{cases}\]
+\[\dv{\varphi_n}{z}=\begin{cases}
+b\bar{k}_{z1n}\cos[\bar{k}_{z1n} (z-l_z)], & z \le L_z, \\
+d\bar{k}_{z2n}\cos[\bar{k}_{z2n} (z-3l_z)], & z > L_z, \\
+\end{cases}\]
+where 
+\[k_{zin}=\frac{\omega_n}{v_{Ai}\cos\alpha} \text{ and } \bar{k}_{zin}=\frac{\varpi_n}{v_{Ai}\cos\alpha}.\]
+Applying boundary and continuity conditions gives
+\[\begin{pmatrix}
+\cos(k_{z1n}l_z) & -\cos(k_{z2n}l_z) \\
+k_{z1n}\sin(k_{z1n}l_z) & k_{z2n}\sin(k_{z2n}l_z)
+\end{pmatrix}
+\begin{pmatrix}
+a \\
+c
+\end{pmatrix}
+=
+\begin{pmatrix}
+0 \\
+0
+\end{pmatrix},\]
+\[\begin{pmatrix}
+\sin(k_{z1n}l_z) & \sin(k_{z2n}l_z) \\
+k_{z1n}\cos(k_{z1n}l_z) & -k_{z2n}\cos(k_{z2n}l_z)
+\end{pmatrix}
+\begin{pmatrix}
+b \\
+d
+\end{pmatrix}
+=
+\begin{pmatrix}
+0 \\
+0
+\end{pmatrix}.\]
+Hence, non-trivial solutions exist for
+\[k_{z2n}\sin(k_{z2n}l_z)\cos(k_{z1n}l_z)+k_{z1n}\sin(k_{z1n}l_z)\cos(k_{z2n}l_z)=0,\]
+\[\bar{k}_{z2n}\sin(\bar{k}_{z1n}l_z)\cos(\bar{k}_{z2n}l_z)+\bar{k}_{z1n}\sin(\bar{k}_{z2n}l_z)\cos(\bar{k}_{z1n}l_z)=0,\]
+and we use these equations to calculate $\omega_n$, $\varpi_n$, such that
+\[\omega_1<\omega_2<\omega_3...,\ \varpi_1<\varpi_2<\varpi_3...\,.\]
+Note that if $l_z=n\pi/k_{z1n}$ and $l_z=n\pi/\bar{k}_{z1n}$ the above equations simplify to
+\[k_{z2n}\sin\qty(n\pi\frac{k_{z2n}}{k_{z1n}})(-1)^n=0,\quad \bar{k}_{z1n}\sin\qty(n\pi\frac{\bar{k}_{z2n}}{\bar{k}_{z1n}})(-1)^n=0.\]
+Hence, for $v_{A1}/v_{A2}=m$, where $m$ is an integer, a subset of the eigenvalues are given by
+\[\omega_j = \varpi_j= j\pi\frac{v_{A1}}{l_z}\cos\alpha.\]
+Note that if $l_z=(2n+1)\pi/(2k_{z1n})$ and $l_z=(2n+1)\pi/(2\bar{k}_{z1n})$ the above equations simplify to
+\[k_{z1n}(-1)^n\cos\qty(\frac{1}{2}(2n+1)\pi\frac{k_{z2n}}{k_{z1n}})=0,\quad
+\bar{k}_{z2n}(-1)^n\cos\qty(\frac{1}{2}(2n+1)\pi\frac{k_{z2n}}{k_{z1n}})=0.\]
+Hence, for $v_{A1}/v_{A2}=m$, where $m$ is an odd integer, a subset of the eigenvalues are given by
+\[\omega_j = \varpi_j= j\pi\frac{v_{A1}}{2l_z}\cos\alpha.\]
+
+Hence,
+\[\phi_n(z)=A_n\begin{cases}
+a_n\cos[k_{z1n} (z-l_z)], & z \le L_z, \\
+c_n\cos[k_{z2n} (z-3l_z)], & z > L_z, \\
+\end{cases}\]
+\[\varphi_n(z)=B_n\begin{cases}
+b_n\sin[\bar{k}_{z1n} (z-l_z)], & z \le L_z, \\
+d_n\sin[\bar{k}_{z2n} (z-3l_z)], & z > L_z, \\
+\end{cases}\]
+where
+\[a_n = \begin{cases}
+\cos(k_{z2n} l_z), & \cos(k_{z1n} l_z) \ne 0 \\
+k_{z2n}\sin(k_{z2n} l_z), & \cos(k_{z1n} l_z) = 0 \\
+\end{cases},\]
+\[c_n = \begin{cases}
+\cos(k_{z1n} l_z), & \cos(k_{z1n} l_z) \ne 0 \\
+-k_{z1n}\sin(k_{z1n} l_z), & \cos(k_{z1n} l_z) = 0 \\
+\end{cases},\]
+\[b_n = \begin{cases}
+\sin(\bar{k}_{z2n} l_z), & \sin(\bar{k}_{z1n} l_z) \ne 0 \\
+\bar{k}_{z2n}\cos(\bar{k}_{z2n} l_z), & \sin(\bar{k}_{z1n} l_z) = 0 \\
+\end{cases},\]
+\[d_n = \begin{cases}
+-\sin(\bar{k}_{z1n} l_z), & \sin(\bar{k}_{z1n} l_z) \ne 0 \\
+\bar{k}_{z1n}\cos(\bar{k}_{z1n} l_z), & \sin(\bar{k}_{z1n} l_z) = 0 \\
+\end{cases},\]
+We normalise such that $\langle \phi_n \phi_m\rangle = \langle \varphi_n \varphi_m\rangle = \delta_{nm}$, where 
+\[\langle \phi_n, \phi_m \rangle = \int_0^{2L_z} \frac{\phi_n(z)\phi_m(z)}{v_A^2(0,z)}dz,\]
+and $\delta_{nm}$ is the Kronecker delta. 
+Note that
+\[\begin{aligned}
+\frac{\langle \phi_n, \phi_n \rangle}{A_n^2} &= \int_0^{2L_z} \frac{\phi_n^2(z)}{A_n^2v_A^2(0,z)}dz \\
+&= \frac{1}{v_{A1}^2}\int_0^{L_z} a_n^2\cos^2[k_{z1n}(z-l_z)] dz + \frac{1}{v_{A2}^2}\int_{L_z}^{2L_z} c_n^2\cos^2[k_{z2n}(z-3l_z)]dz \\
+&= \int_{-l_z}^{l_z} \frac{a_n^2}{v_{A1}^2}\cos^2(k_{z1n}z) + \frac{c_n^2}{v_{A2}^2}\cos^2(k_{z2n}z)dz \\
+&= 2\int_{0}^{l_z} \frac{a_n^2}{v_{A1}^2}\cos^2(k_{z1n}z) + \frac{c_n^2}{v_{A2}^2}\cos^2(k_{z2n}z)dz \\
+&=\Bigg\{\frac{a_n^2}{2v_{A1}^2k_{z1n}}\Big[2k_{z1n}z+\sin(2k_{z1n}z)\Big]+\frac{c_n^2}{2v_{A2}^2k_{z2n}}\Big[2k_{z2n}z+\sin(2k_{z2n}z)\Big]\Bigg\}_0^{l_z} \\
+&=\frac{a_n^2}{2v_{A1}^2k_{z1n}}\Big[2k_{z1n}l_z+\sin(2k_{z1n}l_z)\Big]+\frac{c_n^2}{2v_{A2}^2k_{z2n}}\Big[2k_{z2n}l_z+\sin(2k_{z2n}l_z)\Big],
+\end{aligned}\]
+\[\begin{aligned}
+\frac{\langle \varphi_n, \varphi_n \rangle}{B_n^2} &=
+\frac{1}{2}\Bigg\{\frac{b_n^2}{v_{A1}^2\bar{k}_{z1n}}\Big[2\bar{k}_{z1n}z-\sin(2\bar{k}_{z1n}z)\Big]+\frac{d_n^2}{v_{A2}^2\bar{k}_{z2n}}\Big[2\bar{k}_{z2n}z-\sin(2\bar{k}_{z2n}z)\Big]\Bigg\}_0^{l_z} \\
+&=\frac{b_n^2}{2v_{A1}^2\bar{k}_{z1n}}\Big[2\bar{k}_{z1n}l_z-\sin(2\bar{k}_{z1n}l_z)\Big]+\frac{d_n^2}{2v_{A2}^2\bar{k}_{z2n}}\Big[2\bar{k}_{z2n}l_z-\sin(2\bar{k}_{z2n}l_z)\Big].
+\end{aligned}\]
+Hence,
+\[\begin{aligned}
+A_n = \Bigg(\frac{a_n^2}{2v_{A1}^2k_{z1n}}\Big[2k_{z1n}l_z+\sin(2k_{z1n}l_z)\Big]+\frac{c_n^2}{2v_{A2}^2k_{z2n}}\Big[2k_{z2n}l_z+\sin(2k_{z2n}l_z)\Big]\Bigg)^{-1/2},
+\end{aligned}\]
+\[\begin{aligned}
+B_n = \Bigg(\frac{b_n^2}{2v_{A1}^2\bar{k}_{z1n}}\Big[2\bar{k}_{z1n}l_z-\sin(2\bar{k}_{z1n}l_z)\Big]+\frac{d_n^2}{2v_{A2}^2\bar{k}_{z2n}}\Big[2\bar{k}_{z2n}l_z-\sin(2\bar{k}_{z2n}l_z)\Big]\Bigg)^{-1/2}.
+\end{aligned}\]
+
+\section*{Deriving the ODEs}
+
+Note that
+\[\mathcal{L}(x,z)=\nabla_{||}^2+\frac{\omega_n^2}{v_A^2(0,z)}+\frac{\omega^2/\hat{v}_A^2(x) - \omega_n^2}{v_{A}^2(0,z)},\]
+\[\implies \mathcal{L}(x,z)\phi_n(z) = [\omega^2/\hat{v}_A^2(x) - \omega_n^2]\frac{\phi_n(z)}{v_A^2(0,z)},\]
+\[\implies \mathcal{L}(x,z)\varphi_n(z) = [\omega^2/\hat{v}_A^2(x) - \varpi_n^2]\frac{\varphi_n(z)}{v_A^2(0,z)}.\]
+Hence,
+\[\begin{aligned}
+\dv{u_{x0}^{(1)}}{x}\phi_0(z)+\sum_{n=1}^\infty \dv{u_{xn}^{(1)}}{x}\phi_n(z) + \dv{u_{xn}^{(2)}}{x}\varphi_n(z)&=-[i\omega b_{||0}^{(1)}+\Delta_{\perp0}^{(1)}]\phi_0(z) \\
+&-\sum_{n=1}^\infty\qty[i\omega b_{||n}^{(1)}(x) + \Delta_{\perp n}^{(1)}(x)]\phi_n(z) \\
+&-\sum_{n=1}^\infty\qty[i\omega b_{||n}^{(2)}(x) + \Delta_{\perp n}^{(2)}(x)]\varphi_n(z),
+\end{aligned}\]
+\[\begin{aligned}
+\dv{b_{||0}^{(1)}}{x}\phi_0(z)+\sum_{n=1}^\infty \dv{b_{||n}^{(1)}}{x}\phi_n(z) + \dv{b_{||n}^{(2)}}{x}\varphi_n(z)&=-\frac{i}{\omega}\qty[\omega^2/\hat{v}_A^2(x)]u_{xn}^{(1)}(x)\frac{\phi_0(z)}{v_A^2(0,z)} \\
+&-\frac{i}{\omega}\sum_{n=1}^\infty\qty[\omega^2/\hat{v}_A^2(x) - \omega_n^2]u_{xn}^{(1)}(x)\frac{\phi_n(z)}{v_A^2(0,z)} \\
+&-\frac{i}{\omega}\sum_{n=1}^\infty\qty[\omega^2/\hat{v}_A^2(x) - \varpi_n^2]u_{xn}^{(2)}(x)\frac{\varphi_n(z)}{v_A^2(0,z)},
+\end{aligned}\]
+\[\begin{aligned}
+i\omega\nabla_\perp^2 \qty[b_{||0}^{(1)}(x)\phi_0(z)+\sum_{n=1}^\infty b_{||n}^{(1)}(x)\phi_n(z) + b_{||n}^{(2)}(x)\varphi_n(z)]&=\qty[\omega^2/\hat{v}_A^2(x)]\Delta_{\perp 0}^{(1)}(x)\frac{\phi_0(z)}{v_A^2(0,z)} \\
+&+\sum_{n=1}^\infty\qty[\omega^2/\hat{v}_A^2(x) - \omega_n^2]\Delta_{\perp n}^{(1)}(x)\frac{\phi_n(z)}{v_A^2(0,z)} \\
+&+\sum_{n=1}^\infty\qty[\omega^2/\hat{v}_A^2(x) - \varpi_n^2]\Delta_{\perp n}^{(2)}(x)\frac{\varphi_n(z)}{v_A^2(0,z)}.
+\end{aligned}\]
+Taking the inner product of the above equations with $\phi_m$ then $\varphi_m$ and weight function $1/v_A^2(0,z)$ gives
+\[\boxed{\dv{u_{xm}^{(1)}}{x}=-[i\omega b_{||n}^{(1)} + \Delta_{\perp n}^{(1)}],}\]
+\[\boxed{\dv{u_{xm}^{(2)}}{x}=-[i\omega b_{||n}^{(2)} + \Delta_{\perp n}^{(2)}],}\]
+\[\begin{aligned}
+\dv{b_{||m}^{(1)}}{x}&=-\frac{i}{\omega}\qty[\omega^2/\hat{v}_A^2(x)]u_{xn}^{(1)}(x)\left\langle\frac{\phi_0(z)}{v_A^2(0,z)},\phi_m(z)\right\rangle \\
+&-\frac{i}{\omega}\sum_{n=1}^\infty\qty[\omega^2/\hat{v}_A^2(x) - \omega_n^2]u_{xn}^{(1)}(x)\left\langle\frac{\phi_n(z)}{v_A^2(0,z)},\phi_m(z)\right\rangle \\
+&-\frac{i}{\omega}\sum_{n=1}^\infty\qty[\omega^2/\hat{v}_A^2(x) - \varpi_n^2]u_{xn}^{(2)}(x)\left\langle\frac{\varphi_n(z)}{v_A^2(0,z)},\phi_m(z)\right\rangle,
+\end{aligned}\]
+\[\begin{aligned}
+\dv{b_{||m}^{(2)}}{x}&=-\frac{i}{\omega}\qty[\omega^2/\hat{v}_A^2(x)]u_{xn}^{(1)}(x)\left\langle\frac{\phi_0(z)}{v_A^2(0,z)},\varphi_m(z)\right\rangle \\
+&-\frac{i}{\omega}\sum_{n=1}^\infty\qty[\omega^2/\hat{v}_A^2(x) - \omega_n^2]u_{xn}^{(1)}(x)\left\langle\frac{\phi_n(z)}{v_A^2(0,z)},\varphi_m(z)\right\rangle \\
+&-\frac{i}{\omega}\sum_{n=1}^\infty\qty[\omega^2/\hat{v}_A^2(x) - \varpi_n^2]u_{xn}^{(2)}(x)\left\langle\frac{\varphi_n(z)}{v_A^2(0,z)},\varphi_m(z)\right\rangle,
+\end{aligned}\]
+\[\begin{aligned}
+\Delta_{\perp m}^{(1)}(x)&=\frac{i\omega }{\omega^2/\hat{v}_{A}^2(x)-\omega_m^2}b_{||0}^{(1)}(x)\left\langle v_A^2(0,z)\nabla_\perp^2\phi_0(z),\phi_m(z)\right\rangle \\
+&+\frac{i\omega }{\omega^2/\hat{v}_{A}^2(x)-\omega_m^2}\sum_{n=1}^\infty b_{||n}^{(1)}(x)\left\langle v_A^2(0,z)\nabla_\perp^2\phi_n(z),\phi_m(z)\right\rangle \\
+&+\frac{i\omega }{\omega^2/\hat{v}_{A}^2(x)-\omega_m^2}\sum_{n=1}^\infty b_{||n}^{(2)}(x)\left\langle v_A^2(0,z)\nabla_\perp^2\varphi_n(z),\phi_m(z)\right\rangle,
+\end{aligned}\]
+\[\begin{aligned}
+\Delta_{\perp m}^{(2)}(x)&=\frac{i\omega }{\omega^2/\hat{v}_{A}^2(x)-\varpi_m^2}b_{||0}^{(1)}(x)\left\langle v_A^2(0,z)\nabla_\perp^2\phi_0(z),\varphi_m(z)\right\rangle \\
+&+\frac{i\omega }{\omega^2/\hat{v}_{A}^2(x)-\varpi_m^2}\sum_{n=1}^\infty b_{||n}^{(1)}(x)\left\langle v_A^2(0,z)\nabla_\perp^2\phi_n(z),\varphi_m(z)\right\rangle \\
+&+\frac{i\omega }{\omega^2/\hat{v}_{A}^2(x)-\varpi_m^2}\sum_{n=1}^\infty b_{||n}^{(2)}(x)\left\langle v_A^2(0,z)\nabla_\perp^2\varphi_n(z),\varphi_m(z)\right\rangle.
+\end{aligned}\]
+Note that
+\[\left\langle\frac{\varphi_n(z)}{v_A^2(0,z)},\phi_m(z)\right\rangle=\left\langle\frac{\phi_n(z)}{v_A^2(0,z)},\varphi_m(z)\right\rangle=0\]
+\[\nabla_\perp^2 = \sin^2\alpha\pdv[2]{}{z}-2ik_\perp\sin\alpha\pdv{}{z}-k_\perp^2,\]
+\[\begin{aligned}
+\left\langle v_A^2(0,z)\nabla_\perp^2\phi_n(z),\phi_m(z)\right\rangle&=\left\langle v_A^2(0,z)\qty(\sin^2\alpha\pdv[2]{}{z}-k_\perp^2)\phi_n,\phi_m(z)\right\rangle\\
+&=\left\langle -v_A^2(0,z)\qty(\tan^2\alpha\frac{\omega_n^2}{v_A^2(0,z)}+k_\perp^2)\phi_n,\phi_m(z)\right\rangle \\
+&=-\tan^2\alpha\,\omega_n^2\delta_{nm}-k_\perp^2\left\langle v_A^2(0,z)\phi_n(z),\phi_m(z)\right\rangle,
+\end{aligned}\]
+\[\left\langle v_A^2(0,z)\nabla_\perp^2\varphi_n(z),\varphi_m(z)\right\rangle=-\tan^2\alpha\,\varpi_n^2\delta_{nm}-k_\perp^2\left\langle v_A^2(0,z)\varphi_n(z),\phi_m(z)\right\rangle,\]
+\[\left\langle v_A^2(0,z)\nabla_\perp^2\varphi_n(z),\phi_m(z)\right\rangle=-2ik_\perp\sin\alpha\left\langle v_A^2(0,z)\pdv{\varphi_n(z)}{z},\phi_m(z)\right\rangle,\]
+\[\left\langle v_A^2(0,z)\nabla_\perp^2\phi_n(z),\varphi_m(z)\right\rangle=-2ik_\perp\sin\alpha\left\langle v_A^2(0,z)\pdv{\phi_n(z)}{z},\varphi_m(z)\right\rangle.\]
+Hence,
+\[\boxed{
+\dv{b_{||m}^{(1)}}{x}-\frac{i}{\omega}\sum_{n=0}^\infty\qty[\omega^2/\hat{v}_A^2(x) - \omega_n^2]u_{xn}^{(1)}(x)\left\langle\frac{\phi_n(z)}{v_A^2(0,z)},\phi_m(z)\right\rangle
+,}\]
+\[\boxed{
+\dv{b_{||m}^{(2)}}{x}-\frac{i}{\omega}\sum_{n=0}^\infty\qty[\omega^2/\hat{v}_A^2(x) - \varpi_n^2]u_{xn}^{(2)}(x)\left\langle\frac{\varphi_n(z)}{v_A^2(0,z)},\varphi_m(z)\right\rangle
+,}\]
+\[\boxed{\begin{aligned}
+\Delta_{\perp m}^{(1)}(x)=\frac{-i\omega }{\omega^2/\hat{v}_{A}^2(x)-\omega_m^2}\Bigg\{\tan^2\alpha\, \omega_m^2b_{||m}^{(1)}(x)+\sum_{n=0}^\infty\Big[& k_\perp^2b_{||n}^{(1)}(x)\left\langle v_A^2(0,z)\phi_n(z),\phi_m(z)\right\rangle + \\
+&2ik_\perp \sin\alpha\, b_{||n}^{(2)}(x)\left\langle v_A^2(0,z)\dv{\varphi_n}{z},\phi_m(z)\right\rangle\Big]\Bigg\},
+\end{aligned}}\]
+\[\boxed{\begin{aligned}
+\Delta_{\perp m}^{(2)}(x)=\frac{-i\omega }{\omega^2/\hat{v}_{A}^2(x)-\varpi_m^2}\Bigg\{\tan^2\alpha\, \varpi_m^2b_{||m}^{(2)}(x)+\sum_{n=0}^\infty\Big[& k_\perp^2b_{||n}^{(2)}(x)\left\langle v_A^2(0,z)\varphi_n(z),\varphi_m(z)\right\rangle + \\
+&2ik_\perp \sin\alpha\, b_{||n}^{(1)}(x)\left\langle v_A^2(0,z)\dv{\phi_n}{z},\varphi_m(z)\right\rangle\Big]\Bigg\}.
+\end{aligned}}\]
+
+\section*{Inner products}
+
+Let
+\[I_{1nm} = \left\langle\frac{\phi_n(z)}{v_A^2(0,z)},\phi_m(z)\right\rangle,\]
+\[I_{2nm} = \left\langle\frac{\varphi_n(z)}{v_A^2(0,z)},\varphi_m(z)\right\rangle,\]
+\[I_{3nm} = \left\langle v_A^2(0,z)\phi_n(z),\phi_m(z)\right\rangle,\]
+\[I_{4nm} = \left\langle v_A^2(0,z)\varphi_n(z),\varphi_m(z)\right\rangle,\]
+\[I_{5nm} = \left\langle v_A^2(0,z)\dv{\varphi_n}{z},\phi_m(z)\right\rangle,\]
+\[I_{6nm} = \left\langle v_A^2(0,z)\dv{\phi_n}{z},\varphi_m(z)\right\rangle.\]
+
+For $n\ne m$,
+\[\begin{aligned}
+\frac{I_{1nm}}{A_n A_m} &= \int_0^{2L_z}\frac{\phi_n(z)\phi_m(z)}{A_n A_mv_A^4(0,z)}dz \\
+&= \frac{a_na_m}{v_{A1}^4}\int_0^{L_z} \cos[k_{z1n}(z-l_z)]\cos[k_{z1m}(z-l_z)] dz \\
+&+ \frac{c_nc_m}{v_{A2}^4}\int_{L_z}^{2L_z}\cos[k_{z2n}(z-3l_z)]\cos[k_{z2m}(z-3l_z)] dz \\
+&= 2\int_{0}^{l_z}\frac{a_na_m}{v_{A1}^4} \cos(k_{z1n}z)\cos(k_{z1m}z) + \frac{c_nc_m}{v_{A2}^4} \cos(k_{z2n}z)\cos(k_{z2m}z) dz \\
+&= 2\frac{a_na_m}{v_{A1}^4}\qty[ \frac{k_{z1n}\sin(k_{z1n}z)\cos(k_{z1m}z)-k_{z1m}\sin(k_{z1m}z)\cos(k_{z1n}z)}{k_{z1n}^2-k_{z1m}^2}]_0^{l_z} \\
+&+2\frac{c_nc_m}{v_{A2}^4}\qty[\frac{k_{z2n}\sin(k_{z2n}z)\cos(k_{z2m}z)-k_{z2m}\sin(k_{z2m}z)\cos(k_{z2n}z)}{k_{z2n}^2-k_{z2m}^2}]_0^{l_z} \\
+&= 2\frac{a_na_m}{v_{A1}^4}\frac{k_{z1n}\sin(k_{z1n}l_z)\cos(k_{z1m}l_z)-k_{z1m}\sin(k_{z1m}l_z)\cos(k_{z1n}l_z)}{k_{z1n}^2-k_{z1m}^2} \\
+&+2\frac{c_nc_m}{v_{A2}^4}\frac{k_{z2n}\sin(k_{z2n}l_z)\cos(k_{z2m}l_z)-k_{z2m}\sin(k_{z2m}l_z)\cos(k_{z2n}l_z)}{k_{z2n}^2-k_{z2m}^2}, \\
+\end{aligned}\]
+for $n=m$
+\[\frac{I_{1nm}}{A_nA_m} = \frac{a_n^2}{2v_{A1}^4k_{z1n}}\Big[2k_{z1n}l_z+\sin(2k_{z1n}l_z)\Big]+\frac{c_n^2}{2v_{A2}^4k_{z2n}}\Big[2k_{z2n}l_z+\sin(2k_{z2n}l_z)\Big].\]
+
+For $n\ne m$
+\[\begin{aligned}
+\frac{I_{2nm}}{B_n B_m} &= 2\frac{b_nb_m}{v_{A1}^4}\qty[ \frac{\bar{k}_{z1m}\sin(\bar{k}_{z1n}z)\cos(\bar{k}_{z1m}z)-\bar{k}_{z1n}\sin(\bar{k}_{z1m}z)\cos(\bar{k}_{z1n}z)}{\bar{k}_{z1n}^2-\bar{k}_{z1m}^2}]_0^{l_z} \\
+&+2\frac{d_nd_m}{v_{A2}^4}\qty[\frac{\bar{k}_{z2m}\sin(\bar{k}_{z2n}z)\cos(\bar{k}_{z2m}z)-\bar{k}_{z2n}\sin(\bar{k}_{z2m}z)\cos(\bar{k}_{z2n}z)}{\bar{k}_{z2n}^2-\bar{k}_{z2m}^2}]_0^{l_z} \\
+&= 2\frac{b_nb_m}{v_{A1}^4}\frac{\bar{k}_{z1m}\sin(\bar{k}_{z1n}l_z)\cos(\bar{k}_{z1m}l_z)-\bar{k}_{z1n}\sin(\bar{k}_{z1m}l_z)\cos(\bar{k}_{z1n}l_z)}{\bar{k}_{z1n}^2-\bar{k}_{z1m}^2} \\
+&+2\frac{d_nd_m}{v_{A2}^4}\frac{\bar{k}_{z2m}\sin(\bar{k}_{z2n}l_z)\cos(\bar{k}_{z2m}l_z)-\bar{k}_{z2n}\sin(\bar{k}_{z2m}l_z)\cos(\bar{k}_{z2n}l_z)}{\bar{k}_{z2n}^2-\bar{k}_{z2m}^2}, \\
+\end{aligned}\]
+for $n=m$
+\[\frac{I_{2nm}}{B_nB_m} = \frac{b_n^2}{2v_{A1}^4\bar{k}_{z1n}}\Big[2\bar{k}_{z1n}l_z-\sin(2\bar{k}_{z1n}l_z)\Big]+\frac{d_n^2}{2v_{A2}^4\bar{k}_{z2n}}\Big[2\bar{k}_{z2n}l_z-\sin(2\bar{k}_{z2n}l_z)\Big].\]
+
+For $n\ne m$
+\[\begin{aligned}
+\frac{I_{3nm}}{A_nA_m}&=\frac{1}{A_nA_m}\int_0^{2L_z}\phi_n(z)\phi_m(z)dz \\
+&=2\int_{0}^{l_z}a_na_m \cos(k_{z1n}z)\cos(k_{z1m}z) + c_nc_m\cos(k_{z2n}z)\cos(k_{z2m}z) dz \\
+&= 2a_na_m\frac{k_{z1n}\sin(k_{z1n}l_z)\cos(k_{z1m}l_z)-k_{z1m}\sin(k_{z1m}l_z)\cos(k_{z1n}l_z)}{k_{z1n}^2-k_{z1m}^2} \\
+&+2c_nc_m\frac{k_{z2n}\sin(k_{z2n}l_z)\cos(k_{z2m}l_z)-k_{z2m}\sin(k_{z2m}l_z)\cos(k_{z2n}l_z)}{k_{z2n}^2-k_{z2m}^2}, \\
+\end{aligned}\]
+for $n=m$
+\[\frac{I_{3nm}}{A_nA_m} = \frac{a_n^2}{2k_{z1n}}\Big[2k_{z1n}l_z+\sin(2k_{z1n}l_z)\Big]+\frac{c_n^2}{2k_{z2n}}\Big[2k_{z2n}l_z+\sin(2k_{z2n}l_z)\Big].\]
+
+For $n\ne m$
+\[\begin{aligned}
+\frac{I_{4nm}}{B_nB_m}&=2\int_{0}^{l_z}b_nb_m \sin(\bar{k}_{z1n}z)\sin(\bar{k}_{z1m}z) + d_nd_m\sin(\bar{k}_{z2n}z)\sin(\bar{k}_{z2m}z) dz \\
+&= 2a_na_m\frac{k_{z1n}\sin(k_{z1n}l_z)\cos(k_{z1m}l_z)-k_{z1m}\sin(k_{z1m}l_z)\cos(k_{z1n}l_z)}{k_{z1n}^2-k_{z1m}^2} \\
+&= 2b_nb_m\frac{\bar{k}_{z1m}\sin(\bar{k}_{z1n}l_z)\cos(\bar{k}_{z1m}l_z)-\bar{k}_{z1n}\sin(\bar{k}_{z1m}l_z)\cos(\bar{k}_{z1n}l_z)}{\bar{k}_{z1n}^2-\bar{k}_{z1m}^2} \\
+&+2d_nd_m\frac{\bar{k}_{z2m}\sin(\bar{k}_{z2n}l_z)\cos(\bar{k}_{z2m}l_z)-\bar{k}_{z2n}\sin(\bar{k}_{z2m}l_z)\cos(\bar{k}_{z2n}l_z)}{\bar{k}_{z2n}^2-\bar{k}_{z2m}^2}, \\
+\end{aligned}\]
+for $n=m$
+\[\frac{I_{4nm}}{B_nB_m} = \frac{b_n^2}{2\bar{k}_{z1n}}\Big[2\bar{k}_{z1n}l_z-\sin(2\bar{k}_{z1n}l_z)\Big]+\frac{d_n^2}{2\bar{k}_{z2n}}\Big[2\bar{k}_{z2n}l_z-\sin(2\bar{k}_{z2n}l_z)\Big].\]
+
+For $\varpi_n\ne \omega_m$
+\[\begin{aligned}
+\frac{I_{5nm}}{B_nA_m}&=\frac{1}{B_nA_m}\int_0^{2L_z}\dv{\varphi}{z}\phi_m(z)dz\\ 
+&= b_na_m\bar{k}_{z1n}\int_0^{L_z}\cos[\bar{k}_{z1n}(z-l_z)]\cos[k_{z1m}(z-l_z)] dz \\
+&+ d_nc_m\bar{k}_{z2n}\int_{L_z}^{2L_z}\cos[\bar{k}_{z2n}(z-3l_z)]\cos[k_{z2m}(z-3l_z)] dz \\
+&=2\int_{0}^{l_z}b_na_m\bar{k}_{z1n}\cos(\bar{k}_{z1n}z)\cos(k_{z1m}z) + d_nc_m\bar{k}_{z2n}\cos(\bar{k}_{z2n}z)\cos(k_{z2m}z)dz \\
+&= 2b_na_m\bar{k}_{z1n}\frac{\bar{k}_{z1n}\sin(\bar{k}_{z1n}l_z)\cos(k_{z1m}l_z)-k_{z1m}\sin(k_{z1m}l_z)\cos(\bar{k}_{z1n}l_z)}{\bar{k}_{z1n}^2-k_{z1m}^2} \\
+&+2d_nc_m\bar{k}_{z2n}\frac{\bar{k}_{z2n}\sin(\bar{k}_{z2n}l_z)\cos(k_{z2m}l_z)-k_{z2m}\sin(k_{z2m}l_z)\cos(\bar{k}_{z2n}l_z)}{\bar{k}_{z2n}^2-k_{z2m}^2}, \\
+\end{aligned}\]
+for $\varpi_n= \omega_m$
+\[\frac{I_{5nm}}{B_nA_m} = \frac{b_na_m}{2}\Big[2k_{z1n}l_z+\sin(2k_{z1n}l_z)\Big]+\frac{d_nc_m}{2}\Big[2k_{z2n}l_z+\sin(2k_{z2n}l_z)\Big].\]
+
+For $\omega_n\ne \varpi_m$,
+\[\begin{aligned}
+\frac{I_{6nm}}{A_nB_m}&=\frac{1}{A_nB_m}\int_0^{2L_z}\dv{\phi}{z}\varphi_m(z)dz\\ 
+&= -a_nb_m k_{z1n}\int_0^{L_z}\sin[k_{z1n}(z-l_z)]\sin[\bar{k}_{z1m}(z-l_z)] dz \\
+&- c_nd_mk_{z2n}\int_{L_z}^{2L_z}\sin[k_{z2n}(z-3l_z)]\sin[\bar{k}_{z2m}(z-3l_z)] dz \\
+&=-2\int_{0}^{l_z}a_nb_mk_{z1n}\sin(k_{z1n}z)\sin(\bar{k}_{z1m}z) + c_nd_mk_{z2n}\sin(k_{z2n}z)\sin(\bar{k}_{z2m}z)dz \\
+&=-2a_nb_mk_{z1n}\frac{\bar{k}_{z1m}\sin(k_{z1n}l_z)\cos(\bar{k}_{z1m}l_z)-k_{z1n}\sin(\bar{k}_{z1m}l_z)\cos(k_{z1n}l_z)}{k_{z1n}^2-\bar{k}_{z1m}^2} \\
+&-2c_nd_mk_{z2n}\frac{\bar{k}_{z2m}\sin(k_{z2m}l_z)\cos(\bar{k}_{z2m}l_z)-k_{z2m}\sin(\bar{k}_{z2m}l_z)\cos(k_{z2m}l_z)}{k_{z2n}^2-\bar{k}_{z2m}^2}, \\
+\end{aligned}\]
+for $\omega_n = \varpi_m$
+\[\frac{I_{6nm}}{A_nB_m} = -\frac{a_nb_m}{2}\Big[2k_{z1n}l_z-\sin(2k_{z1n}l_z)\Big]-\frac{c_nd_m}{2}\Big[2k_{z2n}l_z-\sin(2k_{z2n}l_z)\Big].\]
+
+\section*{Analytic solution}
+
+Let $\omega = \omega_r + i \omega_i$, where $\omega_r = \omega_k$ and $\omega_i \ll \omega_r$, $k\in\mathds{N}$. The singular solution is approximated by 
+\[\begin{aligned}
+u_x(x,z) &= -\beta_0\ln(x-ix_i)\nabla_\perp \phi_k(z) \\
+&= -\beta_0\ln(x-ix_i)\qty[ik_\perp \phi_k(z) - \sin\alpha\dv{\phi_k}{z}].
+\end{aligned}\]
+\[u_\perp(x,z) = \frac{\beta_0}{x-ix_i}\phi_k(z),\]
+\[\nabla_\perp b_{||}(x,z) = \frac{\beta_0 \mathcal{L}_1}{i\omega}\phi_k(z),\]
+where we choose the $\varphi_k$ component equal to zero, $\mathcal{L}_1$ is given by
+\[\begin{aligned}
+\mathcal{L}_1 &= \left.\pdv{\mathcal{L}}{x}\right|_{x=0} \\
+&= -\frac{2\omega^2}{v_A^3(0,z)}\left.\pdv{v_A}{x}\right|_{x=0} \\
+&= -\frac{2\omega^2}{a_0 v_A^2(0,z)}, \\
+\end{aligned}\]
+and
+\[\begin{aligned}
+x_i &= \frac{2\omega_i}{\omega_r}\qty[\frac{\rho}{\pdv*{\rho}{x}}]_{x=0} \\
+&= \frac{2\omega_i}{\omega_r}\qty[\frac{1 / v_A^2}{-2\pdv*{v_A}{x}/v_A^3}]_{x=0} \\
+&= -\frac{\omega_i}{\omega_r}\qty[\frac{v_A}{\pdv*{v_A}{x}}]_{x=0}
+\end{aligned}\]
+
+Hence, 
+\[u_{xn}^{(1)}(x) = -ik_\perp\beta_0\ln(x-ix_i)\delta_{nk},\]
+\[
+u_{xn}^{(2)}(x) = \beta_0\sin\alpha\,\ln(x-ix_i)\left\langle\dv{\phi_k}{z},\varphi_n\right\rangle,\]
+where for $\omega_k\ne\varpi_n$
+\[\begin{aligned}
+\frac{I_{7kn}}{A_kB_n}&=\left\langle\dv{\phi_k}{z},\varphi_n\right\rangle \\
+&= \frac{1}{A_kB_n}\int_0^{2L_z}\dv{\phi_k}{z}\frac{\varphi_m}{v_A^2(0,z)}dz \\
+&= -a_kb_n \frac{k_{z1k}}{v_{A1}^2}\int_0^{L_z}\sin[k_{z1k}(z-l_z)]\sin[\bar{k}_{z1n}(z-l_z)] dz \\
+&- c_kd_n\frac{k_{z2k}}{v_{A2}^2}\int_{L_z}^{2L_z}\sin[k_{z2k}(z-3l_z)]\sin[\bar{k}_{z2n}(z-3l_z)] dz \\
+&=-2\int_{0}^{l_z}a_kb_nk_{z1k}\sin(k_{z1k}z)\sin(\bar{k}_{z1n}z) + c_kd_nk_{z2k}\sin(k_{z2k}z)\sin(\bar{k}_{z2n}z)dz \\
+&=-2a_kb_n\frac{k_{z1k}}{v_{A1}^2}\frac{\bar{k}_{z1n}\sin(k_{z1k}l_z)\cos(\bar{k}_{z1n}l_z)-k_{z1k}\sin(\bar{k}_{z1n}l_z)\cos(k_{z1k}l_z)}{k_{z1k}^2-\bar{k}_{z1n}^2} \\
+&-2c_kd_n\frac{k_{z2k}}{v_{A2}^2}\frac{\bar{k}_{z2n}\sin(k_{z2n}l_z)\cos(\bar{k}_{z2n}l_z)-k_{z2n}\sin(\bar{k}_{z2n}l_z)\cos(k_{z2n}l_z)}{k_{z2k}^2-\bar{k}_{z2n}^2}, \\
+\end{aligned}\]
+and for $\omega_k=\varpi_n$
+\[\frac{I_{7nm}}{A_nB_m} = -\frac{a_nb_m}{2v_{A1}^2}\Big[2k_{z1n}l_z-\sin(2k_{z1n}l_z)\Big]-\frac{c_nd_m}{2v_{A2}^2}\Big[2k_{z2n}l_z-\sin(2k_{z2n}l_z)\Big].\]
+
+For the case where $\alpha=0$,
+\[b_{||}=2\frac{\beta_0\omega}{k_\perp a_0}\frac{\phi_k(z)}{v_A^2(0,z)},\]
+hence,
+\[\begin{aligned}
+b_{||n}^{(1)} &= 2\frac{\beta_0\omega}{k_\perp a_0}\left\langle\frac{\phi_k(z)}{v_A^2(0,z)},\phi_n\right\rangle \\
+&=2\frac{\beta_0\omega}{k_\perp a_0}I_{1kn}.
+\end{aligned}\]
+
+For $\alpha \ne 0$
+\[\dv{b_{||}}{z}-i\frac{k_\perp}{\sin\alpha}b_{||}=-\frac{2i\beta_0\omega}{a_0\sin\alpha}\frac{\phi_k}{v_A^2(0,z)}.\]
+% Note that solutions to this equation are unique if $k_\perp / \sin(\alpha) \ne n\pi / L$, where $n\in\mathds{Z}$.
+\[\implies \dv{}{z}\qty[\exp(-i\frac{k_\perp z}{\sin\alpha})b_{||}]=-\frac{2i\beta_0\omega}{a_0\sin\alpha}\exp(-i\frac{k_\perp z}{\sin\alpha})\frac{\phi_k}{v_A^2(0,z)},\]
+\[\implies b_{||} = -\frac{2i\beta_0\omega}{a_0\sin\alpha}\exp(i\frac{k_\perp z}{\sin\alpha})\qty[\int_0^z\exp(-i\frac{k_\perp z'}{\sin\alpha})\frac{\phi_k(z')}{v_A^2(0,z')}dz'+C]\]
+We require 
+\[b_{||}(0) = -\frac{2i\beta_0\omega}{a_0\sin\alpha}C,\]
+to equal
+\[b_{||}(2L_z) = -\frac{2i\beta_0\omega}{a_0\sin\alpha}\exp(2i\frac{k_\perp L_z}{\sin\alpha})\qty[\int_0^{2L_z}\exp(-i\frac{k_\perp z'}{\sin\alpha})\frac{\phi_k(z')}{v_A^2(0,z')}dz'+C].\]
+Solving for $C$ gives
+\[\qty[\exp(-2i\frac{k_\perp L_z}{\sin\alpha})-1]C = \int_0^{2L_z}\exp(-i\frac{k_\perp z'}{\sin\alpha})\frac{\phi_k(z')}{v_A^2(0,z')}dz'.\]
+Hence, we can solve for $C$ provided $k_\perp L_z / \sin\alpha \ne n\pi$, $n\in\mathds{Z}$. If $k_\perp L_z / \sin\alpha = 
+n\pi$, then the periodic boundary conditions are automatically satisfied and $C$ is a free parameter. Hence,
+\[b_{||n}^{(1)} = \Big\langle b_{||}(z), \phi_n(z) \Big\rangle,\]
+\[b_{||n}^{(2)} = \Big\langle b_{||}(z), \varphi_n(z) \Big\rangle.\]
+
+\section*{Calculate $u_\perp$}
+
+Note that
+\[\mathcal{L}u_\perp = i\omega \nabla_\perp b_{||}.\]
+Assume
+\[u_\perp = \sum_{n=0}^\infty u_{\perp n}^{(1)}(x)\phi_n(z) + u_{\perp n}^{(2)}(x)\varphi_n(z)\]
+Hence,
+\[\sum_{n=0}^\infty u_{\perp n}^{(1)}[\omega^2/\hat{v}_A^2(x) - \omega_n^2]\frac{\phi_n(z)}{v_A^2(0,z)}+u_{\perp n}^{(1)}[\omega^2/\hat{v}_A^2(x) - \varpi_n^2]\frac{\varphi_n(z)}{v_A^2(0,z)}=i\omega\qty[ik_\perp - \sin\alpha\pdv{}{z}]b_{||},\]
+therefore,
+\[\begin{aligned}
+u_{\perp m}^{(1)} = \frac{i\omega}{\omega^2/\hat{v}_A^2(x)-\omega_m^2}\sum_{n=0}^\infty\Bigg\{&ik_\perp b_{|| n}^{(1)}\Big\langle v_A^2(0,z)\phi_n,\phi_m \Big\rangle - \\
+&\sin\alpha\, b_{||n}^{(2)}\Big\langle v_A^2(0,z)\dv{\varphi_n}{z},\phi_m\Big\rangle \Bigg\},
+\end{aligned}\]
+\[\begin{aligned}
+u_{\perp m}^{(2)} = \frac{i\omega}{\omega^2/\hat{v}_A^2(x)-\varpi_m^2}\sum_{n=0}^\infty\Bigg\{&ik_\perp b_{|| n}^{(2)}\Big\langle v_A^2(0,z)\varphi_n,\varphi_m \Big\rangle - \\
+&\sin\alpha\, b_{||n}^{(1)}\Big\langle v_A^2(0,z)\dv{\phi_n}{z},\phi_m\Big\rangle \Bigg\}.
+\end{aligned}\]
+
+\[\mathcal{L}\nabla_\perp u_\perp = i\omega \nabla_\perp^2 b_{||},\]
+\[\begin{aligned}
+\nabla_\perp^2 &= -k_\perp^2 - 2ik_\perp\pdv{}{z} + \sin^2\alpha\pdv[2]{}{z} \\
+&= -k_\perp^2 - 2ik_\perp\pdv{}{z} + \tan^2\alpha\nabla_{||}^2, \\
+&= -k_\perp^2 - 2ik_\perp\pdv{}{z} + \tan^2\alpha\qty[\nabla_{||}^2 + \frac{\omega_n^2}{v_A^2(0,z)} - \frac{\omega_n^2}{v_A^2(0,z)}], \\
+&= -k_\perp^2 - 2ik_\perp\pdv{}{z} + \tan^2\alpha\qty[\nabla_{||}^2 + \frac{\varpi_n^2}{v_A^2(0,z)} - \frac{\varpi_n^2}{v_A^2(0,z)}],
+\end{aligned}\]
+Hence,
+\[\nabla_\perp^2 \phi_n = \qty{-k_\perp^2 - 2ik_\perp\pdv{}{z} - \tan^2\alpha\frac{\omega_n^2}{v_A^2(0,z)}}\phi_n,\]
+\[\nabla_\perp^2 \varphi_n = \qty{-k_\perp^2 - 2ik_\perp\pdv{}{z} - \tan^2\alpha\frac{\varpi_n^2}{v_A^2(0,z)}}\varphi_n.\]
+\[\begin{aligned}
+&\sum_{n=0}^\infty \Delta_{\perp n}^{(1)}[\omega^2/\hat{v}_A^2(x) - \omega_n^2]\frac{\phi_n(z)}{v_A^2(0,z)}+\Delta_{\perp n}^{(1)}[\omega^2/\hat{v}_A^2(x) - \varpi_n^2]\frac{\varphi_n(z)}{v_A^2(0,z)}=\\
+&-i\omega\sum_{n=0}^\infty b_{||n}^{(1)}\qty{k_\perp^2 + 2ik_\perp\pdv{}{z} + \tan^2\alpha\frac{\omega_n^2}{v_A^2(0,z)}}\phi_n + b_{||n}^{(2)}\qty{k_\perp^2 + 2ik_\perp\pdv{}{z} + \tan^2\alpha\frac{\varpi_n^2}{v_A^2(0,z)}}\varphi_n,,
+\end{aligned}\]
+\[\Delta_{\perp m}^{(1)}=\frac{-i\omega}{\omega^2/\hat{v}_A^2(x)-\omega_m^2}\Bigg\{\tan^2\alpha\,\omega_n^2\]
+
+\section*{Calculate $b_x'$ and $b_\perp'$}
+
+We know that
+\[\begin{aligned}
+b_x' &= \frac{1}{i\omega}\nabla_{||}'u_x' \\
+&= \frac{\cos\alpha}{i\omega}\pdv{u_x'}{z},
+\end{aligned}\]
+\[\begin{aligned}
+b_\perp' &= \frac{1}{i\omega}\nabla_{||}'u_\perp' \\
+&= \frac{\cos\alpha}{i\omega}\pdv{u_\perp'}{z},
+\end{aligned}\]
+hence,
+\[b_x' = \frac{\cos\alpha}{i\omega}\sum_{n=0}^\infty u_{xn}^{(1)}(x)\pdv{\phi_n(z)}{z} + u_{xn}^{(2)}(x)\pdv{\varphi_n(z)}{z},\]
+\[b_\perp' = \frac{\cos\alpha}{i\omega}\sum_{n=0}^\infty u_{\perp n}^{(1)}(x)\pdv{\phi_n(z)}{z} + u_{\perp n}^{(2)}(x)\pdv{\varphi_n(z)}{z},\]
+
+\section*{Arrays}
+Let
+\[\vec{u}_x^{(1)}=\Big( u_{x0}^{(1)}, u_{x1}^{(1)}, ..., u_{xN}^{(1)} \Big)\]
+\[\vec{u}_x^{(2)}=\Big( u_{x0}^{(2)}, u_{x1}^{(2)}, ..., u_{xN}^{(2)} \Big)\]
+\[\vec{b}_{||}^{(1)}=\Big( b_{||0}^{(1)}, b_{||1}^{(1)}, ..., b_{||N}^{(1)} \Big)\]
+\[\vec{b}_{||}^{(2)}=\Big( b_{||0}^{(2)}, b_{||1}^{(2)}, ..., b_{||N}^{(2)} \Big)\]
+\[\vec{\Delta}_\perp^{(1)}=\Big( \Delta_{\perp 0}^{(1)}, \Delta_{\perp 1}^{(1)}, ..., \Delta_{\perp N}^{(1)} \Big)\]
+\[\vec{\Delta}_\perp^{(2)}=\Big( \Delta_{\perp 0}^{(2)}, \Delta_{\perp 1}^{(2)}, ..., \Delta_{\perp N}^{(2)} \Big)\]
+\[\vec{k}_{z1} = \Big( k_{z1,0}, k_{z1,1}, ..., k_{z1,N} \Big)\]
+\[\vec{k}_{z2} = \Big( k_{z2,0}, k_{z2,1}, ..., k_{z2,N} \Big)\]
+\[\vec{\bar{k}}_{z1} = \Big( \bar{k}_{z1,0}, \bar{k}_{z1,1}, ..., \bar{k}_{z1,N} \Big)\]
+\[\vec{\bar{k}}_{z2} = \Big( \bar{k}_{z2,0}, \bar{k}_{z2,1}, ..., \bar{k}_{z2,N} \Big)\]
+\[\vec{U}_x^{(1)}=\Big( \vec{u}_x^{(1)T}, \vec{u}_x^{(1)T}, ..., \vec{u}_x^{(1)T} \Big)\]
+\[\vec{U}_x^{(2)}=\Big( \vec{u}_x^{(2)T}, \vec{u}_x^{(2)T}, ..., \vec{u}_x^{(2)T} \Big)\]
+\[\vec{B}_{||}^{(1)}=\Big( \vec{B}_{||0}^{(1T)}, \vec{B}_{||1}^{(1T)}, ..., \vec{B}_{||N}^{(1T)} \Big)\]
+\[\vec{B}_{||}^{(2)}=\Big( \vec{B}_{||0}^{(2T)}, \vec{B}_{||1}^{(2T)}, ..., \vec{B}_{||N}^{(2T)} \Big)\]
+\[\vec{K}_{z1} = \Big( \vec{k}_{z1}^T, \vec{k}_{z1}^T, ..., \vec{k}_{z1}^T \Big)\]
+\[\vec{K}_{z2} = \Big( \vec{k}_{z2}^T, \vec{k}_{z2}^T, ..., \vec{k}_{z2}^T \Big)\]
+\[\vec{\bar{K}}_{z1} = \Big( \vec{\bar{k}}_{z1}^T, \vec{\bar{k}}_{z1}^T, ..., \vec{\bar{k}}_{z1}^T \Big)\]
+\[\vec{\bar{K}}_{z1} = \Big( \vec{\bar{k}}_{z1}^T, \vec{\bar{k}}_{z1}^T, ..., \vec{\bar{k}}_{z1}^T \Big)\]
+
+\section*{Total energy}
+
+The total energy density is given by
+\[\begin{aligned}
+e_{tot} &= \frac{1}{2}\qty{\rho\qty[\Re(u_x)^2 + \Re(u_\perp)^2] + \frac{1}{\mu}\qty[\Re(b_x)^2 + \Re(b_\perp)^2 + \Re(b_{||})^2]} \\
+&= \frac{B_0^2}{2\mu}\qty{\frac{1}{v_A^2}\qty[\Re(u_x)^2 + \Re(u_\perp)^2] + \Re(\hat{b}_x)^2 + \Re(\hat{b}_\perp)^2 + \Re(\hat{b}_{||})^2}
+\end{aligned}\]
+Hence,
+\[\pdv{e_{tot}}{t}= \frac{B_0^2}{\mu}\qty{\frac{1}{v_A^2}\qty[\Re(u_x)\Re(i\omega u_x) + \Re(u_\perp)\Re(i\omega u_\perp)] + \Re(\hat{b}_x)\Re(i\omega\hat{b}_x) + \Re(\hat{b}_\perp)\Re(i\hat{b}_\perp) + \Re(\hat{b}_{||})\Re(i\omega\hat{b}_{||})}.\]
+Note that
+\[u_x = u_x'\exp(-\omega_i t)\exp{i[k_\perp(\cos\alpha\,y-\sin\alpha\,z)+\omega_r t]},\]
+\[\begin{aligned}
+\Re(u_x)\Re(i\omega u_x) &= -\Re(u_x)\Im(\omega u_x) \\
+&= -\qty(\frac{u_x + u_x^*}{2})\qty(\frac{\omega u_x - \omega^* u_x^*}{2i}) \\
+&= -\frac{1}{4i}\qty[\omega u_x^2 - \omega^* (u_x^*)^2 + u_x' u_x'^*\exp(-2\omega_i t)(\omega  - \omega^*)]
+\end{aligned}\]
+% \[\begin{aligned}
+% \Re(u_x)^2 &= \frac{1}{4}\qty[u_x^2 + (u_x^*)^2 + 2u_x'u_x'^*\exp(-2\omega_i t)] \\
+% &= \Re(u_x')^2\exp(-2\omega_i t)\cos^2[k_\perp(\cos\alpha y - \sin\alpha z) + \omega_r t]
+% \end{aligned}\]
+Hence, the average in $y$ is given by
+\[\left\langle\Re(u_x)\Re(i\omega u_x)\right\rangle = -\frac{1}{2}\abs{u_x'}^2\Im(\omega)\]
+% \[\left\langle\Re(u_x)^2\right\rangle = \frac{1}{2}u_x'u_x'^*\exp(-2\omega_i t),\]
+\[\left\langle\pdv{e_{tot}}{t}\right\rangle = -\omega_i\frac{B_0^2}{2\mu}\exp(-2\omega_i t)\qty{\frac{1}{v_A^2}\qty[\abs{u_x'}^2 + \abs{u_\perp'}^2] + \abs{\hat{b}_x'}^2 + \abs{\hat{b}_\perp'}^2 + \abs{\hat{b}_{||}'}^2}.\]
+The Poynting flux is given by
+\[\begin{aligned}
+    \vec{S}&=\frac{\vec{E}\times\vec{b}}{\mu} \\
+    & = \frac{1}{\mu}\qty{\qty[\vec{B}_0\vdot\Re(\vec{b})]\Re(\vec{u})-\qty[\Re(\vec{u})\vdot\Re(\vec{b})
+    ]\vec{B}_0} \\
+    & = \frac{B_0^2}{\mu}\qty[\Re(\hat{b}_{||})\Re(\vec{u})-\qty[\Re(\vec{u})\vdot\Re(\vec{\hat{b}})](\sin\alpha \,\vec{\hat{y}} + \cos\alpha\,\vec{\hat{z}})].
+\end{aligned}\]
+Hence, the Poynting flux in the $x$-direction is given by
+\[\begin{aligned}
+    S_x &= \vec{S}\vdot\vec{\hat{x}} \\
+    &= \frac{B_0^2}{\mu}\Re(\hat{b}_{||})\Re(u_x) \\
+    &= \frac{B_0^2}{4\mu}\qty[\hat{b}_{||}u_x+\hat{b}_{||}^*u_x^* + \qty(\hat{b}_{||}'u_x'^*+\hat{b}_{||}'^*u_x')\exp(-2\omega_i t)]. \\
+\end{aligned}\]
+Hence, the average in $y$ is given by
+\[\langle S_x \rangle = \frac{B_0^2}{2\mu}\Re(\hat{b}_{||}'u_x'^*)\exp(-2\omega_i t).\]
+From the energy equation,
+\[\pdv{e_{tot}}{t} + \div{\vec{S}} = 0,\]
+we know that
+\[\int_{z=z_{min}}^{z_{max}} \int_{x=x_{min}}^{x_{max}}\left\langle \pdv{e_{tot}}{t} \right\rangle dx + \qty[\langle S_x \rangle]_{x_{min}}^{x_{max}} dz= 0.\]
+
+\section*{Analytic solution}
+
+\[ u_\perp'(x,z) \approx \frac{u_0 x_{i,m}}{x - x_{res,m}}\phi_m(z),\]
+\[ u_x'(x,z) \approx -u_0x_{i,m}\ln(x-x_{res,m})\nabla_\perp'\phi_m(z),\]
+For $\sin\alpha = 0$,
+\[\hat{b}_{||}'(z) \approx \frac{2u_0\omega x_{i,m}}{a(0)v_A^2(0,z)k_\perp}\phi_m(z),\]
+For $\sin\alpha\ne0$,
+\[\dv{\hat{b}_{||}'}{z} - \frac{ik_\perp}{\sin\alpha}\hat{b}_{||}'(z) \approx \frac{-2iu_0\omega x_{i,m}\phi_m(z)}{a(0)v_A^2(0,z)\sin\alpha},\]
+this can be solved using the integrating factor method
+\[\hat{b}_{||}'(z) \approx -\frac{2i\beta_0\omega}{a_0\sin\alpha}\exp(i\frac{k_\perp z}{\sin\alpha}) \qty[\int_{-L_z}^z\exp(-i\frac{k_\perp z'}{\sin\alpha})\frac{\phi_m(z')}{v_A^2(0,z')}dz'+C].\]
+Applying the periodic boundary conditions we can solve for $C$ to give
+\[\sin(\frac{k_\perp L_z}{\sin\alpha})C = -\frac{1}{2i}\exp(i\frac{k_\perp L_z}{\sin\alpha})\int_{-L_z}^{L_z}\exp(-i\frac{k_\perp z'}{\sin\alpha})\frac{\phi_m(z')}{v_A^2(0,z')}dz'.\]
+Therefore, $C$ is unique if and only if $k_\perp L_z / \sin\alpha \ne n\pi$, where $n\in\mathds{Z}$.
+\[\hat{b}_\perp'(x,z) \approx \frac{\cos\alpha}{i\omega}\frac{u_0 x_{i,m}}{x - x_{res,m}}\dv{\phi_m}{z},\]
+\[\hat{b}_x'(x,z) \approx -\frac{\cos\alpha}{i\omega}u_0x_{i,m}\ln(x-x_{res,m})\nabla_\perp'\dv{\phi_m}{z},\]
+
+\section*{Eigenfrequencies for the case where $v_{A+} / v_{A-} = 3$}
+
+The eigenfrequencies are given by
+\[k_{zn+}\sin(k_{zn+}l_z)\cos(k_{zn-}l_z)+k_{zn-}\sin(k_{zn-}l_z)\cos(k_{zn+}l_z)=0,\]
+\[\bar{k}_{zn+}\sin(\bar{k}_{zn-}l_z)\cos(\bar{k}_{zn+}l_z)+\bar{k}_{zn-}\sin(\bar{k}_{zn+}l_z)\cos(\bar{k}_{zn-}l_z)=0.\]
+Note that
+\[k_{zn+} = \frac{\omega_n}{v_{A+}\cos\alpha},\]
+\[k_{zn-} = \frac{\omega_n}{v_{A+}\cos\alpha}\frac{v_{A+}}{v_{A-}},\]
+\[\bar{k}_{zn+} = \frac{\varpi_n}{v_{A+}\cos\alpha},\]
+\[\bar{k}_{zn-} = \frac{\varpi_n}{v_{A+}\cos\alpha}\frac{v_{A+}}{v_{A-}},\]
+let
+\[x = \frac{\omega_n l_z}{v_{A+}\cos\alpha},\]
+\[y = \frac{\varpi_n l_z}{v_{A+}\cos\alpha},\]
+hence,
+\[\sin(x)\cos(3x)+3\sin(3x)\cos(x)=0,\]
+\[\sin(3y)\cos(y)+3\sin(y)\cos(3x)=0.\]
+The solutions are given by
+\[x = \begin{cases}
+n\pi/2, \\
+n\pi - \tan^{-1}(\sqrt{5/3}), \\
+n\pi + \tan^{-1}(\sqrt{5/3}),
+\end{cases}\]
+\[y = \begin{cases}
+n\pi/2, \\
+n\pi - \tan^{-1}(\sqrt{3/5}), \\
+n\pi + \tan^{-1}(\sqrt{3/5}),
+\end{cases}\]
+for $n\in\mathds{N}$.
+Hence,
+\[\omega_n = \frac{v_{A+}\cos\alpha}{l_z}\begin{cases}
+n\pi/2, \\
+n\pi - \tan^{-1}(\sqrt{5/3}), \\
+n\pi + \tan^{-1}(\sqrt{5/3}),
+\end{cases}\]
+\[\varpi_n = \frac{v_{A+}\cos\alpha}{l_z}\begin{cases}
+n\pi/2, \\
+n\pi - \tan^{-1}(\sqrt{3/5}), \\
+n\pi + \tan^{-1}(\sqrt{3/5}).
+\end{cases}\]
+
+
+
+\end{document}
