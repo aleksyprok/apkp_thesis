@@ -43,6 +43,8 @@ def u_ana(x,z):
 	arg = vAx(x) ** 2 * (eta + nu) / (6 * vA(x) ** 5) * omega ** 2
 	return f0 * np.exp(-1j * kz * z) * np.exp(-arg * z ** 3)
 
+errtol = 1e-6
+
 vA0 = 1
 B0 = 1
 f0 = 1
@@ -78,7 +80,7 @@ Zm0 = np.full_like(x, 2 * f0, dtype = complex)
 jac0 = jac0_fun()
 
 t0 = time.time()
-sol = solve_ivp(dZmdz, [z_min, z_max], Zm0, t_eval = z, method = 'BDF', jac = jacboian)
+sol = solve_ivp(dZmdz, [z_min, z_max], Zm0, t_eval = z, method = 'BDF', jac = jacboian, rtol = errtol, atol = errtol)
 t1 = time.time()
 print("Time for BDF =", t1 - t0)	
 
@@ -152,9 +154,9 @@ ax.text(0, -1.8, \
 
 
 n_eta = 25
-eta_nu_array = np.logspace(-5,-2, n_eta)
-eta_array = 0.25 * eta_nu_array
-nu_array  = 0.75 * eta_nu_array
+eta_nu_array = np.logspace(-7,-2, n_eta)
+eta_array = 0.5 * eta_nu_array
+nu_array  = 0.5 * eta_nu_array
 err_array = np.zeros(n_eta)
 
 for i in range(n_eta):
@@ -179,7 +181,7 @@ for i in range(n_eta):
 
 	Zm0 = np.full_like(x, 2 * f0, dtype = complex)
 	jac0 = jac0_fun()
-	sol = solve_ivp(dZmdz, [0, Lph0], Zm0, method = 'BDF', jac = jacboian)
+	sol = solve_ivp(dZmdz, [0, Lph0], Zm0, method = 'BDF', jac = jacboian, rtol = errtol, atol = errtol)
 	Zm = sol.y.T
 	u =  0.5 * Zm
 
