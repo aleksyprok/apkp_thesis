@@ -49,8 +49,8 @@ f0 = 1
 omega = np.pi
 a = 1
 
-eta = 0.25e-4
-nu = 0.75e-4
+eta = 0.5e-4
+nu = 0.5e-4
 nu_p = 0.5 * (eta + nu)
 
 kx = (6 * omega / (eta + nu) / a) ** (1/3)
@@ -141,7 +141,7 @@ ax.legend(handles=legend_elements, bbox_to_anchor=(1.4,-0.3))
 
 ax.text(0, -1.8, \
 	r'$k_{z0} = \omega / v_{A0}$' + '\n' + 
-	r'$a_0 = $' + '{:1.2f}'.format(a) + r'$\,\pi v_{A0} / \omega$' '\n' + 
+	r'$a_0 = $' + '{:1.2f}'.format(a) + r'$\,\pi / k_{z0}$' '\n' + 
 	r'$L_{ph0} = [6\omega a_0^2 / (\eta+\nu)]^{1/3}/k_{z0}$' + '\n' + 
 	r'$k_{x0}^* = \{6\omega / [(\eta+\nu)a_0]\}^{1/3}$' + '\n' + 
 	r'$l_x = $' + '{:1.1f}'.format(lx * kx) + r'$ / k_{x0}^*$' + '\n' + 
