@@ -161,7 +161,7 @@ err_array = np.zeros(n_eta)
 
 for i in range(n_eta):
 
-	print(i)
+	print(i + 1, ' / ', n_eta)
 
 	eta = eta_array[i]
 	nu =  nu_array[i]
