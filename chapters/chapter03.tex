@@ -325,7 +325,7 @@ This shows Equation \eqref{eq:length_scale_condition_perpendicular} is usually s
 
 \subsection{Numerical solution}
 
-Our goal now is to to check the accuracy of Equation \eqref{eq:leading_order_phase_mixed_soln} by solving Equation \eqref{eq:chap_3_method_of_lines_eqn} using the method of lines. We discretize in $x$, i.e. we replace the $x$-derivatives in Equation \eqref{eq:chap_3_method_of_lines_eqn} with finite difference approximations. This gives a set of ODEs in the $z$ which we solve as an initial value problem using \texttt{solve\_ivp} in \citet{SciPy2020}. To help simplify the code we consider the case where $\eta=\nu$ as this causes $Z^{+}$ and $Z^{-}$ to decouple (see Equation \eqref{eq:chap_3_method_of_lines_eqn}). Setting $Z^{+}=0$ at $z=0$ forces $Z^{+}=0$ $\forall$ $z$. We choose the $x$-domain to be given by $x\in[-l_x,l_x]$, 
+Our goal now is to to check the accuracy of Equation \eqref{eq:leading_order_phase_mixed_soln} by solving Equation \eqref{eq:chap_3_method_of_lines_eqn} using the method of lines. We discretize in $x$, i.e. we replace the $x$-derivatives in Equation \eqref{eq:chap_3_method_of_lines_eqn} with finite difference approximations. This gives a set of ODEs in the $z$ which we solve as an initial value problem using \texttt{solve\_ivp} in \citet{SciPy2020}. To help simplify the code we consider the case where $\eta=\nu$ as this causes $Z^{+}$ and $Z^{-}$ to decouple (see Equation \ref{eq:chap_3_method_of_lines_eqn}). Setting $Z^{+}=0$ at $z=0$ forces $Z^{+}=0$ $\forall$ $z$. We choose the $x$-domain to be given by $x\in[-l_x,l_x]$, 
 where
 \[l_x = \frac{10}{k_x^*}.\]
 The Alfv\'en speed is given by Equation \eqref{eq:background_vA_chap_3} and the driver is given by  Equation \eqref{eq:driver_chap_3}.
