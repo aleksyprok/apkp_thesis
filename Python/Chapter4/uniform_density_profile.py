@@ -74,8 +74,8 @@ u_perp0[1] = -u0 * (ux_hat[0] - ux_hat[2]) / (ux_hat[1] - ux_hat[2])
 u_perp0[2] =  u0 * (ux_hat[0] - ux_hat[1]) / (ux_hat[1] - ux_hat[2])
 
 ux0 = ux_hat * u_perp0
-bx0 = nabla_perp0 * ux0 / (1j * omega)
-b_perp0 = nabla_perp0 * u_perp0 / (1j * omega)
+bx0 = nabla_par0 * ux0 / (1j * omega)
+b_perp0 = nabla_par0 * u_perp0 / (1j * omega)
 b_par0 = -(1j * kx * ux0 + nabla_perp0 * u_perp0) / (1j * omega)
 
 fig = plt.figure()
