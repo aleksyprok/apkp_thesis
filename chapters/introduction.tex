@@ -1,6 +1,6 @@
 The Sun is the brightest and most energetic object in the solar system. Despite it being $1.5\times10^8\si{.km}$ away, our understanding of how it works has dramatically improved over the last century. Solar physics has played a vital role in some of the most important discoveries of the last century. For example, before the 20th century, the fuel source for the Sun was a complete mystery. It was not until the early 20th century that the fusion of Hydrogen into Helium was first proposed as the dominant process that powers the stars. More recently, the solar neutrino problem was solved due to developments in particle and quantum physics. The solar neutrino problem concerned a large discrepancy between the flux of neutrinos as predicted from the solar luminosity and measured directly. The difference was first observed in the mid-1960s and finally resolved around 2002. Another fundamental discovery was the derivation of the MHD equations (see Section \ref{sec:mhd equations}) which combines the equation of fluid dynamics with electromagnetism. These equations enable the plasma, which makes up the Sun, to be modelled and played a key role in allowing Eugene Parker to predict the existence of the solar wind in 1957. The MHD equations are also currently being used to develop space weather prediction models to give early warnings of dangerous flares and coronal mass ejections, see for example, \citet{Feynman2000}.
 
-Over recent decades, due to improvements in our observational instruments, we are now able to measure wave amplitudes and frequencies in the solar atmosphere directly. This thesis focuses on studying linear MHD waves in the solar atmosphere. Improving our understanding of these waves could lead to coronal seismology developments \citep{Banerjee2007}. It will provide into one of the biggest problems in solar physics, namely, the coronal heating problem (see Section \ref{sec:coronal_heating_problem}). Coronal seismology is a technique where mathematical models are used to infer hard to measure quantities, e.g. the coronal magnetic field strength or density gradients from easier to measure quantities, e.g. wave frequencies and damping time. We take a theoretical, as opposed to an observational approach to build our simple models. We calculate analytic solutions which we verify numerically. Most of the code used for this thesis, including LaTeX files, is available on GitHub via the following URL:
+Over recent decades, due to improvements in our observational instruments, we are now able to measure wave amplitudes and frequencies in the solar atmosphere directly. This thesis focuses on studying linear MHD waves in the solar atmosphere. Improving our understanding of these waves could lead to coronal seismology developments \citep{Banerjee2007}. \alexedit{It could also provide} insight into one of the biggest problems in solar physics, namely, the coronal heating problem (see Section \ref{sec:coronal_heating_problem}). Coronal seismology is a technique where mathematical models are used to infer hard to measure quantities, e.g. the coronal magnetic field strength or density gradients from easier to measure quantities, e.g. wave frequencies and damping time. We take a theoretical, as opposed to an observational approach to build our simple models. We calculate analytic solutions which we verify numerically. Most of the code used for this thesis, including LaTeX files, is available on GitHub via the following URL:
 \[\text{\href{https://github.com/aleksyprok/apkp_thesis}{https://github.com/aleksyprok/apkp\_thesis}}\]
 In this chapter, we introduce some of the critical properties of the solar atmosphere which are relevant to this thesis. After that, we will introduce the MHD equations which allow us to accurately model the plasma. In Section \ref{sec:mhd_waves_dispersion_relation}, we model waves in a domain where the background quantities are uniform and introduce some of the key aspects and terminology used in solar MHD wave theory. \citet{Nakariakov2020} gives a more in-depth introduction to MHD waves in the solar corona and \citet{Goossens2011} focuses on the linear aspects. Finally, in Section \ref{sec:mhd_waves_power_spectrum}, we discuss recent observations of waves in the solar atmosphere and show how the energy distributes as a function of wave frequency.
 
@@ -60,12 +60,12 @@ The solar atmosphere refers to the outer layer of gas and plasma surrounding the
 
 We label different parts of the solar atmosphere as either an active region, coronal hole or quiet sun (see Figure \ref{fig:active_region_quiet_sun_coronal_hole}). An active region is an area with a strong magnetic field. It is common for sunspots to form in active regions. These are usually the locations where the largest flares and coronal mass ejections occur. Coronal holes are the polar regions of the Sun, which look dark in the X-ray emission. In coronal holes, the magnetic field is usually unipolar and opens towards the interplanetary space. Finally, the quiet Sun usually refers to solar regions that do not lie in either active regions or coronal holes. Note that active regions and the quiet Sun often contain closed loops, like those shown in Figure \ref{fig:coronal_loops_trace}. We refer to these loops as closed because their magnetic field does not extend beyond the solar atmosphere. In contrast, the field lines in coronal holes are referred to as open because they extend far out into the solar system before eventually looping back or connecting with the interplanetary medium.
 
-Figure \ref{fig:VAL_atmosphere} shows data from what is commonly referred to as the Vernazza Avrett and Loeser (VAL) \citep{Vernazza1981} model of the solar atmosphere. It is useful for approximating average values of physical quantities. However, the solar atmosphere is, in reality, a highly inhomogeneous, time-dependent plasma. Figure \ref{fig:VAL_atmosphere} shows that the lowest region is the photosphere. It is the region where most photons, at visible light frequencies, escape into outer space. The chromosphere lies above the photosphere and emits significantly less light than the photosphere. It is only visible with the naked eye during total solar eclipses (see red / pink light in Figure \ref{fig:total_eclipse1999}). The transition region lies between the chromosphere and the corona. Across the transition region, the temperature changes rapidly from approximately $10^5\si{.K}$ to $10^6\si{.K}$. Finally, the corona lies above the chromosphere and transition region. As with the chromosphere, it emits significantly less light than the photosphere and is only visible with the naked eye during total solar eclipses as a white glow (see Figure \ref{fig:total_eclipse1999}). Note that the corona Thompson scatters white light from the photosphere. The intrinsic colour of the corona is not white. However, the inherent colour of the chromosphere is indeed the pink/red colour seen in Figure \ref{fig:total_eclipse1999}.
+Figure \ref{fig:VAL_atmosphere} shows data from what is commonly referred to as the Vernazza Avrett and Loeser (VAL) \citep{Vernazza1981} model of the \alexedit{quiet sun}. It is useful for approximating average values of physical quantities. However, the solar atmosphere is, in reality, a highly inhomogeneous, time-dependent plasma. Figure \ref{fig:VAL_atmosphere} shows that the lowest region is the photosphere. It is the region where most photons, at visible light frequencies, escape into outer space. The chromosphere lies above the photosphere and emits significantly less light than the photosphere. It is only visible with the naked eye during total solar eclipses (see red/pink light in Figure \ref{fig:total_eclipse1999}). The transition region lies between the chromosphere and the corona. Across the transition region, the temperature changes rapidly from approximately $10^5\si{.K}$ to $10^6\si{.K}$. Finally, the corona lies above the chromosphere and transition region. As with the chromosphere, it emits significantly less light than the photosphere and is only visible with the naked eye during total solar eclipses as a white glow (see Figure \ref{fig:total_eclipse1999}). Note that the corona Thompson scatters white light from the photosphere. The intrinsic colour of the corona is not white. However, the inherent colour of the chromosphere is indeed the pink/red colour seen in Figure \ref{fig:total_eclipse1999}.
 
 \section{Coronal heating problem}
 \label{sec:coronal_heating_problem}
 
-The chromospheric and coronal heating problem relates to the question; `why are they so hot?' It remains one of the biggest unsolved problems in solar physics. Figure \ref{fig:VAL_atmosphere} shows that the temperature increases with distance from the photosphere in the corona and chromosphere. Looking at Figure \ref{fig:VAL_atmosphere}, two questions come to mind. Why does the temperature increase with distance away from the core of the Sun? Intuitively, the temperature should decrease away from a heat source. Since the temperature is higher in the corona and chromosphere, this means that conduction is an energy loss mechanism. The plasma is also optically thin in the corona, which means the plasma loses more energy via radiation than it gains. So what is balancing the conductive and radiative losses in the chromosphere and corona?
+The chromospheric and coronal heating problem relates to the question; `why are they so hot?' It remains one of the biggest unsolved problems in solar physics. Figure \ref{fig:VAL_atmosphere} shows that the temperature increases with distance from the photosphere in the corona and chromosphere. Looking at Figure \ref{fig:VAL_atmosphere}, two questions come to mind. Why does the temperature increase with distance away from the surface of the Sun? Intuitively, the temperature should decrease away from a heat source. Since the temperature is higher in the corona and chromosphere, this means that conduction is an energy loss mechanism. The plasma is also optically thin \alexedit{(for most bands)} in the corona, which means the plasma loses more energy via radiation than it gains. So what is balancing the conductive and radiative losses in the chromosphere and corona?
 The energy losses are balanced by converting kinetic and magnetic energy into heat via Ohmic and viscous dissipation \citep{Klimchuk2015}. However, we do not have a verified model giving a precise description of how the temperatures are maintained.
 
 Regarding the first question, we now understand why the temperature of the solar atmosphere increases with distance from the core of the Sun. For example, \citet{Martens2010} successfully models a similar temperature profile  (although a detailed description of the heating source is still unknown). These models use the internal energy equation with a user-defined heating function superimposed. This heating function simulates the Ohmic and viscous dissipation of magnetic and kinetic energy. They find that even if the heating function is more significant at the footpoints, their models still produce the same basic structure as the solar atmosphere. This counter-intuitive temperature profile is partly explained by the fact that for coronal/chromospheric plasma, the radiative losses can decrease with rising temperature (see for example \citealt{Klimchuck2008}).
@@ -84,7 +84,7 @@ Note that Table \ref{tab:energy_losses_corona_chromosphere} shows the radiative 
 \section{MHD equations}
 \label{sec:mhd equations}
 
-A large fraction of the solar atmosphere is ionised \citep{Shimizu2018} due to the high temperature. The high temperature allows the orbital electrons to break their bonds with their corresponding ions and form free electrons. Therefore, the gas can conduct electricity and is hence a plasma. To study the plasma, we use Magnetohydrodynamics (MHD). The MHD equations are formed by combining equations from electromagnetism with equations from fluid dynamics. Different forms of the MHD equations are used in different contexts. In sections \ref{sec:faradays_law}-\ref{sec:intro_total_energy_eqn} we discuss each of the MHD equations in SI base units.
+A large fraction of the solar atmosphere is ionised \citep{Shimizu2018} due to the high temperature. The high temperature allows the orbital electrons to break their bonds with their corresponding ions and form free electrons. \alexedit{The medium is a plasma and can therefore conduct electricity}. To study the plasma, we use Magnetohydrodynamics (MHD). The MHD equations are formed by combining equations from electromagnetism with equations from fluid dynamics. Different forms of the MHD equations are used in different contexts. In sections \ref{sec:faradays_law}-\ref{sec:intro_total_energy_eqn} we discuss each of the MHD equations in SI base units.
 
 % \begin{figure}
 %     \centering
@@ -96,7 +96,7 @@ A large fraction of the solar atmosphere is ionised \citep{Shimizu2018} due to t
 \subsection{Assumptions}
 \label{sec:intro_assumptions}
 
-This thesis is primarily concerned with studying waves in the corona which is assumed to be fully ionised. The solar atmosphere is approximately 74\% Hydrogen 25\% Helium and 1\% other elements \citep{sun_vital_statistics}. At typical coronal temperatures, say $10^6\si{.K}$, an the thermal energy of an electron is approximately $86\si{.eV}$. This is greater than the ionisation energies of Hydrogen and Helium which have first ionisation energies of approximately $14\si{.eV}$ and $25\si{.eV}$ and the second ionisation energy of Helium is approximately $54\si{.eV}$ \citep{Lide2003}. Also, the ionisation fraction as a function of height has been estimated in, for example, \citet{Shimizu2018} and suggests that the plasma in the corona is nearly completely ionised. Therefore, in this thesis, we will often model the plasma as fully ionised Hydrogen plasma.
+This thesis is primarily concerned with studying waves in the corona which is assumed to be fully ionised. The solar atmosphere is approximately 74\% Hydrogen 25\% Helium and 1\% other elements \citep{sun_vital_statistics}. At typical coronal temperatures, say $10^6\si{.K}$, the thermal energy of an electron is approximately $86\si{.eV}$. This is greater than the ionisation energies of Hydrogen and Helium which have first ionisation energies of approximately $14\si{.eV}$ and $25\si{.eV}$ and the second ionisation energy of Helium is approximately $54\si{.eV}$ \citep{Lide2003}. Also, the ionisation fraction as a function of height has been estimated in, for example, \citet{Shimizu2018} and suggests that the plasma in the corona is nearly completely ionised. Therefore, in this thesis, we will often model the plasma as fully ionised Hydrogen plasma.
 
 We model the plasma as collisional and assume that collisional transport theory is valid. In \citet{Richardson2019}, they list six conditions for collisional transport theory to be valid. In the strong magnetic field limit, where $\omega_{ce}/\nu_e \gg 1$ (see Table \ref{tab:fundamental_plasma_paramter}) we require
 \begin{gather}
@@ -129,7 +129,7 @@ where $L$ denotes the macroscopic length scales. For fully ionised Hydrogen plas
     &\approx 2.21 \times 10^{-2}\qty(\frac{T_e}{10^6\si{.K}})\qty(\frac{10^{-3}\si{.T}}{B})\si{.m}.
     \end{aligned}
 \end{gather}
-Therefore, provided the macroscopic length scales are greater than about $1\si{.Mm}$ Equations \eqref{eq:length_scale_condition_parallel}-\eqref{eq:length_scale_condition} should be approximately satisfied.
+Therefore, provided the macroscopic length scales are greater than about $1\si{.Mm}$ \alexedit{and the parameters are given as above}, Equations \eqref{eq:length_scale_condition_parallel}-\eqref{eq:length_scale_condition} should be approximately satisfied.
 
 \begin{table}
     \centering
@@ -176,7 +176,7 @@ Amp\`ere's law is given by
 We approximate the magnetic permeability, $\mu_0$, by its value in a vacuum, namely,
 \[\mu_0=4\pi\times10^{-7}\si{.henry.m^{-1}}.\]
 The current density is denoted with $\vec{j}$. We approximate the speed of light, $c$, with its value in a vacuum, namely,
-\[c=\sqrt{\mu_0\epsilon_0}\approx3.00\times10^8\si{.m.s^{-1}},\]
+\[c=\frac{\alexedit{1}}{\sqrt{\mu_0\epsilon_0}}\approx3.00\times10^8\si{.m.s^{-1}},\]
 where $\epsilon_0$ is the permittivity of free space in a vacuum. 
 
 In this thesis, we neglect last term in Equation \eqref{eq:amperes_law}, called the displacement current. Replacing the time derivative with $1/t_0$, and $\vec{E}$ with $E_0$ means that
@@ -221,15 +221,15 @@ Physically, this equation states that a magnetic field can have no sources or si
 \citet{Priest2014} shows that for fully ionised plasma, Ohm's law is given by
 \begin{equation}
     \label{eq:ohms_law}
-    \vec{E}+\vec{v}\cross\vec{B}=\underbrace{\frac{\vec{j}}{\sigma}}_{\text{Direct / Pedersen term}}+\underbrace{\frac{1}{n_ee}\vec{j}\cross\vec{B}}_{\text{Hall term}},
+    \vec{E}+\vec{v}\cross\vec{B}=\underbrace{\frac{\vec{j}}{\sigma}}_{\text{Direct term}}+\underbrace{\frac{1}{n_ee}\vec{j}\cross\vec{B}}_{\text{Hall term}},
 \end{equation}
-where the electron inertia and electron pressure gradient terms have been neglected. We denote the plasma velocity with $\vec{v}$. The Cowling conductivity, $\sigma$, is given by
+where the electron inertia and electron pressure gradient terms have been neglected. We denote the plasma velocity with $\vec{v}$. The conductivity, $\sigma$, is given by
 \begin{equation}
     \sigma = \frac{n_ee^2}{m_e\nu_e}.
 \end{equation}
 Substituting in typical coronal values, the resistivity coefficients can be approximated by
 \begin{gather}
-    \frac{1}{\sigma}\approx2.58\times10^{-6}\qty(\frac{T}{10^6\si{.K}})^{-3/2}\si{.mho.m^{-1}},  \\
+    \frac{1}{\sigma}\approx2.58\times10^{-6}\qty(\frac{T}{10^6\si{.K}})^{-3/2}\si{.ohm^{-1}.m^{-1}},  \\
     \frac{\abs{\vec{B}}}{en_e}\approx6.24\,\qty(\frac{\abs{\vec{B}}}{10^{-3}\si{.T}})\qty(\frac{10^{15}\si{.m^{-3}}}{n_e}).
 \end{gather}
 The coulomb logarithm, $\ln\Lambda$, lies between 5 and 20 and has a weak temperature dependence. For coronal plasma, a suitable approximation is $\ln\Lambda\approx20$. It is tempting to neglect the direct current term in favour of the Hall term. However, the Hall term is dependent only on currents parallel to the field. Throughout this thesis, the currents perpendicular to the field dominate.
@@ -264,7 +264,7 @@ where
 \[\frac{B^2}{2\mu_0}=\frac{\vec{B}\vdot\vec{B}}{2\mu_0},\]
 is commonly called the magnetic energy density.
 
-The gravitational force acts radially inward towards the core of the sun, where $\vec{\hat{r}}$ is the unit vector in the radial direction. The gravitational force in the solar atmosphere is approximated by
+The gravitational force acts radially inward towards the core of the \alexedit{S}un, where $\vec{\hat{r}}$ is the unit vector in the radial direction. The gravitational force in the solar atmosphere is approximated by
 \begin{equation}
     \label{eq:gravitational_force}
     \frac{G\rho}{r^2}\vec{\hat{r}} = \rho g_\odot \vec{\hat{r}},
@@ -274,7 +274,7 @@ where
     \label{eq:gravitational_acceleration}
     g_\odot=\frac{M_\odot G}{R_\odot}\approx274\si{.m.s^{-2}},
 \end{equation}
-$M_\odot$ denotes the mass of the Sun enclosed by the solar surface, $R_\odot$ is the radius of the solar surface, and $G$ is the gravitational acceleration. Equation \eqref{eq:gravitational_force} is valid in the solar atmosphere provided the height of the plasma above the solar surface, $h$, is less than the solar radius, i.e. $h\ll R_\odot$.
+$M_\odot$ denotes the mass of the Sun enclosed by the solar surface, $R_\odot$ is the radius of the solar surface, and $G$ is the universal gravitational constant. Equation \eqref{eq:gravitational_force} is valid in the solar atmosphere provided the height of the plasma above the solar surface, $h$, is less than the solar radius, i.e. $h\ll R_\odot$.
 
 The viscous force is given by the divergence of the Braginskii viscous stress tensor, $\vec{\sigma}_{Brag}$ \citep{Braginskii1965}. Here we present the viscous stress tensor in the same form as in \citet{MacTaggart2017},
 \begin{equation}
@@ -299,7 +299,7 @@ where $\vec{Z}$ is the tensor with components $Z_{ij}=\epsilon_{ikj}b_k$, where 
 \begin{equation}
     \vec{\hat{B}}=\frac{\vec{B}}{|\vec{B}|}.
 \end{equation}
-\citet{Hogan1984} labels each of the tensors, $\eta_0\vec{W}^{(0)}$, $\eta_1\vec{W}^{(1)}$, $\eta_2\vec{W}^{(2)}$, $\eta_3\vec{W}^{(3)}$ and  $\eta_4\vec{W}^{(4)}$ with names based on their physical interpretations. The author labels $\eta_0\vec{W}^{(0)}$ as the viscosity tensor parallel to the magnetic field. $\eta_1\vec{W}^{(1)}$ and $\eta_2\vec{W}^{(2)}$ are labelled as the viscosity tensors perpendicular to the magnetic field. Finally, $\eta_3\vec{W}^{(3)}$ and $\eta_4\vec{W}^{(4)}$ are referred to as the drift contributions. The drift terms are also referred to as the dispersive terms because $\vec{W}^{3}:\grad \vec{v}=\vec{W}^{4}:\grad \vec{v}=0$ which means they do not directly dissipate energy. Note that $\vec{W}^{(0)}$ contains a $\div{\vec{v}}$ term, therefore, it is dependent on derivatives parallel to field field as well as derivatives associated with the compressibility of the velocity. The viscosity coefficients are approximated by
+\citet{Hogan1984} labels each of the tensors, $\eta_0\vec{W}^{(0)}$, $\eta_1\vec{W}^{(1)}$, $\eta_2\vec{W}^{(2)}$, $\eta_3\vec{W}^{(3)}$ and  $\eta_4\vec{W}^{(4)}$ with names based on their physical interpretations. The author labels $\eta_0\vec{W}^{(0)}$ as the viscosity tensor parallel to the magnetic field. $\eta_1\vec{W}^{(1)}$ and $\eta_2\vec{W}^{(2)}$ are labelled as the viscosity tensors perpendicular to the magnetic field. Finally, $\eta_3\vec{W}^{(3)}$ and $\eta_4\vec{W}^{(4)}$ are referred to as the drift contributions. The drift terms are also referred to as the dispersive terms because $\vec{W}^{3}:\grad \vec{v}=\vec{W}^{4}:\grad \vec{v}=0$ which means they do not directly dissipate energy. Note that $\vec{W}^{(0)}$ contains a $\div{\vec{v}}$ term, therefore, it is dependent on derivatives parallel to \alexedit{the magnetic} field as well as derivatives associated with the compressibility of the velocity. The viscosity coefficients are approximated by
 \begin{gather}
     \label{eq:braginskii_eta_0}
     \eta_0=2.21\times10^{-16}\frac{T^{5/2}}{\log \Lambda}\si{.kg.m^{-1}.s^{-1}}, \\
@@ -387,7 +387,7 @@ where $k_B$ denotes the Boltzmann constant approximated by
 The most general form of the internal energy equation which we use in this thesis is
 \begin{equation}
     \label{eq:internal_energy}
-    \pdv{}{t}\qty(\frac{p}{\gamma - 1})+\underbrace{\div(\frac{\gamma p}{\gamma - 1}\vec{v}+\vec{q})}_{\text{Enthalpy flux + Conduction}}=\underbrace{ + \frac{j^2}{\sigma}+\vec{\sigma}_{Brag}:\grad \vec{v}-n^2Q(T)-\vec{v}\vdot\grad{p}}_{\text{Ohmic + Viscous heating $-$ Radiation $-$ Work done}}.
+    \pdv{}{t}\qty(\frac{p}{\gamma - 1})+\underbrace{\div(\frac{\gamma p}{\gamma - 1}\vec{v}+\vec{q})}_{\text{Enthalpy flux + Heat flux}}=\underbrace{\frac{j^2}{\sigma}+\vec{\sigma}_{Brag}:\grad \vec{v}-n^2Q(T)-\vec{v}\vdot\grad{p}.}_{\text{Ohmic + Viscous heating $-$ Radiation $-$ Work done}}
 \end{equation}
 The internal energy per unit volume is given by $p/(\gamma - 1)$, where $\gamma$ is the ratio of specific heats, also known as the adiabatic index.
 
@@ -407,7 +407,7 @@ and $\grad_\perp$ is given by
 \begin{equation}
     \grad_\perp = \grad - \grad_{||}.
 \end{equation}
-The thermal conductivity parallel/perpendicular to the field is denoted with $\kappa_{||}$/$\kappa_\perp$ respectively. In coronal plasma, the conductivity is usually much stronger along the field than it is parallel. The parallel conductivity is approximated by
+The thermal conductivity parallel/perpendicular to the field is denoted with $\kappa_{||}$/$\kappa_\perp$ respectively. In coronal plasma, the conductivity is usually much stronger along the field than it is perpendicular to the field. The parallel conductivity is approximated by
 \begin{equation}
     \kappa_{||}=1.8\times10^{-10}\frac{T^{5/2}}{\ln\Lambda}\si{.W.m^{-1}.K^{-1}},
 \end{equation}
@@ -474,9 +474,9 @@ $Q(T)$ denotes the optically thin radiative loss function. See for example \cite
 Faraday's law, Equation \eqref{eq:faradays_law}, can be combined with Ohm's law, Equation \eqref{eq:ohms_law}, to give the induction equation,
 \begin{equation}
     \label{eq:induction_equation}
-    \pdv{\vec{B}}{t}=\underbrace{\curl(\vec{v}\cross\vec{B})}_{\text{Ideal term}}-\underbrace{\curl(\frac{\vec{j}}{\sigma}+\frac{1}{n_ee}\vec{j}\cross\vec{B})}_{\text{Non-ideal term}}.
+    \pdv{\vec{B}}{t}=\underbrace{\curl(\vec{v}\cross\vec{B})}_{\text{Ideal term}}-\underbrace{\curl(\frac{\vec{j}}{\sigma}+\frac{1}{n_ee}\vec{j}\cross\vec{B})}_{\text{Non-ideal term + Hall term}}.
 \end{equation}
-In Section \ref{sec:ohms_law}, we showed that if $B_0 / (n_e e) \ll \sigma^{-1}$ or $\vec{j_{||}\gg\vec{j}_\perp}$ then we can neglect the Hall term. Additionally, if we assume that the spatial derivatives of $\sigma$ can be neglected then by using Amp\`ere's law, Equation \eqref{eq:amperes_law} (the induction equation), be written as
+In Section \ref{sec:ohms_law}, we showed that if $B_0/(n_e e) \ll \sigma^{-1}$ or $\vec{j_{||}\gg\vec{j}_\perp}$ then we can neglect the Hall term. Additionally, if we assume that the spatial derivatives of $\sigma$ can be be neglected then by using Amp\`ere's law, Equation \eqref{eq:amperes_law} (the induction equation), \alexedit{may} be written as
 \begin{equation}
     \pdv{\vec{B}}{t}=\underbrace{\curl(\vec{v}\cross\vec{B})}_{\text{Advective term}}+\underbrace{\eta\laplacian\vec{B}}_{\text{Diffusive term}},
 \end{equation}
@@ -626,7 +626,7 @@ We model small perturbations on a static background equilibrium in other words w
 \end{gather}
 where
 \[u = \abs{\vec{v}},\ B_0=\abs{\vec{B}_0}\ ,b=\abs{\vec{b}}.\] Note that $\vec{B}_0$ and $\rho_0$ are referred to as the background quantities which are specified beforehand and $\vec{v}$, $\vec{b}$ and $\rho_1$ are the perturbed quantities which need to be calculated.
-We assume $u\ll v_A$ because observations suggest $u / v_A$ to be approximately in the range [$10^{-2}$,\ $10^{-1}$] \citep{McIntosh2011,McIntosh2012}. We approximate $\pdv*{\vec{B}_0}{t}=0$ since magnetic structures can last much longer than the typical frequency and Alfv\'en travel time of waves in a coronal loop. If we take the Alfv\'en speed in the corona as about $1\si{.Mm.s^{-1}}$ \citep{McIntosh2011} and assume that coronal loops have a characteristic length of about 100$\si{.Mm}$ \citep{O'Neill2005} then This gives an Alfv\'en travel time of about $100\si{.s}$. Magnetic structures can last much longer than this, for example, active region prominences can last a few hours or a day, while quiescent prominences can last between a few and 300 days \citep{Priest2014}. We assume that $\pdv*{\rho_0}{t}$ and this approximately holds in coronal loops which are isothermal. \citet{Klimchuk2015} shows that loops can be approximated as isothermal if the time interval between heating events/nanoflares in the loops is sufficiently small..
+We assume $u\ll v_A$ because observations suggest $u/v_A$ to be approximately in the range [$10^{-2}$,\ $10^{-1}$] \citep{McIntosh2011,McIntosh2012}. We approximate $\pdv*{\vec{B}_0}{t}=0$ since magnetic structures can last much longer than the typical frequency and Alfv\'en travel time of waves in a coronal loop. If we take the Alfv\'en speed in the corona as about $1\si{.Mm.s^{-1}}$ and assume that coronal loops have a characteristic length of about 100$\si{.Mm}$ \citep{O'Neill2005} then \alexedit{t}his gives an Alfv\'en travel time of about $100\si{.s}$. Magnetic structures can last much longer than this, for example, active region prominences can last a few hours or a day, while quiescent prominences can last between a few and 300 days \citep{Priest2014}. \alexedit{We assume that $\pdv*{\rho_0}{t}=0$ and this approximately holds in coronal loops which are isothermal and isobaric}. \citet{Klimchuk2015} shows that loops can be approximated as isothermal if the time interval between heating events/nanoflares in the loops is sufficiently small.
 % We will see in \textcolor{red}{Equation X} that provided
 % \[f\gg \frac{\langle v_A \rangle}{L},\]
 % then
@@ -745,12 +745,12 @@ We define Alfv\'en waves \citep{Alfven1942} as waves with a velocity amplitude, 
     \label{eq:alfven_wave_equation}
     \mathcal{L}\vec{u} = \qty(\pdv[2]{}{t} - \frac{1}{\mu\rho}(\vec{B}_0\cdot\grad)^2)\vec{u}=0,
 \end{equation}
-where $\mathcal{L}$ denotes the Alfv\'en wave equation operator and $\vec{B}_0$ denotes the background magnetic field. This shows that Alfv\'en waves propagate parallel to the background magnetic field with speed given by the Alf\'en speed. Note that for our configuration above the Alfv\'en wave equation operator, $\mathcal{L}$, becomes
+\alexedit{(see e.g. \citealt{Prokopyszyn2019a})} where $\mathcal{L}$ denotes the Alfv\'en wave equation operator and $\vec{B}_0$ denotes the background magnetic field. This shows that Alfv\'en waves propagate parallel to the background magnetic field with speed given by the Alf\'en speed. Note that for our configuration above the Alfv\'en wave equation operator, $\mathcal{L}$, becomes
 \begin{equation}
     \label{eq:alfven_wave_equation_operator}
-    \mathcal{L} = \pdv[2]{}{t} - v_{A0}\pdv[2]{}{z}.
+    \mathcal{L} = \pdv[2]{}{t} - v_{A0}^2\pdv[2]{}{z}.
 \end{equation}
-Equations \eqref{eq:ux_in_terms_of_bz} and \eqref{eq:uy_in_terms_of_bz} show that if $\mathcal{L}u_x=\mathcal{L}u_y=0$ then $b_z=b_z(z)$. Therefore, applying the initial condition that $b_z$ is initially zero ensures $b_z=0$ $\forall t$. Note that $b_z$ gives the perturbation in magnetic pressure. For this reason, Alfv\'en waves can be thought of as kinetic-tension waves as they are an oscillation in kinetic and magnetic tension energy. Very much like waves on a guitar string but with magnetic tension replaced with tension in the string.
+Equations \eqref{eq:ux_in_terms_of_bz} and \eqref{eq:uy_in_terms_of_bz} show that if $\mathcal{L}u_x=\mathcal{L}u_y=0$ then $b_z=b_z(z)$. Therefore, applying the initial condition that $b_z$ is initially zero ensures $b_z=0$ $\forall t$. Note that $b_z$ gives the perturbation in magnetic pressure. For this reason, Alfv\'en waves can be thought of as an oscillation in kinetic and magnetic tension energy. Very much like waves on a guitar string but with magnetic tension replaced with tension in the string.
 
 % A useful quantity is the Poynting flux, $\vec{S}$ given by
 % \begin{equation}
@@ -803,7 +803,7 @@ We define fast waves in $\beta=0$ plasma as waves with velocity amplitude, $\vec
     \qty(\pdv[2]{}{t}+v_A^2\laplacian)\vec{u}=0.
 \end{equation}
 This shows that fast waves propagate isotropically with a speed given by the Alfv\'en speed.
-Note that this is only valid for $\beta=0$ plasma, for $\beta\ll 1$ then the fast wave propagates perpendicular to the field at a speed of approximately $v_A + c_s$ and parallel to the field at a speed of $v_A$, where $c_s$ gives the background sound speed. For a derivation of the dispersion relation of fast waves (and its sibling slow waves) in a $\beta>0$ plasma, see for example \citet{Priest2014, Roberts2019}.
+Note that this is only valid for $\beta=0$ plasma, for $\beta\ll 1$ then the fast wave propagates perpendicular to the field at a speed of approximately $v_A + c_s$, where $c_s$ gives the background sound speed. \alexedit{In the limit where the fast wave propagate parallel to the field, it degenerates into an Alfv\'en wave and moves at a speed of $v_A$.} For a derivation of the dispersion relation of fast waves (and its sibling slow waves) in a $\beta>0$ plasma, see for example \citet{Priest2014, Roberts2019}.
  
 
 Note that if $\omega=\pm v_{A0}\sqrt{k_x^2 + k_y^2 + k_z^2}$, then Equations \eqref{eq:uy0}-\eqref{eq:bz0} simplify to
@@ -868,7 +868,7 @@ In for example \citet{Morton2016,Morton2019}, the power spectrum of velocity flu
 \[\{v_n\}=v_0, v_1, ... v_{N-1},\]
 then we can write 
 \[\begin{aligned}
-v_n &= \frac{1}{N}\sum_{k=0}^{N-1}V_k\exp(2i\pi  k n / N) \\
+v_n &= \frac{1}{N}\sum_{k=0}^{N-1}V_k\exp(2i\pi  k n/N) \\
 &= \frac{1}{N}\sum_{k=0}^{N-1}V_k\exp(2i\pi f_k t_n),
 \end{aligned}\]
 where
@@ -876,7 +876,7 @@ where
 \[f_k = \frac{k}{N \Delta t},\]
 and $\{V_k\}$ is the discrete Fourier transform of $\{v_n\}$, given by
 \[\begin{aligned}
-V_k&=\sum_{n=0}^{N-1}v_n\exp(-2i\pi k n / N) \\
+V_k&=\sum_{n=0}^{N-1}v_n\exp(-2i\pi k n/N) \\
 &=\sum_{n=0}^{N-1}v_n\exp(-2i\pi f_k t_n).
 \end{aligned}\]
 Note that a measure of the average energy associated with the velocity fluctuations is given by
@@ -894,8 +894,8 @@ Therefore, $|V_k|^2/N^2$ gives a useful measure of the average energy associated
 % where
 % \begin{equation}
 %     N_{mid} = \begin{cases}
-%     N / 2 - 1, & \text{for}\ N\ \text{even}, \\
-%     (N - 1) / 2, & \text{for}\ N\ \text{odd},
+%     N/2 - 1, & \text{for}\ N\ \text{even}, \\
+%     (N - 1)/2, & \text{for}\ N\ \text{odd},
 %     \end{cases}
 % \end{equation}
 where $\bar{V}_{N-k}$ denotes the complex conjugate and $\lfloor\,\rfloor$ denotes the floor function which rounds down to the nearest integer. Therefore, we define the power spectrum, $P_k[\{v_n\}]$, as
@@ -907,9 +907,9 @@ where $\bar{V}_{N-k}$ denotes the complex conjugate and $\lfloor\,\rfloor$ denot
     2|V_k|^2, & \text{otherwise},\\
     \end{cases}
 \end{equation}
-where $k=0,1...,\lfloor N / 2\rfloor$. This ensures that $P_k[\{v_n\}]$ satisfies
+where $k=0,1...,\lfloor N/2\rfloor$. This ensures that $P_k[\{v_n\}]$ satisfies
 \begin{equation}
-    \langle v^2 \rangle = \sum_{k=0}^{\lfloor N / 2 \rfloor}P_k[\{v_n\}].
+    \langle v^2 \rangle = \sum_{k=0}^{\lfloor N/2 \rfloor}P_k[\{v_n\}].
 \end{equation}
 
 \begin{figure}
@@ -940,6 +940,6 @@ This thesis aims to improve our understanding of the dynamics of MHD waves in th
 
 In Chapter \ref{chap:resistive_phase_mixed_alfven_waves} our goal is to assess the viability of a process called phase mixing as a heating mechanism. We study linear Alfv\'en waves with resistivity and viscosity included in the model with the $y$-direction assumed invariant. We show that if neighbouring field lines have different natural frequencies, this can lead to the formation of steep gradients across the field via phase mixing. To test if this is a viable heating mechanism, we introduce a quantity called the heating rate per unit of wave energy which we denote with $\gamma$. We estimate the required heating rate by assuming it must balance our estimates of the coronal conductive and radiative losses. We also use observational data of velocity fluctuations to estimate the average wave energy in the corona. Using these values, we calculate that $\gamma$ needs to equal about $10^{-1}\si{.s^{-1}}$ for a wave heating mechanism to play a major role in coronal heating. We calculate a theoretical upper bound for $\gamma$ and use this to test if the dissipation of phase-mixed Alfv\'en wave is a viable heating mechanism. Our model also includes partial reflection and allows for a power spectrum of harmonics to be excited.
 
-Chapter \ref{chap:resonant_absorption_in_an_oblique_field} allows for $\pdv*{}{y}\ne0$. This enables a phenomenon called resonant absorption to occur. This is where a propagating fast wave with a given frequency gets absorbed by a magnetic field line, called the resonant field line, with the same natural Alfv\'en frequency. Energy concentrates at the resonant field line and the waves form a standing Alfv\'en wave. We model the magnetic field to be at an arbitrary angle, $\alpha$, to the transition region. In for example, \citet{Halberstadt1993,Halberstadt1995,Arregui2003}, they show that in general, steep boundary layers / evanescent fast waves form. However, their model only includes the corona, and they impose line-tied boundary conditions. This chapter includes the chromosphere and corona and tests if the boundary layers still form if we do not impose line-tied boundary conditions. This allows us to test if the boundary layers are physical or fictitious artefacts generated by using line-tied boundary conditions.
+Chapter \ref{chap:resonant_absorption_in_an_oblique_field} allows for $\pdv*{}{y}\ne0$. This enables a phenomenon called resonant absorption to occur. This is where a propagating fast wave with a given frequency gets absorbed by a magnetic field line, called the resonant field line, with the same natural Alfv\'en frequency. Energy concentrates at the resonant field line and the waves form a standing Alfv\'en wave. We model the magnetic field to be at an arbitrary angle, $\alpha$, to the transition region. In for example, \citet{Halberstadt1993,Halberstadt1995,Arregui2003}, they show that in general, steep boundary layers/evanescent fast waves form. However, their model only includes the corona, and they impose line-tied boundary conditions. This chapter includes the chromosphere and corona and tests if the boundary layers still form if we do not impose line-tied boundary conditions. This allows us to test if the boundary layers are physical or fictitious artefacts generated by using line-tied boundary conditions.
 
 Finally, in Chapter \ref{chap:conclusions_and_future_work} a summary of results from each of the chapters is given, and we discuss ideas for further study.
