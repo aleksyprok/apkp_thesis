@@ -3,15 +3,13 @@ This chapter contains work which has been adapted from \citet{Prokopyszyn2019b}.
 \section{Introduction}
 \label{sec:chap_3_introduction}
 
-The work in this paper is 
-
 At the end of the previous chapter, we introduced phase-mixing. We saw that very short-length-scales can build up when Alfv\'en waves propagate along field lines with different Alfv\'en travel times. Since each field line has different Alfv\'en travel times, this can lead to waves moving out of phase with their neighbours. This suggests that the ideal assumption we made in the previous chapter may no longer be valid. Moreover, it has been suggested in, for example, \citet{Heyvaerts1983} that phase-mixed Alfv\'en waves could play a significant role in coronal heating.
 
-Phase mixing has been researched extensively since \citet{Heyvaerts1983} first proposed it as a coronal heating mechanism. For example, \citet{Browning1984}, expanded on the \citet{Heyvaerts1983} work related to the Kelvin-Helmholtz instability. They show that standing phase-mixed Alfv\'en waves are unstable to the Kelvin-Helmholtz instability and will undergo a turbulent cascade, leading to enhanced dissipation of energy. In for example, \citet{DeMoortel2002} and \citet{Smith2007} they study phase mixing in a stratified and divergent magnetic field. \citet{Similon1989} and \citet{Howson2019} study phase mixing in a complex magnetic field. \citet{Hood1997,Hood2002} investigate phase mixing in coronal holes and calculate a self-similar solution which enables them to analyse a more general class of solutions. They find that a single pulse decays algebraically rather than exponentially. In \citet{McLaughlin2011a,McLaughlin2013,Prokopyszyn2019a} they study phase mixing of nonlinear Alfv\'en waves near 2D x-type null points. Phase mixing has also been investigated in 3D \citep{Magyar2017} and 3D coronal loops \citep{Pagano2017,Pagano2018}.
+Phase mixing has been researched extensively since \citet{Heyvaerts1983} first proposed it as a coronal heating mechanism. For example, \citet{Browning1984}, expanded on the \citet{Heyvaerts1983} work related to the Kelvin-Helmholtz instability. They show that standing phase-mixed Alfv\'en waves are unstable to the Kelvin-Helmholtz instability and will undergo a turbulent cascade, leading to enhanced dissipation of energy. In for example, \citet{DeMoortel2002} and \citet{Smith2007} they study phase mixing in a stratified and divergent magnetic field. \citet{Similon1989} and \citet{Howson2019} study phase mixing in a complex magnetic field. \citet{Hood1997,Hood2002} investigate phase mixing in coronal holes and calculate a self-similar solution which enables them to analyse a more general class of solutions. They find that a single pulse decays algebraically rather than exponentially. In \citet{McLaughlin2011a,McLaughlin2013,Prokopyszyn2019a} they study phase mixing of nonlinear Alfv\'en waves near 2D x-type null points. \alexedit{In \citet{Nakariakov1997} they show that nonlinearities lead to the formation of fast waves which can help transport energy onto neighbouring field lines}. Phase mixing has also been investigated in 3D \citep{Magyar2017} and 3D coronal loops \citep{Pagano2017,Pagano2018}.
 
 In this chapter, we aim to answer whether the phase-mixing of Alfv\'en waves plays an important or negligible role in coronal heating? To help answer this question, we introduce a term called the heating rate per unit of wave energy in a loop, denoted with $\gamma$. We define $\gamma$ as the ratio of the integrated time-averaged heating rate along a loop over the wave energy of the loop, i.e.
 \begin{equation}
-    \gamma = \frac{\left\langle\int_C \vec{\sigma}_{Brag}:\grad{u} + j^2/\sigma dl\right\rangle}{\frac{1}{2}\left\langle\int_C \rho u^2 + b^2 dl\right\rangle},
+    \gamma = \frac{\left\langle\int_C \vec{\sigma}_{Brag}:\grad{u} + j^2/\sigma dl\right\rangle}{\frac{1}{2}\left\langle\int_C \rho u^2 + b^2/\mu\, dl\right\rangle},
 \end{equation}
 where $C$ is a contour of a given coronal loop and $\langle\rangle$ denotes the time average. Note that $\gamma$ is closely related to the damping coefficient used in the equation to describe damped harmonic oscillators. The equation for a damped harmonic oscillator, with amplitude $x(t)$, is given by
 \begin{equation}
@@ -19,13 +17,13 @@ where $C$ is a contour of a given coronal loop and $\langle\rangle$ denotes the 
 \end{equation}
 Multiplying through by $\dv*{x}{t}$ gives
 \begin{equation}
-    \dv{}{t}\qty[\frac{1}{2}\qty(\dv{x}{t})^2+\frac{1}{2}\omega_0^2 x] = -\gamma_0 \qty(\dv{x}{t})^2.
+    \dv{}{t}\qty[\frac{1}{2}\qty(\dv{x}{t})^2+\frac{1}{2}\omega_0^2 x^2] = -\gamma_0 \qty(\dv{x}{t})^2.
 \end{equation}
-Note that the time average of the potential energy, $\langle \omega_0^2 x^2 / 2 \rangle$, is approximately equal to the time average of the kinetic energy, $\langle (\dv*{x}{t})^2/2\rangle$, therefore, the heating rate over the kinetic and potential energy is given by
+Note that the time average of the potential energy, $\langle \omega_0^2 x^2/2 \rangle$, is approximately equal to the time average of the kinetic energy, $\langle (\dv*{x}{t})^2/2\rangle$, therefore, the heating rate over the kinetic and potential energy is given by
 \begin{equation}
     \gamma_0 \approx \frac{\gamma_0\langle (\pdv*{x}{t})^2\rangle}{\frac{1}{2}\langle(\pdv*{x}{t})^2+\omega_0^2x^2\rangle}.
 \end{equation}
-Therefore, $\gamma$ and $\gamma_0$ satisfy very similar definitions, which explains why $\gamma$ is closely related to the damping rate of the waves. Note that \citet{Hollweg1984a,Hollweg1984b} uses a very similar idea to $\gamma$ except he uses a quantity called the quality factor, from resonance theory, which is approximately given by $\omega / \gamma$, where $\omega$ is the angular frequency of a wave. We focus on using $\gamma$ because it is easier to apply to a system in which multiple frequencies are excited. \citet{Arregui2015} also discusses a similar idea. He argues (through an order magnitude analysis) that phase mixing could take too long to reach the required length scales for the heating rate to become important.
+Therefore, $\gamma$ and $\gamma_0$ satisfy very similar definitions, which explains why $\gamma$ is closely related to the damping rate of the waves. Note that \citet{Hollweg1984a,Hollweg1984b} uses a very similar idea to $\gamma$ except he uses a quantity called the quality factor, from resonance theory, which is approximately given by $\omega/\gamma$, where $\omega$ is the angular frequency of a wave. We focus on using $\gamma$ because it is easier to apply to a system in which multiple frequencies are excited. \citet{Arregui2015} also discusses a similar idea. He argues (through an order magnitude analysis) that phase mixing could take too long to reach the required length scales for the heating rate to become important.
 
 We can estimate the conductive and radiative losses \citep{Withbroe1977} and the wave energy \citep{McIntosh2011,McIntosh2012} in the corona. Using these values, we can approximate the value $\gamma$ needs to satisfy for the conductive and radiative energy losses to be balanced by the viscous and Ohmic dissipation of the observed waves. This gives the required value of $\gamma$ for coronal heating and we will compare it with the value of $\gamma$ predicted by phase-mixing theory. This is how we will test if phase mixing can play a significant role in coronal heating. In Section \ref{sec:chap_3_coronal_heating} we estimate an upper bound for the $\gamma$ predicted by phase-mixing theory by ensuring any simplifications made act to increase the value of $\gamma$. If our upper bound is too small, we can conclude that phase-mixing plays a negligible role in coronal heating. If the upper bound is equal to or larger than the required $\gamma$ then this means phase-mixing could play an important role. However, we would need a more realistic model to know for sure. In this section, we will calculate the required value of $\gamma$ in a closed loop. 
 
@@ -113,7 +111,7 @@ The $y$-component of the linearised momentum equation, see Equation \eqref{eq:mo
     &\approx\frac{v_A^2(x)}{B_0}\pdv{b}{z} +\frac{\eta_1}{\rho} \pdv[2]{u}{x} + \frac{\eta_2}{\rho} \pdv[2]{u}{z}.
     \end{aligned}
 \end{equation}
-where $\vec{\sigma}_{Brag}$ is given by Equation \eqref{eq:braginskii_viscous_stress_tensor}, the plasma pressure and magnetic pressure terms are set to zero because the $y$-direction is invariant. Note that when calculating $\div\vec{\sigma}_{Brag}$, we ignored the derivatives associated with the coefficients, $\eta_0,\eta_1, ...$ etc. as we expect our waves to phase mix and so we expect $\abs{(\pdv*{u}{x})/u}\gg\abs{(\pdv*{\eta_0}{x})/\eta_0}$. The equations above shows that after linearising the Braginskii viscous tensor, the contribution from the parallel component, $\eta_0\vec{W}^{(0)}$, and the drift terms, $\eta_3\vec{W}^{(3)}$, $\eta_4\vec{W}^{(4)}$ is zero. This result and a discussion on the linearised Braginskii viscous stress tensor are given in, for example, \citet{Ruderman2000,Mocanu2008}. Equations \eqref{eq:braginskii_eta_0} to \eqref{eq:braginskii_eta_2} show that $\eta_0$ is usually much greater than $\eta_1$ and $\eta_2$. Equation \eqref{eq:proton_gyrofrequency_times_collision_time} shows that we estimate $\eta_0$ to be a factor $10^{10}$ greater. By linearising the viscous stress tensor we could be neglecting the dominant term. However, this chapter aims to study linear waves only and in Section \ref{sec:chap_3_coronal_heating} we investigate the parameter space in which this linearization is justified. We intend to study phase mixing, which is a concept we introduced in Section \ref{sec:phase_mixing}, so we make another assumption which is to assume $\pdv*{}{x}\gg\pdv*{}{z}$. Therefore, we simplify Equation \eqref{eq:chap_3_momentum_eqn1} further to give
+where $\vec{\sigma}_{Brag}$ is given by Equation \eqref{eq:braginskii_viscous_stress_tensor}, the plasma pressure and magnetic pressure terms are set to zero because the $y$-direction is invariant. Note that when calculating $\div\vec{\sigma}_{Brag}$, we ignored the derivatives associated with the coefficients, $\eta_0,\eta_1, ...$ etc. as we expect our waves to phase mix and so we expect $\abs{(\pdv*{u}{x})/u}\gg\abs{(\pdv*{\eta_0}{x})/\eta_0}$. The equations above show that after linearising the Braginskii viscous tensor, the contribution from the parallel component, $\eta_0\vec{W}^{(0)}$, and the drift terms, $\eta_3\vec{W}^{(3)}$, $\eta_4\vec{W}^{(4)}$ is zero. This result and a discussion on the linearised Braginskii viscous stress tensor are given in, for example, \citet{Ruderman2000,Mocanu2008}. Equations \eqref{eq:braginskii_eta_0} to \eqref{eq:braginskii_eta_2} show that $\eta_0$ is usually much greater than $\eta_1$ and $\eta_2$. Equation \eqref{eq:proton_gyrofrequency_times_collision_time} shows that we estimate $\eta_0$ to be a factor $10^{10}$ greater. By linearising the viscous stress tensor we could be neglecting the dominant term. However, this chapter aims to study linear waves only and in Section \ref{sec:chap_3_coronal_heating} we investigate the parameter space in which this linearization is justified. We intend to study phase mixing, which is a concept we introduced in Section \ref{sec:phase_mixing}, so we make another assumption which is to assume $\pdv*{}{x}\gg\pdv*{}{z}$. Therefore, we simplify Equation \eqref{eq:chap_3_momentum_eqn1} further to give
 \begin{equation}
     \label{eq:chap_3_momentum_eqn2}
     \pdv{u}{t}=\frac{v_A^2(x)}{B_0}\pdv{b}{z} +\nu\pdv[2]{u}{x},
@@ -129,7 +127,7 @@ As above, we simplify this equation further by assuming that $\pdv*{}{x}\gg\pdv*
     \label{eq:chap_3_induction}
     \pdv{b}{t} = B_0\pdv{u}{z}+\eta\pdv[2]{b}{x}.
 \end{equation}
-Note that we have neglected the Hall term because it is only dependent on derivatives which are parallel to the background magnetic field (for our system). In, for example, \citet{Threlfall2017} they investigate the effects of the Hall term on phase mixing. They find that introduction of the hall terms results in wave dispersion which reduces the heating rate per unit of wave energy, $\gamma$. We aim to show that linear phase mixed Alfv\'en waves at observed wavelengths have an insufficient $\gamma$ to heat the corona. Therefore, if $\gamma$ is insufficient without the Hall term, we know it must be insufficient with the Hall term.
+Note that we have neglected the Hall term because it is only dependent on derivatives which are parallel to the background magnetic field (for our system). In, for example, \citet{Threlfall2017} they investigate the effects of the Hall term on phase mixing. They find that introduction of the \alexedit{H}all terms results in wave dispersion which reduces the heating rate per unit of wave energy, $\gamma$. We aim to show that linear phase mixed Alfv\'en waves at observed wavelengths have an insufficient $\gamma$ to heat the corona. Therefore, if $\gamma$ is insufficient without the Hall term, we know it must be insufficient with the Hall term.
 
 Substituting Equation \eqref{eq:chap_3_induction} into the time derivative of Equation \eqref{eq:chap_3_momentum_eqn2} gives
 \[\pdv[2]{u}{t}=v_A^2(x)\pdv[2]{u}{z}+v_A^2(x)\pdv[2]{}{x}\qty(\frac{\eta}{B_0}\pdv{b}{z})+\nu\pdv{}{t}\pdv[2]{u}{x}.\]
@@ -157,7 +155,7 @@ Combining the above equations gives
     \label{eq:advection_diffusion_elsasser}
     \pdv{\mathcal{Z}^\pm}{t} \mp  v_A(x)\pdv{\mathcal{Z}^\pm}{z} = \nu_+ \pdv[2]{Z^\pm}{x} + \nu_-\pdv[2]{Z^\mp}{x},
 \end{equation}
-with $Z^{\pm}$ is given by 
+with $\mathcal{Z}^{\pm}$ is given by 
 \begin{equation}
     \tag{\ref{eq:elsasser_z}}
     \mathcal{Z}^\pm(x,z,t) = u(x,z,t) \pm \frac{v_A(x)}{B_0}b(x,z,t),
@@ -206,14 +204,14 @@ and Equation \eqref{eq:advection_diffusion_elsasser} gives
 \section{Open loop}
 \label{sec:chap_3_open_loop}
 
-This section aims to calculate solutions to Equations \eqref{eq:method_of_lines_eqn_u}/\eqref{eq:method_of_lines_eqn_u} analytically and numerically, for an open loop.
+This section aims to calculate solutions to Equations \eqref{eq:method_of_lines_eqn_u} and \eqref{eq:method_of_lines_eqn_u} analytically and numerically, for an open loop.
 % This section aims to calculate solutions to Equation \eqref{eq:chap_3_method_of_lines_eqn} analytically and numerically, for an open loop. We assume the loop contains only waves propagating in the positive $z$-direction so $\mathcal{Z}^+=0$.
 
 \subsection{Analytic solution}
 
 To solve Equation \eqref{eq:method_of_lines_eqn_u} analytically we will use the method of multiple scales, where $\eta+\nu$ gives the small parameter. Dividing Equation \eqref{eq:method_of_lines_eqn_u} through by $v_A^2(x)$ gives
 \begin{equation}
-    \pdv[2]{u}{z} + k_z^2 u +  = -i(\eta+\nu)\frac{k_z}{v_A}\pdv[2]{u}{x}
+    \pdv[2]{u}{z} + k_z^2 u = -i(\eta+\nu)\frac{k_z}{v_A}\pdv[2]{u}{x}
 \end{equation}
 % To solve Equation \eqref{eq:chap_3_method_of_lines_eqn} analytically we will use the method of multiple scales, where $\eta+\nu$ gives the small parameter. Since $\mathcal{Z}^+=0$ $\implies$ $u = \mathcal{Z}^{-}/2$. Substituting this into Equation \eqref{eq:chap_3_method_of_lines_eqn} gives
 % \begin{equation}
@@ -304,7 +302,7 @@ In Section \ref{sec:phase_mixing}, Equation \eqref{eq:phase_mixing_du_dx}, we sh
     \label{eq:kx_star}
     \begin{aligned}
     k_x^*(x) &= \omega \dv{v_A}{x}\frac{z}{v_A^2} \\
-    &=k_z z / a.
+    &=k_z z/a.
     \end{aligned}
 \end{equation}
 Therefore, at $z=L_{ph}$, $k_x^*$ is given by
@@ -325,7 +323,7 @@ This shows Equation \eqref{eq:length_scale_condition_perpendicular} is usually s
 
 \subsection{Numerical solution}
 
-Our goal now is to to check the accuracy of Equation \eqref{eq:leading_order_phase_mixed_soln} by solving Equation \eqref{eq:chap_3_method_of_lines_eqn} using the method of lines. We discretize in $x$, i.e. we replace the $x$-derivatives in Equation \eqref{eq:chap_3_method_of_lines_eqn} with finite difference approximations. This gives a set of ODEs in the $z$ which we solve as an initial value problem using \texttt{solve\_ivp} in \citet{SciPy2020}. To help simplify the code we consider the case where $\eta=\nu$ as this causes $Z^{+}$ and $Z^{-}$ to decouple (see Equation \ref{eq:chap_3_method_of_lines_eqn}). Setting $Z^{+}=0$ at $z=0$ forces $Z^{+}=0$ $\forall$ $z$. We choose the $x$-domain to be given by $x\in[-l_x,l_x]$, 
+Our goal now is to check the accuracy of Equation \eqref{eq:leading_order_phase_mixed_soln} by solving Equation \eqref{eq:chap_3_method_of_lines_eqn} \alexedit{numerically}. We discretize in $x$, i.e. we replace the $x$-derivatives in Equation \eqref{eq:chap_3_method_of_lines_eqn} with finite difference approximations. This gives a set of ODEs in the $z$ which we solve as an initial value problem using \texttt{solve\_ivp} in \citet{SciPy2020}. To help simplify the code we consider the case where $\eta=\nu$ as this causes $\mathcal{Z}^{+}$ and $\mathcal{Z}^{-}$ to decouple (see Equation \ref{eq:chap_3_method_of_lines_eqn}). Setting $\mathcal{Z}^{+}=0$ at $z=0$ forces $\mathcal{Z}^{+}=0$ $\forall$ $z$. We choose the $x$-domain to be given by $x\in[-l_x,l_x]$, 
 where
 \[l_x = \frac{10}{k_x^*}.\]
 The Alfv\'en speed is given by Equation \eqref{eq:background_vA_chap_3} and the driver is given by  Equation \eqref{eq:driver_chap_3}.
@@ -341,12 +339,12 @@ The Alfv\'en speed is given by Equation \eqref{eq:background_vA_chap_3} and the 
     \label{fig:phase_mxing_open_loop}
 \end{figure}
 
-Our goal now is to check that that the numerical solution agrees with the analytic solution. We test this via a graphical approach. In Figure \ref{fig:phase_mxing_open_loop} we plot the velocity perturbation $u$. The top-left shows the velocity along $z$ at $x=0$. The blue and orange curves show the real and imaginary parts, respectively. The green curve shows the envelope, $u_{env}$ which is given by
+Our goal now is to check that that the numerical solution agrees with the analytic solution. We test this via a graphical approach. In Figure \ref{fig:phase_mxing_open_loop} we plot the velocity perturbation $u$. The top-left shows the velocity along $z$ at $x=0$. The blue and orange curves show the real and imaginary parts, respectively. \alexedit{You can think of the imaginary part as showing what the real part will look like a quarter of a wave cycle later.} The green curve shows the envelope, $u_{env}$ which is given by
 \begin{equation}
     \label{eq:velocity_envelope}
     u_{env\pm}(x,z) = \pm f_0\exp[-(z/L_{ph})^3],
 \end{equation}
-which comes from Equation \eqref{eq:leading_order_phase_mixed_soln}. It shows that at $x=0$, to a good approximation, the wave decays with our predicted slope, given by Equation \eqref{eq:leading_order_phase_mixed_soln}. The top-right plot shows the velocity along $x$ at $z=L_{ph0}$, where we show the equation for $L_{ph0}$ in the bottom-right of the figure. The solid line gives the numerical solution and the $+$ symbols give the analytic solution, given by Equation \eqref{eq:leading_order_phase_mixed_soln}. It shows that close to $x=0$, the analytic and numerical solutions show good agreement. However, close to the boundaries, the agreement is poor, and this is because we impose Neumann boundary conditions, see Equation \eqref{eq:neumann_bcs_chap_3}. Our analytic solution works well for open boundary conditions in $x$. However, these are difficult to implement numerically. The middle-row shows contour plots of the real and imaginary parts of the velocity as a function of $x$ and $z$. Finally, the bottom-left shows the relative error between the numerical and analytic solutions at $x=0$ and $z=L_{ph0}$ as a function of $\eta+\nu$. It shows that as we decrease $\eta+\nu$ the error reduces, despite $L_{ph0}$ increasing. In the bottom-right, we show some of the parameters we use, including the grid resolution $n_x\times n_z$.
+which comes from Equation \eqref{eq:leading_order_phase_mixed_soln} \alexedit{and \citet{Heyvaerts1983}}. It shows that at $x=0$, to a good approximation, the wave decays with our predicted slope, given by Equation \eqref{eq:leading_order_phase_mixed_soln}. The top-right plot shows the velocity along $x$ at $z=L_{ph0}$, where we show the equation for $L_{ph0}$ in the bottom-right of the figure. The solid line gives the numerical solution and the $+$ symbols give the analytic solution, given by Equation \eqref{eq:leading_order_phase_mixed_soln}. It shows that close to $x=0$, the analytic and numerical solutions show good agreement. However, close to the boundaries, the agreement is poor, and this is because we impose Neumann boundary conditions, see Equation \eqref{eq:neumann_bcs_chap_3}. Our analytic solution works well for open boundary conditions in $x$. However, these are difficult to implement numerically. The middle-row shows contour plots of the real and imaginary parts of the velocity as a function of $x$ and $z$. Finally, the bottom-left shows the relative error between the numerical and analytic solutions at $x=0$ and $z=L_{ph0}$ as a function of $\eta+\nu$. It shows that as we decrease $\eta+\nu$ the error reduces, despite $L_{ph0}$ increasing. In the bottom-right, we show some of the parameters we use, including the grid resolution $n_x\times n_z$.
 
 \section{Closed loop}
 \label{sec:chap_3_closed_loop}
@@ -363,7 +361,7 @@ Using a method of images approach, similar to that used in Section \ref{sec:clos
 \begin{equation}
     \label{eq:chap_3_closed_loop_phase_mix_soln_u}
     \begin{aligned}
-    u(x,z) &= f_0\sum_{k=0}^\infty (-1)^k\exp\qty[-ik_z(x)z_k]\exp[-(z_k / L_{ph})^3] \\
+    u(x,z) &= f_0\sum_{k=0}^\infty (-1)^k\exp\qty[-ik_z(x)z_k]\exp[-(z_k/L_{ph})^3] \\
     &= f_0A_\infty(x,z)
     \end{aligned}
 \end{equation}
@@ -373,19 +371,19 @@ where
 \end{equation}
 and
 \begin{equation}
-    A_\infty(x,z) = \sum_{k=0}^\infty (-1)^k \exp(-ik_z z_k)\exp[-(z_k / L_{ph})^3].
+    A_\infty(x,z) = \sum_{k=0}^\infty (-1)^k \exp(-ik_z z_k)\exp[-(z_k/L_{ph})^3].
 \end{equation}
 Similarly, we calculate the magnetic field to be given by
 \begin{equation}
     \label{eq:chap_3_closed_loop_phase_mix_soln_b}
     \begin{aligned}
-    b(x,z) &= -B_0\frac{f_0}{v_A}\sum_{k=0}^\infty \exp\qty[-k_z(x)z_k]\exp[-(z_k / L_{ph})^3] \\
+    b(x,z) &= -B_0\frac{f_0}{v_A}\sum_{k=0}^\infty \exp\qty[-k_z(x)z_k]\exp[-(z_k/L_{ph})^3] \\
     &= -B_0\frac{f_0}{v_A}B_\infty(x,z)
     \end{aligned}
 \end{equation}
 where
 \begin{equation}
-    B_\infty(x,z) = \sum_{k=0}^\infty \exp(-ik_z z_k)\exp[-(z_k / L_{ph})^3].
+    B_\infty(x,z) = \sum_{k=0}^\infty \exp(-ik_z z_k)\exp[-(z_k/L_{ph})^3].
 \end{equation}
 We are not aware of any method to simplify the summations given by $A_\infty$ and $B_\infty$ further, however, we can approximate them numerically by truncating the series after $N_a$ terms and then calculating the resulting summation numerically, provided $N_a\gg 1$.
 
@@ -404,7 +402,7 @@ We can write Equation \eqref{eq:method_of_lines_eqn_u} as
 \[
 -i\omega(\eta+\nu)\pdv[2]{y}{x}=\omega^2 y + v_A^2 \pdv[2]{y}{z} + \omega^2f_0\frac{L_z - z}{L_z}.
 \]
-Note that the we can write the end term as the following Fourier series
+Note that we can write the end term as the following Fourier series
 \[\omega^2f_0\frac{L_z - z}{L_z} = 2\omega^2f_0\sum_{n=1}^\infty\frac{\sin(k_{zn}z)}{n\pi},\]
 where
 \begin{equation}
@@ -481,9 +479,9 @@ where
     r = \exp[-(ik_z+L_{ph}^{-1})L_z].
 \end{equation}
 If we assume $L_z/L_{ph} \ll 1$ then we can approximate 
-\[r = \exp[-ik_zL_z] (1 - L_z / L_{ph} + O[(L_z/L_{ph})^2]).\]
+\[r = \exp[-ik_zL_z] (1 - L_z/L_{ph} + O[(L_z/L_{ph})^2]).\]
 If $k_zL_z = n\pi$ then
-\[r^2 = 1 - 2L_z / L_{ph} +  O[(L_z/L_{ph})^2].\]
+\[r^2 = 1 - 2L_z/L_{ph} +  O[(L_z/L_{ph})^2].\]
 Hence, if $k_zL_z=n\pi$ then we can approximate $B_\infty^*$ as
 \[B_\infty^*(x,0)=\frac{L_{ph}}{L_z} + O[L_z/L_{ph}]).\]
 We assume that the energy, $\langle e_\infty \rangle$ is approximately uniformly distributed along $z$, therefore,
@@ -516,7 +514,7 @@ Our goal now is to verify that Equation \eqref{eq:gamma_approx_closed_loop} prov
 \subsection{Multiple harmonics}
 \label{sec:chap_3_closed_loop_multiple_harmonics}
 
-We showed in Section \ref{sec:mhd_waves_power_spectrum} that velocity fluctuations oscillate at a broad range of frequencies. In this section, we aim to calculate the heating rate per unit of wave energy, $\gamma$, for the case where the driver excites a broad range of frequencies. In Section \ref{sec:closed_loop_random_driver}, we showed that the power spectrum in a closed loop with a broadband driver will on average have peaks at the resonant frequencies. \citet{Wright1995} have also observed this. Therefore, for simplicity, our driver will only excite the resonant frequencies.
+We showed in Section \ref{sec:mhd_waves_power_spectrum} that velocity fluctuations oscillate at a broad range of frequencies. In this section, we aim to calculate the heating rate per unit of wave energy, $\gamma$, for the case where the driver excites a broad range of frequencies. In Section \ref{sec:closed_loop_random_driver}, we showed that the power spectrum in a closed loop with a broadband driver will on average have peaks at the resonant frequencies. \alexedit{\citet{Wright1995,Afanasyev2020}} have also observed this. Therefore, for simplicity, our driver will only excite the resonant frequencies.
 
 Let the bottom boundary condition be given by
 \begin{equation}
@@ -530,11 +528,11 @@ where
 \begin{gather}
     C_n = \begin{dcases}
     0, & n=0, \\
-    \frac{\sqrt{L_z} n^{-\alpha / 2}\exp(i\varphi_n)}{\sqrt{\int_0^{L_z} |A_{\infty,n}|^2 + |B_{\infty,n}|^2 dz}}, & n > 0, \\
+    \frac{\sqrt{L_z} n^{-\alpha/2}\exp(i\varphi_n)}{\sqrt{\int_0^{L_z} |A_{\infty,n}|^2 + |B_{\infty,n}|^2 dz}}, & n > 0, \\
    \bar{C}_{|n|}, & n < 0,
     \end{dcases} \\
-    A_{\infty,n} = \sum_{k=0}^\infty(-1)^k\exp(-ik_{z,n}z_k)\exp[-(z_k / L_{ph,n})], \\
-    B_{\infty,n} = \sum_{k=0}^\infty \exp(-ik_{z,n}z_k)\exp[-(z_k / L_{ph,n})], \\
+    A_{\infty,n} = \sum_{k=0}^\infty(-1)^k\exp(-ik_{z,n}z_k)\exp[-(z_k/L_{ph,n})], \\
+    B_{\infty,n} = \sum_{k=0}^\infty \exp(-ik_{z,n}z_k)\exp[-(z_k/L_{ph,n})], \\
     \omega_n = n\frac{\pi v_{A0}}{L_z}, \\
     k_{z,n} = \frac{\omega_n}{v_{A0}}, \\
     L_{ph,n} = \qty[\frac{6\omega_n a^2}{\eta+\nu}]^{1/3}\frac{1}{k_{z,n}}.
@@ -545,7 +543,7 @@ Note that $\alpha$ controls the slope of the power spectrum, $\varphi_n\in\mathd
     b(x,z,t) = -B_0\frac{f_0}{v_A}\sum_{n=-N}^NB_{\infty,n}C_n\exp(i\omega_n t).
 \end{gather}
 
-By Parsvel's theorem, the time-averaged energy is given by
+By Parseval's theorem, the time-averaged energy is given by
 \begin{equation}
     \begin{aligned}
     \langle e_\infty \rangle &=\frac{1}{P}\int_0^{P}\frac{\rho |u|^2}{4} + \frac{|b|^2}{4\mu}dt
@@ -601,7 +599,7 @@ Hence, Equation \eqref{eq:gamma_multiple_harmonics_exact} can be approximated as
     &= \gamma_1\frac{H_N^{(\alpha-2/3)}}{H_N^{(\alpha)}},
     \end{aligned}
 \end{equation}
-where $H_N^{(p)}$ denotes the generalised harmonic number of order $p$ of $n$.
+where $H_N^{(p)}$ denotes the generalised harmonic number of order $p$ of $N$.
 Note that
 \begin{equation}
 \label{eq:generalised_harmonic_number_approx}
@@ -644,7 +642,7 @@ We plot for the case where $\alpha=0$ (blue), $1$ (orange), and $5/3$ (green), t
     \label{fig:multiple_harmonics}
 \end{figure}
 
-Figure \ref{fig:multiple_harmonics} uses a range of $\alpha$ values including $5/3$ as this is one the values predicted from MHD turbulence theory \citep{Bruno2013}. \citet{Morton2016} provides observations of the power spectra of velocity fluctuations in the quiet sun, the active regions, and the coronal holes (see Figure \ref{fig:power_spectrum_morton}). These latter authors find that the slope varies from $\alpha = 1$ to $\alpha = 1.53$ for higher frequencies, although they are only able to measure up to frequencies of around $10^{-2}\si{.Hz}$. \citet{Podesta2007} measure the power spectra in the solar wind and can measure up to $10^{-1}\si{.Hz}$ and find the slope to be between $\alpha = 1.5$ $\alpha = 5/3$.
+Figure \ref{fig:multiple_harmonics} uses a range of $\alpha$ values including $5/3$ as this is one the values predicted from MHD turbulence theory \citep{Bruno2013}. \citet{Morton2016,Kolotkov2016} provide observations of the power spectra of velocity fluctuations in the quiet sun, the active regions, and the coronal holes (see Figure \ref{fig:power_spectrum_morton}). These latter authors find that the slope varies from $\alpha = 1$ to $\alpha = 1.53$ for higher frequencies, although they are only able to measure up to frequencies of around $10^{-2}\si{.Hz}$. \citet{Podesta2007} measure the power spectra in the solar wind and can measure up to $10^{-1}\si{.Hz}$ and find the slope to be between $\alpha = 1.5$ and $\alpha = 5/3$.
 
 \section{Leaky loop}
 \label{sec:chap_3_leaky_loop}
@@ -667,7 +665,7 @@ Our first goal is to calculate the timescale at which waves decay due to leakage
 Therefore each time $\tau_A$ time units have elapsed the wave amplitude decreases by $R$. Thus, the wave amplitude, $u_0$, goes as
 \begin{equation}
     \begin{aligned}
-    u_0 &\propto R^{\lfloor t / t_{A} \rfloor} \\
+    u_0 &\propto R^{\lfloor t/t_{A} \rfloor} \\
     &= \exp\qty(\left\lfloor\frac{t}{t_A}\right\rfloor\ln R) \\
     &\approx \exp\qty(-\frac{|\ln R|}{t_A}t).
     \end{aligned}
@@ -727,14 +725,14 @@ The above equation for $\gamma$ is quite cumbersome because it is difficult to s
     &\approx (\eta+\nu)(k_x^*)^2,
     \end{aligned}
 \end{equation}
-where $k_x^*$ gives a measure of the wavenumber in the $x$-direction. Substituting $z=v_A t$, we estimate $k_x^*$ in the strong leakage limit as
+where $k_x^*$ gives a measure of the wavenumber in the $x$-direction. Substituting $z=v_A \tau_{leakage}$ into Equation \eqref{eq:kx_star}, we estimate $k_x^*$ in the strong leakage limit as
 \begin{equation}
 \begin{aligned}
     k_x^* &\approx \frac{\omega}{a}\tau_{leakage} \\
     &=\frac{\omega L_z}{a v_A |\ln R|}.
 \end{aligned}
 \end{equation}
-Therefore,in the strong leakage limit,
+Therefore, in the strong leakage limit,
 \[
     \gamma \propto (\eta + \nu)\qty(\frac{\omega L_z}{a v_A |\ln R|})^2.
 \]
@@ -744,7 +742,7 @@ Note that the dotted curve in Figure \ref{fig:chap_3_leaky_loop} uses
     \gamma = 2(\eta + \nu)\qty(\frac{\omega L_z}{a v_A |\ln R|})^2.
 \end{equation}
 
-We now need to plot $\gamma$, given by Equation \eqref{eq:gamma_exact_leaky_loop}, as a function of $R$, to see how leakage affects $\gamma$ and to check the accuracy of Equation \eqref{eq:gamma_approx_leaky_loop}. The solid blue curve on the right-hand side of Figure \ref{fig:chap_3_leaky_loop} shows $\gamma$ as a function of the reflection coefficient $-\ln R$. The plot shows that increasing the leakage (decreasing $R$) causes $\gamma$ to decrease. This is because the leakage reduces the development of short length-scales as waves leak out of the loop before they can phase-mix to the same length-scales that closed-loop waves can reach. The Figure shows that in the limit $\tau_{leakage} / \tau_{resistive} \ll 1$, then $\gamma$ can be approximated with Equation \eqref{eq:gamma_approx_leaky_loop}, where the ratio $\tau_{leakage} / \tau_{resistive}$, is plotted in orange and the approximation is plotted with a dotted blue line. In the limit $\tau_{leakage} / \tau_{resistive} \gg 1$ then $\gamma$ can be well approximated by assuming the loop is closed.
+We now need to plot $\gamma$, given by Equation \eqref{eq:gamma_exact_leaky_loop}, as a function of $R$, to see how leakage affects $\gamma$ and to check the accuracy of Equation \eqref{eq:gamma_approx_leaky_loop}. The solid blue curve on the right-hand side of Figure \ref{fig:chap_3_leaky_loop} shows $\gamma$ as a function of the reflection coefficient $-\ln R$. The plot shows that increasing the leakage (decreasing $R$) causes $\gamma$ to decrease. This is because the leakage reduces the development of short length-scales as waves leak out of the loop before they can phase-mix to the same length-scales that closed-loop waves can reach. The Figure shows that in the limit $\tau_{leakage}/\tau_{resistive} \ll 1$, then $\gamma$ can be approximated with Equation \eqref{eq:gamma_approx_leaky_loop}, where the ratio $\tau_{leakage}/\tau_{resistive}$, is plotted in orange and the approximation is plotted with a dotted blue line. In the limit $\tau_{leakage}/\tau_{resistive} \gg 1$ then $\gamma$ can be well approximated by assuming the loop is closed.
 
 \section{Coronal heating discussion}
 \label{sec:chap_3_coronal_heating}
@@ -756,9 +754,9 @@ In Section \ref{sec:chap_3_closed_loop_heating_rate} we showed that if a single 
     \label{eq:upper_bound_for_gammma}
     \gamma \approx 1.43\times10^{-4} \qty(\frac{\omega_1}{\pi\times10^{-2}\si{.Hz}})^{1/3}\qty(\frac{\eta+\nu}{10\si{.m^2.s^{-1}}})^{1/3}\qty(\frac{1\si{.Mm}}{a})^{2/3}\si{.s^{-1}}.
 \end{equation}
-Therefore, our upper bound for $\gamma$ is significantly less than the required value of $\gamma$, by approximately three orders of magnitude. This implies that the $\vec{W}^{(1)}$ component of the viscosity tensor, $\vec{\sigma}_{Brag}$, plays a negligible role in coronal heating. This suggests that the direct dissipation of waves due to the steep gradients generated by phase-mixing play an insignificant role in coronal heating. However, phase mixing could still play an important but less direct role in coronal heating. For example, phase mixed Alfv\'en waves are susceptible to the Kelvin-Helmholtz and tearing mode instabilities, leading to a turbulent cascade to smaller scales. This would mean that the dissipation occurs primarily due to gradients parallel to the field or the velocity which are dissipated via the $\vec{W}^{(0)}$ component of the viscosity tensor. Note that $\vec{W}^{(0)}$ is not dependent on the gradients generated through phase-mixing since the $x$-direction is neither parallel to the field or the velocity. In \citet{Hillier2019} they show that the Kelvin-Helmholtz instability can lead to coronal cooling as a result of the fluid mixing together which causes the temperate to become more uniform resulting in the total amount of radiation increases. To derive the above equations, we had to make several simplifications. The rest of this section justifies these simplifications and explains why we chose the values for the above parameters.
+Therefore, our upper bound for $\gamma$ is significantly less than the required value of $\gamma$, by approximately three orders of magnitude. This implies that the $\vec{W}^{(1)}$ component of the viscosity tensor, $\vec{\sigma}_{Brag}$, plays a negligible role in coronal heating. This suggests that the direct dissipation of waves due to the steep gradients generated by phase-mixing play an insignificant role in coronal heating. However, phase mixing could still play an important but less direct role in coronal heating. For example, phase mixed Alfv\'en waves are susceptible to the Kelvin-Helmholtz and tearing mode instabilities, leading to a turbulent cascade to smaller scales. This would mean that the dissipation occurs primarily due to gradients parallel to the field or the velocity which are dissipated via the $\vec{W}^{(0)}$ component of the viscosity tensor. Note that $\vec{W}^{(0)}$ is not dependent on the gradients generated through phase-mixing since the $x$-direction is neither parallel to the field or the velocity. In \citet{Hillier2019} they show that the Kelvin-Helmholtz instability can lead to coronal cooling as a result of the fluid mixing together which causes the \alexedit{temperature} to become more uniform resulting in the total amount of radiation increases. To derive the above equations, we had to make several simplifications. The rest of this section justifies these simplifications and explains why we chose the values for the above parameters.
 
-Increasing $\alpha$ acts to reduce $\gamma$. For our calculation we took $\alpha=1$, which underestimates the single power-law fit to Figure \ref{fig:power_spectrum_morton}. This helps ensure that our calculation for $\gamma$ is an upper bound. We chose $N=100$ because $100\omega = \pi\si{.Hz}$ which is a higher than the maximum observed wave frequencies. We will also show later, in Equation \eqref{eq:w01}, for high frequencies, phase mixing plays a negligible role in the dissipation of waves compared with the dissipation due to gradients parallel to the background field. The characteristic length of a coronal loop is about $100\si{.Mm}$ \citep{O'Neill2005} with an average Alfv\'en speed of about $1\si{.Mm.s^{-1}}$ \citep{McIntosh2011}. This gives a fundamental angular frequency of $\omega_1=\pi\times10^{-2}\si{.Hz}$. Combining Equations \eqref{eq:braginskii_eta_1} and \eqref{eq:proton_gyrofrequency_times_collision_time} gives
+Increasing $\alpha$ acts to reduce $\gamma$. For our calculation we took $\alpha=1$, which underestimates the single power-law fit to Figure \ref{fig:power_spectrum_morton}. This helps ensure that our calculation for $\gamma$ is an upper bound. We chose $N=100$ because $100\omega_1 = \pi\si{.Hz}$ which is a higher than the maximum observed wave frequencies. We will also show later, in Equation \eqref{eq:w01}, for high frequencies, phase mixing plays a negligible role in the dissipation of waves compared with the dissipation due to gradients parallel to the background field. The characteristic length of a coronal loop is about $100\si{.Mm}$ \citep{O'Neill2005} with an average Alfv\'en speed of about $1\si{.Mm.s^{-1}}$ \citep{McIntosh2011}. This gives a fundamental angular frequency of $\omega_1=\pi\times10^{-2}\si{.Hz}$. Combining Equations \eqref{eq:braginskii_eta_1} and \eqref{eq:proton_gyrofrequency_times_collision_time} gives
 \begin{equation}
     \label{eq:nu_typical_values}
     \nu=\frac{\eta_1}{\rho} = 0.62\,\qty(\frac{10^{-3}\si{.Tesla}}{B_0})^2\qty(\frac{10^6\si{.K}}{T})^{1/2}\qty(\frac{\rho}{10^{-12}\si{.kg.m^{-3}}})\si{.m^2.s^{-1}},
@@ -781,7 +779,7 @@ where $v_{A0}$ gives the Alfv\'en speed at $z=0$ and $x_0$ gives the $x$-coordin
     &= \frac{x_0\Lambda_B\cos(x_0/\Lambda_B)}{\Lambda_B\cos(x_0/\Lambda_B)+x_0\sin(x_0/\Lambda_B)}.
     \end{aligned}
 \end{equation}
-Note that $a(x_0)$ is plotted on the right-side of Figure \ref{fig:potential_arcade}. The plot shows that $a = 0$ for $x_0=0$ and $x_0=\pi\Lambda_B/2$.  The magnetic field lines are highly divergent near $x_0=\pi\Lambda_B/2$. It has been shown in for example \citet{Smith2007} that a diverging field can enhance the phase mixing. However, we are interested in an average value for $a$. The average value, $\langle a \rangle$ is given by
+Note that $a(x_0)$ is plotted on the right-side of Figure \ref{fig:potential_arcade}. The plot shows that $a = 0$ for $x_0=0$ and $x_0=\pi\Lambda_B/2$.  The magnetic field lines are highly divergent near $x_0=\pi\Lambda_B/2$. \alexedit{In for example \citet{Ruderman1998,Smith2007}}, they show that a diverging \alexedit{flux tube} can enhance the phase mixing. However, we are interested in an average value for $a$. The average value, $\langle a \rangle$ is given by
 \begin{equation}
 \begin{aligned}
     \langle a(x_0) \rangle &= \frac{2}{\pi\Lambda_B}\int_0^{\pi\Lambda_B/2}a(x_0)dx_0 \\
@@ -854,7 +852,7 @@ Superimposing Equations \eqref{eq:nonlinear_alfven_wave_kinetic_energy} and \eqr
 \begin{equation}
     \pdv{}{t}\qty(\frac{1}{2}\rho v_y^2 + \frac{B_y^2}{2\mu}) + \div(\frac{1}{2}\rho v_y^2 \vec{v} + \frac{\vec{E}\cross\vec{B}_y}{\mu})=\vec{v}\vdot\grad(\frac{B_y^2}{2\mu}).
 \end{equation}
-The above equation shows that the energy associated with perturbations in the $y$-direction (the Alfv\'en wave) is coupled to the perturbations in the $x$ and $z$ direction through the ponderomotive force, $-\grad[B_y^2/(2\mu)]$. The ponderomotive force is defined as the magnetic pressure force associated with the Alfv\'en wave \citep{Verwichte1999}. In \citet{Verwichte1999} they show that each time nonlinear Alfv\'en pulses pass through each other, they generate a slow magnetoacoustic wave (in $\beta\ll1$ plasma). They also show that for nonlinear Alfv\'en pulses, the Alfv\'en speed is dependent on the wave amplitude. They show that the evolution of an Alfv\'en pulse is described by the Cohen-Kulsrud equation \citep{Cohen1974}, which is similar to Burger's equation. They show that shocks form and calculate the time at which the gradient of the solution becomes singular. \citet{Thurgood2013a,Thurgood2013b} shows that if there are gradients perpendicular to the field and the invariant direction then fast waves are produced by the ponderomotive force. \citet{Terradas2006} show that for a line-tied standing Alfv\'en wave, the ponderomotive force pushes plasma towards the antinodes and away from the nodes. They show that in a $\beta=0$, isothermal, plasma, the amplitude of the density structures grows quadratically with time and this growth is limited by the pressure force if $\beta\ne0$. In \citet{Prokopyszyn2019a}, we investigated standing nonlinear Alfv\'en waves in an x-type null point. We found that introducing nonlinearities had a relatively small effect ($<$10\%) effect on $\gamma$. However, we used an unphysically large value for the diffusion constants to keep the system well resolved numerically.
+The above equation shows that the energy associated with perturbations in the $y$-direction (the Alfv\'en wave) is coupled to the perturbations in the $x$ and $z$ direction through the ponderomotive force, $-\grad[B_y^2/(2\mu)]$. The ponderomotive force is defined as the magnetic pressure force associated with the Alfv\'en wave. In \citet{Verwichte1999} they show that each time nonlinear Alfv\'en pulses pass through each other, they generate a slow magnetoacoustic wave (in $\beta\ll1$ plasma). They also show that for nonlinear Alfv\'en pulses, the Alfv\'en speed is dependent on the wave amplitude. They show that the evolution of an Alfv\'en pulse is described by the Cohen-Kulsrud equation \citep{Cohen1974}, which is similar to Burger's equation. They show that shocks form and calculate the time at which the gradient of the solution becomes singular. \citet{Nakariakov1997,Thurgood2013a,Thurgood2013b} shows that if there are gradients perpendicular to the field and the invariant direction then fast waves are produced by the ponderomotive force. \citet{Terradas2006} show that for a line-tied standing Alfv\'en wave, the ponderomotive force pushes plasma towards the antinodes and away from the nodes. They show that in a $\beta=0$, isothermal, plasma, the amplitude of the density structures grows quadratically with time and this growth is limited by the pressure force if $\beta\ne0$. In \citet{Prokopyszyn2019a}, we investigated standing nonlinear Alfv\'en waves in an \alexedit{X}-type null point. We found that introducing nonlinearities had a relatively small effect ($<$10\%) effect on $\gamma$. However, we used an unphysically large value for the diffusion constants to keep the system well resolved numerically.
 
 Modelling the plasma as linear and modelling $\pdv*{}{y}=0$ prevents the development of turbulence through the Kelvin-Helmholtz instability, tearing mode instability and by the nonlinear interaction of counter-propagating Alfv\'en waves \citep{Hollweg1986a,vanBallegooijen2011,Shoda2019}. Turbulence leads to the transfer of energy into higher wavenumbers/frequencies, which are then dissipated \citep{Karimabadi2013}, causing $\gamma$ to increase. However, we showed in Equation \eqref{eq:w01} that for frequencies greater than about $\omega=\pi\si{.Hz}$ the $\vec{W}^{(0)}$ component of the viscosity tensor starts to dominate. Therefore, our claim that the $\vec{W}^{(1)}$ component plays a negligible role in coronal heating, in general, holds for a turbulent plasma.
 
@@ -864,7 +862,7 @@ Finally, we modelled the plasma as isothermal, and we discuss this in Section \r
 
 The results and discussions in this chapter suggest that the dissipation of the gradients produced by phase mixing plays a negligible role in coronal heating. However, it is possible that phase mixing could trigger the Kelvin-Helmholtz and tearing mode instabilities which cause a turbulent cascade. Then dissipation can occur primarily due to the $\vec{W}^{(0)}$ component of the viscosity tensor which dissipates gradients parallel to the magnetic and velocity fields. In Section \ref{sec:chap_3_introduction} we showed that we require $\gamma\approx10^{-1}\si{.s^{-1}}$ and Equation \eqref{eq:upper_bound_for_gammma} shows that our upper bound for $\gamma$ is too small by approximately 3 orders of magnitude. This upper bound was modelled to be an average upper bound across the whole corona. Phase mixing models can give a larger value of $\gamma$ near, for example, null points or at highly divergent magnetic fields due to the greater presence of viscosity and the Alfv\'en speed-length scale, $a$, being larger.
 
-In Section \ref{sec:chap_3_open_loop} we calculated the solution for a phase-mixed resistive Alfv\'en wave in an open-loop using the method of multiple scales. We then verified this numerically via a graphical approach, see Figure \ref{fig:phase_mxing_open_loop}. We showed that the wave decays with a cubic Gaussian, $\exp[-(z/L_{ph})^3]$, in $z$ with a length scale $L_{ph}$ given by Equation \eqref{eq:phase_mixed_z_length_scale}. This shows that as the wave propagates the wave decays faster due to the wave phase mixing and the length-scales across the field getting shorter. We estimate at $z=L_{ph}$ the length scales in $x$ are given by Equation \eqref{eq:phase_mixed_x_length_scale}, and we find this is still sufficiently long for collisional transport theory to be valid in the corona. \citet{Heyvaerts1983} shows that propagating Alfv\'en are stable to the Kelvin-Helmholtz instability because the magnetic field and velocity perturbations are in phase with each other. For standing Alfv\'en waves, the velocity and magnetic field perturbations are out of phase with each other in space and time. So the magnetic field cannot stabilise the velocity shear from the Kelvin-Helmholtz instability.
+In Section \ref{sec:chap_3_open_loop} we calculated the solution for a phase-mixed resistive Alfv\'en wave in an open-loop using the method of multiple scales. We then verified this numerically via a graphical approach, see Figure \ref{fig:phase_mxing_open_loop}. We showed that the wave decays with a cubic Gaussian, $\exp[-(z/L_{ph})^3]$, in $z$ with a length scale $L_{ph}$ given by Equation \eqref{eq:phase_mixed_z_length_scale}. This shows that as the wave propagates the wave decays faster due to the wave phase mixing and the length-scales across the field getting shorter. We estimate at $z=L_{ph}$ the length scales in $x$ are given by Equation \eqref{eq:phase_mixed_x_length_scale}, and we find this is still sufficiently long for collisional transport theory to be valid in the corona. \citet{Heyvaerts1983} shows that propagating Alfv\'en \alexedit{waves} are stable to the Kelvin-Helmholtz instability because the magnetic field and velocity perturbations are in phase with each other. For standing Alfv\'en waves, the velocity and magnetic field perturbations are out of phase with each other in space and time. So the magnetic field cannot stabilise the velocity shear from the Kelvin-Helmholtz instability.
 
 In Section \ref{sec:chap_3_closed_loop} we extended our analytic solution from Section \ref{sec:chap_3_open_loop} to calculate an analytic solution for a closed-loop using a method of images approach. We then verified this numerically and plotted the results in Figure \ref{fig:phase_mixing_closed_loop}. After that, we calculated the solution for the case where multiple harmonics are excited. We showed that an upper bound for the heating rate per unit of wave energy, $\gamma$, can be well approximated with Equation \eqref{eq:gamma_approx_alpha=1} where this assumes a power spectrum with slope $\alpha=1$. We use this formula in Section \ref{sec:chap_3_coronal_heating} to conclude that dissipation of the gradients produced by phase mixing plays a negligible role in coronal heating.
 
