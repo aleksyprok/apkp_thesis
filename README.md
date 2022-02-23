@@ -7,3 +7,5 @@ It includes all the relevant files and code used to produce this thesis includin
 To view the maple files, you will need a copy of Maple installed on your machine. Exported pdfs have been included in Maple/Chapter 4 to enable users to read the files without a copy of Maple installed on their device.
 
 Note that the copy of the thesis here (`apkp_thesis.pdf`) is the most up-to-date version available.
+
+If you spot any errors (and I am sure there are many), please email me at aleksyprok@gmail.com
