@@ -8,4 +8,4 @@ To view the maple files, you will need a copy of Maple installed on your machine
 
 Note that the copy of the thesis here (`apkp_thesis.pdf`) is the most up-to-date version available.
 
-If you spot any errors (and I am sure there are many), please email me at aleksyprok@gmail.com
+If you spot anything you think might be an error or mistake (and I am sure there are many) or if you have any questions, please email me at aleksyprok@gmail.com
